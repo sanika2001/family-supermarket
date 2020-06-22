@@ -1,9 +1,15 @@
 import 'package:familysupermarket/components/catagoriesCard.dart';
+import 'package:familysupermarket/components/dealsCard.dart';
+import 'package:familysupermarket/components/productsCard.dart';
 import 'package:flutter/material.dart';
 import 'package:familysupermarket/components/bottomNavigationBar.dart';
 import 'package:familysupermarket/constants.dart';
 import 'package:familysupermarket/bloc/categories.dart';
 import 'package:familysupermarket/bloc/CategoriesBloc.dart';
+import 'package:familysupermarket/bloc/deals.dart';
+import 'package:familysupermarket/bloc/DealsBloc.dart';
+import 'package:familysupermarket/bloc/products.dart';
+import 'package:familysupermarket/bloc/ProductsBloc.dart';
 
 class SupermarketScreen extends StatefulWidget {
   static const String id = '/supermarket';
@@ -13,10 +19,14 @@ class SupermarketScreen extends StatefulWidget {
 
 class _SupermarketScreenState extends State<SupermarketScreen> {
   final CategoriesBloc _categoriesBloc = CategoriesBloc();
+  final DealsBloc _dealsBloc = DealsBloc();
+  final ProductsBloc _productsBloc = ProductsBloc();
 
   @override
   void dispose() {
     _categoriesBloc.dispose();
+    _dealsBloc.dispose();
+    _productsBloc.dispose();
     super.dispose();
   }
 
@@ -105,7 +115,7 @@ class _SupermarketScreenState extends State<SupermarketScreen> {
               ),
             ),
             Container(
-              height: 1,
+              height: 128,
               color: Color(0xFFE9E9E9),
               child: StreamBuilder<List<Categories>>(
                   stream: _categoriesBloc.categoriesListStream,
@@ -140,18 +150,29 @@ class _SupermarketScreenState extends State<SupermarketScreen> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Card(
-                elevation: 5,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Image(
-                  image: AssetImage('images/combo.jpg'),
-                  height: 120,
-                  width: 120,
-                ),
+            Container(
+              height: 120,
+              child: StreamBuilder<List<Deals>>(
+                stream: _dealsBloc.dealsListStream,
+                builder: (BuildContext context,
+                    AsyncSnapshot<List<Deals>> snapshot) {
+                  if (snapshot.hasError) {
+                    print(snapshot.error);
+                  }
+                  return snapshot.hasData
+                      ? ListView.builder(
+                          physics: BouncingScrollPhysics(),
+                          itemCount: snapshot.data.length,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, index) {
+                            return DealsCard(
+                              deals: snapshot.data[index],
+                            );
+                          })
+                      : Center(
+                          child: CircularProgressIndicator(),
+                        );
+                },
               ),
             ),
             Padding(
@@ -165,18 +186,29 @@ class _SupermarketScreenState extends State<SupermarketScreen> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Card(
-                elevation: 5,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Image(
-                  image: AssetImage('images/perfume.jpg'),
-                  height: 120,
-                  width: 120,
-                ),
+            Container(
+              height: 120,
+              child: StreamBuilder<List<Products>>(
+                stream: _productsBloc.productsListStream,
+                builder: (BuildContext context,
+                    AsyncSnapshot<List<Products>> snapshot) {
+                  if (snapshot.hasError) {
+                    print(snapshot.error);
+                  }
+                  return snapshot.hasData
+                      ? ListView.builder(
+                          physics: BouncingScrollPhysics(),
+                          itemCount: snapshot.data.length,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, index) {
+                            return ProductsCard(
+                              products: snapshot.data[index],
+                            );
+                          })
+                      : Center(
+                          child: CircularProgressIndicator(),
+                        );
+                },
               ),
             ),
           ],
