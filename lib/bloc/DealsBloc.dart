@@ -3,9 +3,9 @@ import 'package:familysupermarket/bloc/deals.dart';
 
 class DealsBloc{
   List<Deals> _dealsList = [
-    Deals("https://images.app.goo.gl/pTHGixAYTU6aX46W7"),
-    Deals("https://images.app.goo.gl/jReeivGAc66X272r6"),
-    Deals("https://images.app.goo.gl/Y8chKduSHXxQV4uB8")
+    Deals("https://n4.sdlcdn.com/imgs/i/e/n/Octavius-Assam-Black-Tea-Powder-SDL618288203-1-851d8.jpg"),
+    Deals("https://assets.indiadesire.com/images/tresemmecobooffer.jpg"),
+    Deals("https://images-na.ssl-images-amazon.com/images/I/61hMdXPJqYL._SY355_.jpg")
   ];
 
   final _dealsListStreamController = StreamController<List<Deals>>();

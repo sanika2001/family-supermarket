@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/supermarketscreen.dart';
+import 'screens/loginScreen.dart';
 
 
 void main() {
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
       initialRoute: SupermarketScreen.id,
       routes: {
         SupermarketScreen.id: (context) => SupermarketScreen(),
+        LoginScreen.id: (context) => LoginScreen()
       },
     );
   }

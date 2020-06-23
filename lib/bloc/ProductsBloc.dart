@@ -3,9 +3,9 @@ import 'package:familysupermarket/bloc/products.dart';
 
 class ProductsBloc{
   List<Products> _productsList = [
-    Products("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amazon.com%2FPortable-Refillable-Perfume-Atomizer-Bottle%25EF%25BC%258CAtomizer%2Fdp%2FB07SX3C2C5&psig=AOvVaw0cYopMMWtd8kqKkFNF4575&ust=1592929845557000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLCRmqLsleoCFQAAAAAdAAAAABAE"),
-    Products("https://images.app.goo.gl/qJ6vgYaRg3nqT7x97"),
-    Products("https://images.app.goo.gl/1AjDbmxkjoHJyC2U6")
+    Products("https://i.ebayimg.com/images/g/o3QAAOSwDlZeqROt/s-l300.jpg"),
+    Products("https://i.ytimg.com/vi/TUU4WVAVqH4/maxresdefault.jpg"),
+    Products("https://5.imimg.com/data5/EM/BK/MY-7778582/bajaj-hair-oil-500x500.jpg")
   ];
 
   final _productsListStreamController = StreamController<List<Products>>();
