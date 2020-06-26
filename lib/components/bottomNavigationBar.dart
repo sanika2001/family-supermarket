@@ -30,7 +30,7 @@ class _BottomBarState extends State<BottomBar> {
         BottomNavigationBarItem(
           icon: Icon(
             Icons.search,
-            size: 28,
+            size: 30,
           ),
           title: Text(''),
         ),
@@ -42,7 +42,7 @@ class _BottomBarState extends State<BottomBar> {
           title: Text(''),
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.person_outline, size: 28),
+          icon: Icon(Icons.person_outline, size: 30),
           title: Text(
             '',
           ),

@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
 const kTextFieldDecoration = InputDecoration(
-  hintText: 'Your Location',
-  contentPadding: EdgeInsets.symmetric(vertical: 2, horizontal: 10),
+  hintText: 'Your location',
+  hintStyle: TextStyle(
+    color: Color(0xFF939393),
+    fontSize: 20,
+  ),
+  contentPadding: EdgeInsets.symmetric(vertical: 2, horizontal: 15),
   border: OutlineInputBorder(
     borderRadius: BorderRadius.all(Radius.circular(30)),
   ),

@@ -42,15 +42,10 @@ class _SupermarketScreenState extends State<SupermarketScreen> {
               padding: const EdgeInsets.only(top: 30, left: 8, right: 8),
               child: Row(
                 children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Icon(
-                      Icons.flight_land,
-                      color: Colors.amber,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
+                  Image(
+                    image: AssetImage("images/logo.png"),
+                    height: 60,
+                    width: 60,
                   ),
                   Expanded(
                     child: Padding(
