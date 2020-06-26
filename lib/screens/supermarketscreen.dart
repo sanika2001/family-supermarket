@@ -48,13 +48,9 @@ class _SupermarketScreenState extends State<SupermarketScreen> {
                     width: 60,
                   ),
                   Expanded(
-                    child: Padding(
-                      padding:
-                          const EdgeInsets.only(top: 8, left: 8, bottom: 8),
-                      child: TextField(
-                        textAlign: TextAlign.start,
-                        decoration: kTextFieldDecoration,
-                      ),
+                    child: TextField(
+                      textAlign: TextAlign.start,
+                      decoration: kTextFieldDecoration,
                     ),
                   ),
                   CircleAvatar(
