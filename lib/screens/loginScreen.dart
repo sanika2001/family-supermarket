@@ -21,7 +21,7 @@ class _LoginScreenState extends State<LoginScreen> {
             clipper: ClippingClass(),
             child: Container(
               width: MediaQuery.of(context).size.width,
-              height: 280.0,
+              height: 270.0,
               color: Color(0xFF740F53),
             ),
           ),
