@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:familysupermarket/bloc/deals.dart';
+import 'package:familysupermarket/models/deals.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 class DealsCard extends StatelessWidget {

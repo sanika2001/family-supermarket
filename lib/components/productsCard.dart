@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:familysupermarket/bloc/products.dart';
+import 'package:familysupermarket/models/products.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 class ProductsCard extends StatelessWidget {

@@ -38,7 +38,7 @@ class _locationScreenState extends State<locationScreen> {
               child: ButtonTheme(
                 minWidth: 175,
                 child: RaisedButton(
-                  color: Color(0xFF740F53),
+                  color: Color(0xFF741053),
                   onPressed: () {
                     setState(() {
                       Navigator.pushNamed(context, SupermarketScreen.id);
@@ -74,13 +74,9 @@ class _locationScreenState extends State<locationScreen> {
                 child: ButtonTheme(
                   minWidth: 250,
                   child: RaisedButton(
-                    elevation: 20,
+                    elevation: 25,
                     color: Color(0xFFC4C4C4),
-                    onPressed: () {
-                      setState(() {
-                        Navigator.pushNamed(context, SupermarketScreen.id);
-                      });
-                    },
+                    onPressed: () {},
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -91,17 +87,17 @@ class _locationScreenState extends State<locationScreen> {
                           child: Text(
                             "Thalassery Branch",
                             style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xFF939393),
+                              fontSize: 17,
+                              color: Color(0xFF5A5A5A),
                             ),
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.only(left: 30),
                           child: Icon(
                             Icons.keyboard_arrow_down,
                             color: Color(0xFF740F53),
+                            size: 30,
                           ),
                         ),
                       ],
@@ -116,19 +112,3 @@ class _locationScreenState extends State<locationScreen> {
     );
   }
 }
-
-//Container(
-//alignment: Alignment.bottomCenter,
-//child: ButtonTheme(
-//minWidth: 160,
-//child: RaisedButton(
-//onPressed: null,
-//color: Color(0xFF740F53),
-//shape: RoundedRectangleBorder(
-//borderRadius: BorderRadius.circular(5),
-//),
-//child: Text("SET LOCATION"),
-//textColor: Colors.white,
-//),
-//),
-//),

@@ -4,12 +4,12 @@ import 'package:familysupermarket/components/productsCard.dart';
 import 'package:flutter/material.dart';
 import 'package:familysupermarket/components/bottomNavigationBar.dart';
 import 'package:familysupermarket/constants.dart';
-import 'package:familysupermarket/bloc/categories.dart';
 import 'package:familysupermarket/bloc/CategoriesBloc.dart';
-import 'package:familysupermarket/bloc/deals.dart';
 import 'package:familysupermarket/bloc/DealsBloc.dart';
-import 'package:familysupermarket/bloc/products.dart';
 import 'package:familysupermarket/bloc/ProductsBloc.dart';
+import 'package:familysupermarket/models/categories.dart';
+import 'package:familysupermarket/models/deals.dart';
+import 'package:familysupermarket/models/products.dart';
 
 class SupermarketScreen extends StatefulWidget {
   static const String id = '/supermarket';

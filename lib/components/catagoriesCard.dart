@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:familysupermarket/bloc/categories.dart';
+import 'package:familysupermarket/models/categories.dart';
 
 class CategoriesCard extends StatelessWidget {
   final Categories categories;

@@ -1,13 +1,9 @@
 import 'dart:async';
-import 'package:familysupermarket/bloc/categories.dart';
+import 'package:familysupermarket/models/categories.dart';
+import 'package:familysupermarket/repository/categories.dart';
 
 class CategoriesBloc {
-  List<Categories> _categoriesList = [
-    Categories("images/wheat.png", "Food Grains,Oils & Masala"),
-    Categories("images/instant.png", "Instant Foods"),
-    Categories("images/snacks.png", "Snacks & Confectionary"),
-    Categories("images/cleaning.png", "Household Cleaning")
-  ];
+
 
   final _categoriesListStreamController = StreamController<List<Categories>>();
 
@@ -17,7 +13,7 @@ class CategoriesBloc {
       _categoriesListStreamController.sink;
 
   CategoriesBloc(){
-    _categoriesListStreamController.add(_categoriesList);
+    _categoriesListStreamController.add(categoriesList);
   }
 
   void dispose() {
