@@ -3,6 +3,7 @@ import 'package:familysupermarket/screens/supermarketscreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:familysupermarket/components/loginCard.dart';
+import 'package:familysupermarket/screens/locationScreen.dart';
 import 'package:familysupermarket/components/signinCard.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -69,7 +70,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         name: 'Sign In',
                         onPress: () {
                           setState(() {
-                            Navigator.pushNamed(context, SupermarketScreen.id);
+                            Navigator.pushNamed(context, locationScreen.id);
                           });
                         },
                       ),

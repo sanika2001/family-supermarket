@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:familysupermarket/components/loginCard.dart';
 import 'package:familysupermarket/components/signinCard.dart';
 import 'package:familysupermarket/screens/supermarketscreen.dart';
+import 'package:familysupermarket/screens/locationScreen.dart';
 
 class SignupScreen extends StatefulWidget {
   static const String id = '/Signup';
@@ -57,7 +58,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           onPress: () {
                             setState(() {
                               Navigator.pushNamed(
-                                  context, SupermarketScreen.id);
+                                  context, locationScreen.id);
                             });
                           },
                         ),
