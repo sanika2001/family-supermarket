@@ -12,7 +12,7 @@ class ComponentsCard extends StatelessWidget {
     return Column(
       children: <Widget>[
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(10.0),
           child: Expanded(
             child: FlatButton(
               child: CircleAvatar(
@@ -20,8 +20,8 @@ class ComponentsCard extends StatelessWidget {
                 backgroundColor: Colors.white,
                 child: Image(
                   image: AssetImage(components.image),
-                  height: 35,
-                  width: 35,
+                  height: 40,
+                  width: 40,
                   color: Color(0xFF740F53),
                 ),
               ),
@@ -34,7 +34,7 @@ class ComponentsCard extends StatelessWidget {
             child: Text(
               components.name,
               style: TextStyle(
-                color: Color(0xFF5A5A5A),
+                color: Color(0xFF464646),
               ),
             ),
           ),

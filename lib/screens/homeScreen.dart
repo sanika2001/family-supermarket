@@ -11,11 +11,10 @@ class homeScreen extends StatefulWidget {
 }
 
 class _homeScreenState extends State<homeScreen> {
-
   final ComponentsBloc _componentsBloc = ComponentsBloc();
 
   @override
-  void dispose(){
+  void dispose() {
     _componentsBloc.dispose();
   }
 
@@ -59,18 +58,73 @@ class _homeScreenState extends State<homeScreen> {
                     }
                     return snapshot.hasData
                         ? ListView.builder(
-                        physics: BouncingScrollPhysics(),
-                        itemCount: snapshot.data.length,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, index) {
-                          return ComponentsCard(
-                            components: snapshot.data[index],
-                          );
-                        })
+                            physics: BouncingScrollPhysics(),
+                            itemCount: snapshot.data.length,
+                            scrollDirection: Axis.horizontal,
+                            itemBuilder: (context, index) {
+                              return ComponentsCard(
+                                components: snapshot.data[index],
+                              );
+                            })
                         : Center(
-                      child: CircularProgressIndicator(),
-                    );
+                            child: CircularProgressIndicator(),
+                          );
                   }),
+            ),
+            Container(
+              color: Color(0xFF740F53),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        "Rice",
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        "Flour & Atta",
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        "Dal & Pulses",
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        "Spices & Masala",
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
           ],
         ),
