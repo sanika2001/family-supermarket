@@ -64,7 +64,7 @@ class _locationScreenState extends State<locationScreen> {
         children: <Widget>[
           GoogleMap(
             initialCameraPosition:
-                CameraPosition(target: LatLng(27.2038, 77.5011), zoom: 15),
+                CameraPosition(target: LatLng(11.874477, 75.370369), zoom: 15),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,

@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:familysupermarket/bloc/ComponentsBloc.dart';
+import 'package:familysupermarket/models/components.dart';
+import 'package:familysupermarket/components/componentsCard.dart';
 
 class homeScreen extends StatefulWidget {
   static const String id = '/home';
@@ -8,13 +11,20 @@ class homeScreen extends StatefulWidget {
 }
 
 class _homeScreenState extends State<homeScreen> {
+
+  final ComponentsBloc _componentsBloc = ComponentsBloc();
+
+  @override
+  void dispose(){
+    _componentsBloc.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         elevation: 5,
         backgroundColor: Colors.white,
-
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -30,6 +40,37 @@ class _homeScreenState extends State<homeScreen> {
                 fontWeight: FontWeight.bold,
                 fontSize: 24,
               ),
+            ),
+          ],
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Container(
+              height: 128,
+              color: Color(0xFFE9E9E9),
+              child: StreamBuilder<List<Components>>(
+                  stream: _componentsBloc.componentsListStream,
+                  builder: (BuildContext context,
+                      AsyncSnapshot<List<Components>> snapshot) {
+                    if (snapshot.hasError) {
+                      print(snapshot.error);
+                    }
+                    return snapshot.hasData
+                        ? ListView.builder(
+                        physics: BouncingScrollPhysics(),
+                        itemCount: snapshot.data.length,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) {
+                          return ComponentsCard(
+                            components: snapshot.data[index],
+                          );
+                        })
+                        : Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }),
             ),
           ],
         ),
