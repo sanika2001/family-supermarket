@@ -148,7 +148,7 @@ class _homeScreenState extends State<homeScreen> {
               ),
             ),
             Container(
-              height: 128,
+              height: 500,
               child: StreamBuilder<List<Rice>>(
                   stream: _riceBloc.riceListStream,
                   builder: (BuildContext context,
