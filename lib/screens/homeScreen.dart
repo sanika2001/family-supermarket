@@ -3,6 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:familysupermarket/bloc/ComponentsBloc.dart';
 import 'package:familysupermarket/models/components.dart';
 import 'package:familysupermarket/components/componentsCard.dart';
+import 'package:cupertino_tabbar/cupertino_tabbar.dart' as CupertinoTabBar;
+import 'package:familysupermarket/bloc/RiceBloc.dart';
+import 'package:familysupermarket/components/riceCard.dart';
+import 'package:familysupermarket/models/rice.dart';
+
+int cupertinoTabBarValue = 0;
 
 class homeScreen extends StatefulWidget {
   static const String id = '/home';
@@ -12,10 +18,14 @@ class homeScreen extends StatefulWidget {
 
 class _homeScreenState extends State<homeScreen> {
   final ComponentsBloc _componentsBloc = ComponentsBloc();
+  final RiceBloc _riceBloc = RiceBloc();
+
+  int cupertinoTabBarValueGetter() => cupertinoTabBarValue;
 
   @override
   void dispose() {
     _componentsBloc.dispose();
+    _riceBloc.dispose();
   }
 
   @override
@@ -71,60 +81,95 @@ class _homeScreenState extends State<homeScreen> {
                           );
                   }),
             ),
-            Container(
-              color: Color(0xFF740F53),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        "Rice",
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+            CupertinoTabBar.CupertinoTabBar(
+              Color(0xFF740F53),
+              Color(0xFFC4C4C4),
+              [
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  child: Text(
+                    "Rice",
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 15.0,
+                      fontWeight: FontWeight.bold,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        "Flour & Atta",
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        "Dal & Pulses",
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        "Spices & Masala",
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ],
+                    textAlign: TextAlign.center,
+                  ),
                 ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  child: Text(
+                    "Flour & Atta",
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 15.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  child: Text(
+                    "Dal & Pulses",
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  child: Text(
+                    "Spices & Masala",
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ],
+              cupertinoTabBarValueGetter,
+              (int index) {
+                setState(() {
+                  cupertinoTabBarValue = index;
+                });
+              },
+              horizontalPadding: 0,
+              verticalPadding: 10,
+              useSeparators: false,
+              borderRadius: BorderRadius.all(
+                Radius.circular(0),
               ),
+            ),
+            Container(
+              height: 128,
+              child: StreamBuilder<List<Rice>>(
+                  stream: _riceBloc.riceListStream,
+                  builder: (BuildContext context,
+                      AsyncSnapshot<List<Rice>> snapshot) {
+                    if (snapshot.hasError) {
+                      print(snapshot.error);
+                    }
+                    return snapshot.hasData
+                        ? ListView.builder(
+                            physics: BouncingScrollPhysics(),
+                            itemCount: snapshot.data.length,
+                            scrollDirection: Axis.vertical,
+                            itemBuilder: (context, index) {
+                              return RiceCard(
+                                rice: snapshot.data[index],
+                              );
+                            })
+                        : Center(
+                            child: CircularProgressIndicator(),
+                          );
+                  }),
             ),
           ],
         ),
