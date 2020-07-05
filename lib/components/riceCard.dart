@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:familysupermarket/models/rice.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class RiceCard extends StatelessWidget {
-
   final Rice rice;
 
   RiceCard({@required this.rice});
@@ -17,10 +17,10 @@ class RiceCard extends StatelessWidget {
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Image(
-                image: AssetImage(rice.image),
-                height: 65,
-                width: 55,
+              child: CachedNetworkImage(
+                imageUrl: rice.image,
+                height: 70,
+                width: 70,
               ),
             ),
             Column(

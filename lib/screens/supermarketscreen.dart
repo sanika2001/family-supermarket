@@ -48,17 +48,25 @@ class _SupermarketScreenState extends State<SupermarketScreen> {
                     width: 60,
                   ),
                   Expanded(
-                    child: TextField(
-                      textAlign: TextAlign.start,
-                      decoration: kTextFieldDecoration,
-                    ),
-                  ),
-                  CircleAvatar(
-                    radius: 21,
-                    backgroundColor: Color(0xFFA63F85),
-                    child: Icon(
-                      Icons.location_on,
-                      color: Colors.white,
+                    child: Stack(
+                      children: <Widget>[
+                        TextField(
+                          textAlign: TextAlign.start,
+                          decoration: kTextFieldDecoration,
+                        ),
+                        Positioned(
+                          left: 238,
+                          top: 1,
+                          child: CircleAvatar(
+                            radius: 23,
+                            backgroundColor: Color(0xFFA63F85),
+                            child: Icon(
+                              Icons.location_on,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
