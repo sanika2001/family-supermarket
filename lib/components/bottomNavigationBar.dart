@@ -1,6 +1,8 @@
+import 'package:familysupermarket/screens/SearchScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:familysupermarket/screens/supermarketscreen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:familysupermarket/screens/SearchScreen.dart';
 
 int currentIndex = 0;
 
@@ -51,8 +53,11 @@ class _BottomBarState extends State<BottomBar> {
       onTap: (index) {
         setState(() {
           currentIndex = index;
-          if (index == 1) {
+          if (index == 0) {
             Navigator.pushNamed(context, SupermarketScreen.id);
+          }
+          else if(index == 1){
+            Navigator.pushNamed(context, SearchScreen.id);
           }
         });
       },
