@@ -1,6 +1,9 @@
 import 'package:familysupermarket/components/catagoriesCard.dart';
 import 'package:familysupermarket/components/dealsCard.dart';
 import 'package:familysupermarket/components/productsCard.dart';
+import 'package:familysupermarket/screens/familyScreen.dart';
+import 'package:familysupermarket/screens/homeScreen.dart';
+import 'package:familysupermarket/screens/locationScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:familysupermarket/components/bottomNavigationBar.dart';
 import 'package:familysupermarket/constants.dart';
@@ -50,9 +53,16 @@ class _SupermarketScreenState extends State<SupermarketScreen> {
                   Expanded(
                     child: Stack(
                       children: <Widget>[
-                        TextField(
-                          textAlign: TextAlign.start,
-                          decoration: kTextFieldDecoration,
+                        GestureDetector(
+                          child: TextField(
+                            textAlign: TextAlign.start,
+                            decoration: kTextFieldDecoration,
+                          ),
+                          onDoubleTap: (){
+                            setState(() {
+                              Navigator.pushNamed(context, locationScreen.id);
+                            });
+                          },
                         ),
                         Positioned(
                           left: 238,
@@ -97,12 +107,19 @@ class _SupermarketScreenState extends State<SupermarketScreen> {
                   ),
                   Row(
                     children: <Widget>[
-                      Text(
-                        'See More',
-                        style: TextStyle(
-                            color: Color(0xFF740F53),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15),
+                      GestureDetector(
+                        child: Text(
+                          'See More',
+                          style: TextStyle(
+                              color: Color(0xFF740F53),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15),
+                        ),
+                        onTap: (){
+                          setState(() {
+                            Navigator.pushNamed(context, FamilyScreen.id);
+                          });
+                        },
                       ),
                       Icon(
                         Icons.arrow_forward_ios,
@@ -131,6 +148,11 @@ class _SupermarketScreenState extends State<SupermarketScreen> {
                             itemBuilder: (context, index) {
                               return CategoriesCard(
                                 categories: snapshot.data[index],
+                                move: (){
+                                  setState(() {
+                                    Navigator.pushNamed(context, homeScreen.id);
+                                  });
+                                },
                               );
                             })
                         : Center(

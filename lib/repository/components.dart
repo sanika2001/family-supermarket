@@ -1,7 +1,7 @@
 import 'package:familysupermarket/models/components.dart';
 
 List<Components> componentsList = [
-  Components("images/wheat.png", "Food Grains,Oils & Masala"),
+  Components("images/wheat.png", "Food Grains & Oils"),
   Components("images/instant.png", "Instant Foods"),
   Components("images/snacks.png", "Snacks & Confectionary"),
   Components("images/tea.png", "Beverages"),
@@ -9,4 +9,5 @@ List<Components> componentsList = [
   Components("images/cream.png", "Beauty & Personal Care"),
   Components("images/baby.png", "Baby Food & Care"),
   Components("images/stationary.png", "Stationary"),
+  Components("images/tea.png", "Beverages"),
 ];

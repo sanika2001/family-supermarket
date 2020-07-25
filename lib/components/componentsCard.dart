@@ -4,8 +4,9 @@ import 'package:familysupermarket/models/components.dart';
 class ComponentsCard extends StatelessWidget {
 
   final Components components;
+  final Function move;
 
-  ComponentsCard({@required this.components});
+  ComponentsCard({@required this.components,this.move});
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +16,7 @@ class ComponentsCard extends StatelessWidget {
           padding: const EdgeInsets.all(10.0),
           child: Expanded(
             child: FlatButton(
+              onPressed: move,
               child: CircleAvatar(
                 radius: 40,
                 backgroundColor: Colors.white,
