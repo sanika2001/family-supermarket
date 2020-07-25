@@ -60,7 +60,7 @@ class _FamilyScreenState extends State<FamilyScreen> {
             Padding(
               padding: const EdgeInsets.only(top: 240),
               child: Container(
-                height: 460,
+                height: 500,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -77,7 +77,7 @@ class _FamilyScreenState extends State<FamilyScreen> {
                       ),
                     ),
                     Container(
-                      height: 420,
+                      height: 450,
                       color: Color(0xFFE9E9E9),
                       child: StreamBuilder<List<Components>>(
                           stream: _componentsBloc.componentsListStream,
@@ -92,7 +92,8 @@ class _FamilyScreenState extends State<FamilyScreen> {
                                     gridDelegate:
                                         SliverGridDelegateWithFixedCrossAxisCount(
                                             crossAxisCount: 3,
-                                            crossAxisSpacing: 4.0),
+                                          crossAxisSpacing: 1,
+                                        ),
                                     itemBuilder:
                                         (BuildContext context, int index) {
                                       return ComponentsCard(

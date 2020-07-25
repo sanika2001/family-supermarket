@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:familysupermarket/bloc/ComponentsBloc.dart';
-import 'package:familysupermarket/models/components.dart';
-import 'package:familysupermarket/components/componentsCard.dart';
+import 'package:familysupermarket/bloc/homeBloc.dart';
+import 'package:familysupermarket/models/home.dart';
+import 'package:familysupermarket/components/homeCard.dart';
 import 'package:cupertino_tabbar/cupertino_tabbar.dart' as CupertinoTabBar;
 import 'package:familysupermarket/bloc/RiceBloc.dart';
 import 'package:familysupermarket/components/riceCard.dart';
@@ -17,14 +17,14 @@ class homeScreen extends StatefulWidget {
 }
 
 class _homeScreenState extends State<homeScreen> {
-  final ComponentsBloc _componentsBloc = ComponentsBloc();
+  final HomeBloc _homeBloc = HomeBloc();
   final RiceBloc _riceBloc = RiceBloc();
 
   int cupertinoTabBarValueGetter() => cupertinoTabBarValue;
 
   @override
   void dispose() {
-    _componentsBloc.dispose();
+    _homeBloc.dispose();
     _riceBloc.dispose();
   }
 
@@ -59,10 +59,10 @@ class _homeScreenState extends State<homeScreen> {
             Container(
               height: 128,
               color: Color(0xFFE9E9E9),
-              child: StreamBuilder<List<Components>>(
-                  stream: _componentsBloc.componentsListStream,
+              child: StreamBuilder<List<Home>>(
+                  stream: _homeBloc.homeListStream,
                   builder: (BuildContext context,
-                      AsyncSnapshot<List<Components>> snapshot) {
+                      AsyncSnapshot<List<Home>> snapshot) {
                     if (snapshot.hasError) {
                       print(snapshot.error);
                     }
@@ -72,8 +72,8 @@ class _homeScreenState extends State<homeScreen> {
                             itemCount: snapshot.data.length,
                             scrollDirection: Axis.horizontal,
                             itemBuilder: (context, index) {
-                              return ComponentsCard(
-                                components: snapshot.data[index],
+                              return HomeCard(
+                                home: snapshot.data[index],
                               );
                             })
                         : Center(

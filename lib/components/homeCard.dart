@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:familysupermarket/models/components.dart';
+import 'package:familysupermarket/models/home.dart';
 
-class ComponentsCard extends StatelessWidget {
+class HomeCard extends StatelessWidget {
 
-  final Components components;
+  final Home home;
   final Function move;
 
-  ComponentsCard({@required this.components,this.move});
+  HomeCard({@required this.home,this.move});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class ComponentsCard extends StatelessWidget {
                 radius: 40,
                 backgroundColor: Colors.white,
                 child: Image(
-                  image: AssetImage(components.image),
+                  image: AssetImage(home.image),
                   height: 40,
                   width: 40,
                   color: Color(0xFF740F53),
@@ -31,10 +31,10 @@ class ComponentsCard extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 2),
+          padding: const EdgeInsets.symmetric(horizontal: 5),
           child: Expanded(
             child: Text(
-              components.name,
+              home.name,
               style: TextStyle(
                 color: Color(0xFF464646),
               ),
