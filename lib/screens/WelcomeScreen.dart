@@ -10,12 +10,14 @@ class WelcomeScreen extends StatefulWidget {
 class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return Column(
       children: <Widget>[
-        Container(
-          color: Colors.white,
-          height: MediaQuery.of(context).size.height,
-        ),
+        Stack(
+          children: <Widget>[
+            Container(
+              color: Colors.white,
+              height: 280,
+            ),
 //        ClipPath(
 //          child: Container(
 //            width: MediaQuery.of(context).size.width,
@@ -26,22 +28,34 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 //          ),
 //          clipper: BottomWaveClipper(),
 //        ),
-        ClipPath(
-          clipper: ClippingClass(),
-          child: Container(
-            width: MediaQuery.of(context).size.width,
-            height: 280.0,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: FractionalOffset.topCenter,
-                end: FractionalOffset.bottomCenter,
-                colors: [
-                  kDesignColor,
-                  Colors.white,
-                ],
-                stops: [0.0, 1],
+            ClipPath(
+              clipper: ClippingClass(),
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: 280.0,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: FractionalOffset.topCenter,
+                    end: FractionalOffset.bottomCenter,
+                    colors: [
+                      kDesignColor,
+                      Colors.white,
+                    ],
+                    stops: [0.0, 1],
+                  ),
+                ),
               ),
             ),
+          ],
+        ),
+        Container(
+          color: Colors.white,
+          child: Column(
+            children: <Widget>[
+              Image(image: AssetImage("images/logo.png"),
+                height: 130,
+              ),
+            ],
           ),
         ),
       ],
