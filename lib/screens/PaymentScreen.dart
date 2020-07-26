@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class PaymentScreen extends StatefulWidget {
   static const String id = '/payment';
   @override
