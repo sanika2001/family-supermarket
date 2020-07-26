@@ -45,9 +45,11 @@ class _PaymentScreenState extends State<PaymentScreen> {
           children: <Widget>[
             Center(
               child: Text("one"),
+              //TODO:add home delivery screen in the place of this center
             ),
             Center(
               child: Text("two"),
+              //TODO:add pickup screeen
             ),
           ],
         ),
