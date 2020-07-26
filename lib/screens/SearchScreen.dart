@@ -166,15 +166,15 @@ class _SearchScreenState extends State<SearchScreen> {
                 children: <Widget>[
                   Expanded(
                     child: SearchCard(
-                      name: "Instant Foods&Mixes",
+                      name: "Instant Foods & Mixes",
                     ),
                     flex: 2,
                   ),
                   Expanded(
                     child: SearchCard(
-                      name: "Chocolates&Candies",
+                      name: "Chocolates & Candies",
                     ),
-                    flex: 2,
+                    flex: 3,
                   ),
                 ],
               ),
