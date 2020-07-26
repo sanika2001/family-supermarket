@@ -2,6 +2,8 @@ import 'package:familysupermarket/screens/familyScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:familysupermarket/components/cartCard.dart';
+import 'package:familysupermarket/bloc/cartBloc.dart';
+import 'package:familysupermarket/models/cart.dart';
 
 class CartScreen extends StatefulWidget {
   static const String id = '/cart';
@@ -10,6 +12,13 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
+  final CartBloc _cartBloc = CartBloc();
+
+  @override
+  void dispose() {
+    _cartBloc.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,16 +57,29 @@ class _CartScreenState extends State<CartScreen> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: <Widget>[
-              CartCard(
-                image: "https://www.periyarrice.com/images/slider2_pro1.png",
-                name: "Periyar Rice",
-                rate: "₹ 32.00",
-              ),
-              CartCard(
-                image:
-                    "https://images-na.ssl-images-amazon.com/images/I/71CAb58u8TL._SL1313_.jpg",
-                name: "Aashirvaad Atta",
-                rate: "₹ 84.00",
+              Container(
+                height: 220,
+                child: StreamBuilder<List<Cart>>(
+                    stream: _cartBloc.cartListStream,
+                    builder: (BuildContext context,
+                        AsyncSnapshot<List<Cart>> snapshot) {
+                      if (snapshot.hasError) {
+                        print(snapshot.error);
+                      }
+                      return snapshot.hasData
+                          ? ListView.builder(
+                          physics: BouncingScrollPhysics(),
+                          itemCount: snapshot.data.length,
+                          scrollDirection: Axis.vertical,
+                          itemBuilder: (context, index) {
+                            return CartCard(
+                              cart: snapshot.data[index],
+                            );
+                          })
+                          : Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),

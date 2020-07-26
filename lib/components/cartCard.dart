@@ -1,13 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:familysupermarket/models/cart.dart';
 
 class CartCard extends StatelessWidget {
-  String image;
-  String name;
-  String rate;
+  final Cart cart;
 
-  CartCard({this.name, this.image, this.rate});
+  CartCard({this.cart});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +26,7 @@ class CartCard extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: CachedNetworkImage(
-                    imageUrl: image,
+                    imageUrl: cart.image,
                     height: 70,
                     width: 70,
                   ),
@@ -38,7 +37,7 @@ class CartCard extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(bottom: 5),
                       child: Text(
-                        name,
+                        cart.name,
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 15,
@@ -118,7 +117,7 @@ class CartCard extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        rate,
+                        cart.rate,
                         style: TextStyle(
                           color: Color(0xFF464646),
                           fontWeight: FontWeight.bold,

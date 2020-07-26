@@ -15,23 +15,23 @@ class _SearchScreenState extends State<SearchScreen> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Image(
-              image: AssetImage("images/logo.png"),
-              height: 50,
-              width: 60,
-            ),
-            Text(
-              "FAMILY",
-              style: TextStyle(
-                color: Color(0xFF740F53),
-                fontWeight: FontWeight.bold,
-                fontSize: 25,
-              ),
-            ),
-          ],
+        centerTitle: true,
+        leading: GestureDetector(
+          onTap: (){
+            setState(() {
+              Navigator.pop(context);
+            });
+          },
+          child: Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+            size: 30,
+          ),
+        ),
+        title: Image(
+          image: AssetImage("images/logo1.png"),
+          height: 130,
+          width: 150,
         ),
       ),
       body: Container(
