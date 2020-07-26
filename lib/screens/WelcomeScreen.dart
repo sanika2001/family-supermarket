@@ -53,10 +53,74 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           width: MediaQuery.of(context).size.width,
           color: Colors.white,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Image(
                 image: AssetImage("images/logo.png"),
                 height: 130,
+              ),
+              Column(
+                children: <Widget>[
+                  Text(
+                    "Welcome To",
+                    style: TextStyle(
+                      color: Color(0xFF740F53),
+                      fontSize: 20,
+                    ),
+                  ),
+                  Text(
+                    "FAMILY SUPERMARKET",
+                    style: TextStyle(
+                      color: Color(0xFF740F53),
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+              Column(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Card(
+                      color: Color(0xFF740F53),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 35, vertical: 5),
+                        child: Text(
+                          "Sign in",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 17,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        "New customer?",
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Color(0xFF740F53),
+                        ),
+                      ),
+                      Text(
+                        "Sign Up",
+                        style: TextStyle(
+                          decoration: TextDecoration.underline,
+                          fontSize: 15,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ],
           ),
