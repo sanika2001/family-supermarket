@@ -54,7 +54,8 @@ class _CartScreenState extends State<CartScreen> {
                 rate: "₹ 32.00",
               ),
               CartCard(
-                image: "https://www.periyarrice.com/images/slider2_pro1.png",
+                image:
+                    "https://images-na.ssl-images-amazon.com/images/I/71CAb58u8TL._SL1313_.jpg",
                 name: "Aashirvaad Atta",
                 rate: "₹ 84.00",
               ),
@@ -115,20 +116,24 @@ class _CartScreenState extends State<CartScreen> {
                       ),
                     ],
                   ),
-                  Card(
-                    color: Colors.yellowAccent,
-                    elevation: 10,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
-                      child: Text(
-                        "CHECKOUT",
-                        style: TextStyle(
-                          color: Color(0xFF740F53),
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Card(
+                      color: Colors.yellowAccent,
+                      elevation: 10,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 10),
+                        child: Text(
+                          "CHECKOUT",
+                          style: TextStyle(
+                            color: Color(0xFF740F53),
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),

@@ -3,12 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 class CartCard extends StatelessWidget {
-
   String image;
   String name;
   String rate;
 
-  CartCard({this.name,this.image,this.rate});
+  CartCard({this.name, this.image, this.rate});
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +27,7 @@ class CartCard extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: CachedNetworkImage(
-                    imageUrl:
-                    image,
+                    imageUrl: image,
                     height: 70,
                     width: 70,
                   ),
@@ -38,7 +36,7 @@ class CartCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Padding(
-                      padding: const EdgeInsets.all(5.0),
+                      padding: const EdgeInsets.only(bottom: 5),
                       child: Text(
                         name,
                         style: TextStyle(
@@ -48,29 +46,27 @@ class CartCard extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Container(
-                        height: 20,
-                        color: Color(0XFFC4C4C4),
-                        child: Row(
-                          children: <Widget>[
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 6),
-                              child: Text("1 Kg"),
+                    Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(0),
+                      ),
+                      color: Color(0XFFE9E9E9),
+                      child: Row(
+                        children: <Widget>[
+                          Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 5),
+                            child: Text("1 Kg"),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 5),
+                            child: Icon(
+                              Icons.keyboard_arrow_down,
+                              color: Color(0xFF5A5A5A),
+                              size: 30,
                             ),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 6),
-                              child: Icon(
-                                Icons.keyboard_arrow_down,
-                                color: Color(0xFF5A5A5A),
-                                size: 30,
-                              ),
-                            ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
@@ -138,8 +134,8 @@ class CartCard extends StatelessWidget {
                     image: AssetImage("images/close.png"),
                     height: 20,
                     width: 20,
-                    color: Color(0xFF740F53),
                     alignment: Alignment.topRight,
+                    color: Color(0xFF740F53),
                   ),
                 ),
               ],

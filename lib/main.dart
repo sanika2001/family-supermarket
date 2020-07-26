@@ -9,7 +9,6 @@ import 'screens/locationScreen.dart';
 import 'screens/familyScreen.dart';
 import 'screens/cartScreen.dart';
 
-
 void main() {
   runApp(MyApp());
 }
