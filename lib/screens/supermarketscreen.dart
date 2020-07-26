@@ -55,19 +55,22 @@ class _SupermarketScreenState extends State<SupermarketScreen> {
                   Expanded(
                     child: Stack(
                       children: <Widget>[
-                        GestureDetector(
-                          child: TextField(
-                            textAlign: TextAlign.start,
-                            decoration: kTextFieldDecoration,
+                        Container(
+                          width: MediaQuery.of(context).size.width - 50,
+                          child: GestureDetector(
+                            child: TextField(
+                              textAlign: TextAlign.start,
+                              decoration: kTextFieldDecoration,
+                            ),
+                            onDoubleTap: () {
+                              setState(() {
+                                Navigator.pushNamed(context, locationScreen.id);
+                              });
+                            },
                           ),
-                          onDoubleTap: (){
-                            setState(() {
-                              Navigator.pushNamed(context, locationScreen.id);
-                            });
-                          },
                         ),
                         Positioned(
-                          left: 238,
+                          left: MediaQuery.of(context).size.width - 123,
                           top: 1,
                           child: CircleAvatar(
                             radius: 23,
@@ -115,7 +118,7 @@ class _SupermarketScreenState extends State<SupermarketScreen> {
                               fontWeight: FontWeight.bold,
                               fontSize: 15),
                         ),
-                        onTap: (){
+                        onTap: () {
                           setState(() {
                             Navigator.pushNamed(context, FamilyScreen.id);
                           });
@@ -148,7 +151,7 @@ class _SupermarketScreenState extends State<SupermarketScreen> {
                             itemBuilder: (context, index) {
                               return CategoriesCard(
                                 categories: snapshot.data[index],
-                                move: (){
+                                move: () {
                                   setState(() {
                                     Navigator.pushNamed(context, homeScreen.id);
                                   });
