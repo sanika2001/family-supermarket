@@ -49,10 +49,13 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           ],
         ),
         Container(
+          height: MediaQuery.of(context).size.height - 280,
+          width: MediaQuery.of(context).size.width,
           color: Colors.white,
           child: Column(
             children: <Widget>[
-              Image(image: AssetImage("images/logo.png"),
+              Image(
+                image: AssetImage("images/logo.png"),
                 height: 130,
               ),
             ],
