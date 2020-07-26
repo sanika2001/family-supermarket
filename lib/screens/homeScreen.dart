@@ -138,6 +138,7 @@ class _homeScreenState extends State<homeScreen> {
               (int index) {
                 setState(() {
                   cupertinoTabBarValue = index;
+                  print(cupertinoTabBarValue);
                 });
               },
               horizontalPadding: 0,

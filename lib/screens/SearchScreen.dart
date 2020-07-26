@@ -43,35 +43,38 @@ class _SearchScreenState extends State<SearchScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               child: Stack(
                 children: <Widget>[
-                  ButtonTheme(
-                    minWidth: 100,
-                    child: RaisedButton(
-                      elevation: 25,
-                      color: Color(0xFFE9E9E9),
-                      onPressed: () {},
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              "Search",
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xFF939393),
+                  Container(
+                    width: MediaQuery.of(context).size.width - 50,
+                    child: ButtonTheme(
+                      minWidth: 100,
+                      child: RaisedButton(
+                        elevation: 25,
+                        color: Color(0xFFE9E9E9),
+                        onPressed: () {},
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                "Search",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xFF939393),
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
                   Positioned(
-                    left: 262,
+                    left: MediaQuery.of(context).size.width - 107,
                     child: ButtonTheme(
                       minWidth: 50,
                       height: 36,
