@@ -1,6 +1,7 @@
 import 'package:familysupermarket/components/catagoriesCard.dart';
 import 'package:familysupermarket/components/dealsCard.dart';
 import 'package:familysupermarket/components/productsCard.dart';
+import 'package:familysupermarket/repository/swiperList.dart';
 import 'package:familysupermarket/screens/familyScreen.dart';
 import 'package:familysupermarket/screens/homeScreen.dart';
 import 'package:familysupermarket/screens/locationScreen.dart';
@@ -13,6 +14,7 @@ import 'package:familysupermarket/bloc/ProductsBloc.dart';
 import 'package:familysupermarket/models/categories.dart';
 import 'package:familysupermarket/models/deals.dart';
 import 'package:familysupermarket/models/products.dart';
+import 'package:carousel_pro/carousel_pro.dart';
 
 class SupermarketScreen extends StatefulWidget {
   static const String id = '/supermarket';
@@ -82,14 +84,12 @@ class _SupermarketScreenState extends State<SupermarketScreen> {
                 ],
               ),
             ),
-            Container(
+            SizedBox(
               width: MediaQuery.of(context).size.width,
               height: 180,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('images/sale.jpg'),
-                  fit: BoxFit.fill,
-                ),
+              child: Carousel(
+                images: offerSwiperList,
+                showIndicator: false,
               ),
             ),
             Padding(

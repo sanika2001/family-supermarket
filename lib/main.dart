@@ -7,6 +7,7 @@ import 'screens/SignupScreen.dart';
 import 'screens/homeScreen.dart';
 import 'screens/locationScreen.dart';
 import 'screens/familyScreen.dart';
+import 'screens/cartScreen.dart';
 
 
 void main() {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: homeScreen.id,
+      initialRoute: CartScreen.id,
       routes: {
         SupermarketScreen.id: (context) => SupermarketScreen(),
         LoginScreen.id: (context) => LoginScreen(),
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
         SearchScreen.id: (context) => SearchScreen(),
         ProfileSCreen.id: (context) => ProfileSCreen(),
         FamilyScreen.id: (context) => FamilyScreen(),
+        CartScreen.id: (context) => CartScreen(),
       },
     );
   }

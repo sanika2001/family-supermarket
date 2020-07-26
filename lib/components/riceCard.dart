@@ -40,13 +40,18 @@ class RiceCard extends StatelessWidget {
                     color: Color(0xFFE9E9E9),
                     onPressed: () {},
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Text("1 Kg"),
-                        Icon(
-                          Icons.keyboard_arrow_down,
-                          color: Color(0xFF5A5A5A),
-                          size: 30,
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 5),
+                          child: Text("1 Kg"),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 5),
+                          child: Icon(
+                            Icons.keyboard_arrow_down,
+                            color: Color(0xFF5A5A5A),
+                            size: 30,
+                          ),
                         ),
                       ],
                     ),
