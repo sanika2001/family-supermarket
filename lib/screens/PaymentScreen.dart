@@ -67,7 +67,6 @@ class _PaymentScreenState extends State<PaymentScreen> {
                 children: <Widget>[
                   SingleChildScrollView(
                     child: Container(
-                      height: 800,
                       color: Color(0xFFE9E9E9),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
