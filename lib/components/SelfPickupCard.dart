@@ -6,7 +6,7 @@ class SelfPickupCard extends StatelessWidget {
   final bool isPressed;
   final Function onPress;
 
-  SelfPickupCard({this.isPressed, @required this.text,this.onPress});
+  SelfPickupCard({this.isPressed, @required this.text, this.onPress});
 
   @override
   Widget build(BuildContext context) {
