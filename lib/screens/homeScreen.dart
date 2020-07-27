@@ -167,7 +167,7 @@ class _homeScreenState extends State<homeScreen> {
                                                         Radius.circular(20),
                                                   ),
                                                 ),
-                                                height: 370,
+                                                height: 300,
                                                 child: Column(
                                                   children: <Widget>[
                                                     Padding(
@@ -200,12 +200,14 @@ class _homeScreenState extends State<homeScreen> {
                                                       thickness: 3,
                                                     ),
                                                     Padding(
-                                                      padding:
-                                                      const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+                                                      padding: const EdgeInsets
+                                                              .symmetric(
+                                                          horizontal: 20,
+                                                          vertical: 10),
                                                       child: Row(
                                                         mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
                                                         children: <Widget>[
                                                           Text(
                                                             "1 kg",
@@ -213,8 +215,8 @@ class _homeScreenState extends State<homeScreen> {
                                                               color: Color(
                                                                   0xFF464646),
                                                               fontWeight:
-                                                              FontWeight
-                                                                  .bold,
+                                                                  FontWeight
+                                                                      .bold,
                                                               fontSize: 19,
                                                             ),
                                                           ),
@@ -224,8 +226,8 @@ class _homeScreenState extends State<homeScreen> {
                                                               color: Color(
                                                                   0xFF464646),
                                                               fontWeight:
-                                                              FontWeight
-                                                                  .bold,
+                                                                  FontWeight
+                                                                      .bold,
                                                               fontSize: 19,
                                                             ),
                                                           ),
@@ -237,12 +239,14 @@ class _homeScreenState extends State<homeScreen> {
                                                       thickness: 3,
                                                     ),
                                                     Padding(
-                                                      padding:
-                                                      const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+                                                      padding: const EdgeInsets
+                                                              .symmetric(
+                                                          horizontal: 20,
+                                                          vertical: 10),
                                                       child: Row(
                                                         mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
                                                         children: <Widget>[
                                                           Text(
                                                             "2 kg",
@@ -250,8 +254,8 @@ class _homeScreenState extends State<homeScreen> {
                                                               color: Color(
                                                                   0xFF464646),
                                                               fontWeight:
-                                                              FontWeight
-                                                                  .bold,
+                                                                  FontWeight
+                                                                      .bold,
                                                               fontSize: 19,
                                                             ),
                                                           ),
@@ -261,8 +265,8 @@ class _homeScreenState extends State<homeScreen> {
                                                               color: Color(
                                                                   0xFF464646),
                                                               fontWeight:
-                                                              FontWeight
-                                                                  .bold,
+                                                                  FontWeight
+                                                                      .bold,
                                                               fontSize: 19,
                                                             ),
                                                           ),
