@@ -4,8 +4,9 @@ import 'package:familysupermarket/components/PurpleButton.dart';
 class SelfPickupCard extends StatelessWidget {
   final String text;
   final bool isPressed;
+  final Function onPress;
 
-  SelfPickupCard({@required this.isPressed, @required this.text});
+  SelfPickupCard({this.isPressed, @required this.text,this.onPress});
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +26,7 @@ class SelfPickupCard extends StatelessWidget {
               ),
               PurpleButton(
                 isPressed: isPressed,
+                onPress: onPress,
               ),
             ],
           ),

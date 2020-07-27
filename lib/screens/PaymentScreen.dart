@@ -179,7 +179,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                   child: Column(
                                     children: <Widget>[
                                       SelfPickupCard(
-                                          text: "Wallet/UPI", isPressed: false),
+                                          text: "Wallet/UPI",isPressed: false,),
                                       SelfPickupCard(
                                           text: "Net Banking",
                                           isPressed: false),
