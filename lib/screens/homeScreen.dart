@@ -7,6 +7,7 @@ import 'package:familysupermarket/constants.dart';
 import 'package:familysupermarket/bloc/RiceBloc.dart';
 import 'package:familysupermarket/components/riceCard.dart';
 import 'package:familysupermarket/models/rice.dart';
+import 'package:familysupermarket/bloc/FlourBloc.dart';
 
 int cupertinoTabBarValue = 0;
 
@@ -19,12 +20,15 @@ class homeScreen extends StatefulWidget {
 class _homeScreenState extends State<homeScreen> {
   final HomeBloc _homeBloc = HomeBloc();
   final RiceBloc _riceBloc = RiceBloc();
+  final FlourBloc _flourBloc = FlourBloc();
 
   int cupertinoTabBarValueGetter() => cupertinoTabBarValue;
 
   @override
   void dispose() {
     _homeBloc.dispose();
+    _riceBloc.dispose();
+    _flourBloc.dispose();
   }
 
   @override
@@ -92,7 +96,7 @@ class _homeScreenState extends State<homeScreen> {
                     labelStyle: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w400,
-                        fontSize: 16),
+                        fontSize: 17),
                     tabs: [
                       Tab(
                         text: "Rice",
@@ -139,8 +143,31 @@ class _homeScreenState extends State<homeScreen> {
                             }),
                       ),
                     ),
-                    Container(
-                      child: Text("Atta&Flourr"),
+                    SingleChildScrollView(
+                      child: Container(
+                        height: 500,
+                        child: StreamBuilder<List<Rice>>(
+                            stream: _flourBloc.flourListStream,
+                            builder: (BuildContext context,
+                                AsyncSnapshot<List<Rice>> snapshot) {
+                              if (snapshot.hasError) {
+                                print(snapshot.error);
+                              }
+                              return snapshot.hasData
+                                  ? ListView.builder(
+                                  physics: BouncingScrollPhysics(),
+                                  itemCount: snapshot.data.length,
+                                  scrollDirection: Axis.vertical,
+                                  itemBuilder: (context, index) {
+                                    return RiceCard(
+                                      rice: snapshot.data[index],
+                                    );
+                                  })
+                                  : Center(
+                                child: CircularProgressIndicator(),
+                              );
+                            }),
+                      ),
                     ),
                     Container(
                       child: Text("Dal&Pulses"),
