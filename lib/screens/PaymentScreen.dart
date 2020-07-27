@@ -26,30 +26,48 @@ class _PaymentScreenState extends State<PaymentScreen> {
             style: TextStyle(
                 color: kDesignColor, fontWeight: FontWeight.bold, fontSize: 20),
           ),
-          bottom: TabBar(
-            indicatorColor: Colors.white,
-            labelStyle:
-                TextStyle(color: kDesignColor, fontWeight: FontWeight.w500),
-            labelColor: kDesignColor,
-            tabs: [
-              Tab(
-                text: "HOME DELIVERY",
-              ),
-              Tab(
-                text: "SELF PICKUP",
-              ),
-            ],
-          ),
         ),
-        body: TabBarView(
+        body: Column(
           children: <Widget>[
-            Center(
-              child: Text("one"),
-              //TODO:add home delivery screen in the place of this center
+            Container(
+              height: 50,
+              width: MediaQuery.of(context).size.width,
+              child: TabBar(
+                indicatorColor: Colors.white,
+                labelStyle: TextStyle(
+                    color: kDesignColor,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 16),
+                labelColor: kDesignColor,
+                tabs: [
+                  Tab(
+                    text: "HOME DELIVERY",
+                  ),
+                  Tab(
+                    text: "SELF PICKUP",
+                  ),
+                ],
+              ),
             ),
-            Center(
-              child: Text("two"),
-              //TODO:add pickup screeen
+            Container(
+              height: MediaQuery.of(context).size.height - 130,
+              width: MediaQuery.of(context).size.width,
+              child: TabBarView(
+                children: <Widget>[
+                  SingleChildScrollView(
+                    child: Container(
+                      child: Text("one"),
+                      //TODO:add home delivery screen in the place of this center
+                    ),
+                  ),
+                  SingleChildScrollView(
+                    child: Container(
+                      child: Text("two"),
+                      //TODO:add pickup screen
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
