@@ -104,43 +104,43 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                           children: <Widget>[
                                             Row(
                                               mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
+                                              MainAxisAlignment
+                                                  .spaceBetween,
                                               children: <Widget>[
                                                 Padding(
                                                   padding:
-                                                      const EdgeInsets.all(8.0),
+                                                  const EdgeInsets.all(8.0),
                                                   child: Column(
                                                     crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
+                                                    CrossAxisAlignment
+                                                        .start,
                                                     children: <Widget>[
                                                       Text(
                                                         "House No 27",
                                                         style: TextStyle(
                                                           color:
-                                                              Color(0xFF5A5A5A),
+                                                          Color(0xFF5A5A5A),
                                                         ),
                                                       ),
                                                       Text(
                                                         "Rouseivalle",
                                                         style: TextStyle(
                                                           color:
-                                                              Color(0xFF5A5A5A),
+                                                          Color(0xFF5A5A5A),
                                                         ),
                                                       ),
                                                       Text(
                                                         "P.O.BOX 3450",
                                                         style: TextStyle(
                                                           color:
-                                                              Color(0xFF5A5A5A),
+                                                          Color(0xFF5A5A5A),
                                                         ),
                                                       ),
                                                       Text(
                                                         "Greenland",
                                                         style: TextStyle(
                                                           color:
-                                                              Color(0xFF5A5A5A),
+                                                          Color(0xFF5A5A5A),
                                                         ),
                                                       ),
                                                     ],
@@ -148,19 +148,19 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                                 ),
                                                 Padding(
                                                   padding:
-                                                      const EdgeInsets.all(8.0),
+                                                  const EdgeInsets.all(8.0),
                                                   child: Card(
                                                     shape:
-                                                        RoundedRectangleBorder(
+                                                    RoundedRectangleBorder(
                                                       borderRadius:
-                                                          BorderRadius.circular(
-                                                              10),
+                                                      BorderRadius.circular(
+                                                          10),
                                                     ),
                                                     color: Color(0xFF741053),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsets.all(
-                                                              8.0),
+                                                      const EdgeInsets.all(
+                                                          8.0),
                                                       child: Text(
                                                         "ADD NEW",
                                                         style: TextStyle(
@@ -175,30 +175,30 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                             ),
                                             Padding(
                                               padding:
-                                                  const EdgeInsets.symmetric(
-                                                      horizontal: 8,
-                                                      vertical: 1),
+                                              const EdgeInsets.symmetric(
+                                                  horizontal: 8,
+                                                  vertical: 1),
                                               child: Card(
                                                 shape: RoundedRectangleBorder(
                                                   borderRadius:
-                                                      BorderRadius.circular(20),
+                                                  BorderRadius.circular(20),
                                                 ),
                                                 color: Color(0xFFE9E9E9),
                                                 child: Padding(
                                                   padding:
-                                                      const EdgeInsets.all(5.0),
+                                                  const EdgeInsets.all(5.0),
                                                   child: Row(
                                                     mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceAround,
+                                                    MainAxisAlignment
+                                                        .spaceAround,
                                                     children: <Widget>[
                                                       Text(
                                                         "Quick Delivery",
                                                         style: TextStyle(
                                                           color:
-                                                              Color(0xFF740F53),
+                                                          Color(0xFF740F53),
                                                           fontWeight:
-                                                              FontWeight.bold,
+                                                          FontWeight.bold,
                                                           fontSize: 15,
                                                         ),
                                                       ),
@@ -216,30 +216,30 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                             ),
                                             Padding(
                                               padding:
-                                                  const EdgeInsets.symmetric(
-                                                      horizontal: 8,
-                                                      vertical: 4),
+                                              const EdgeInsets.symmetric(
+                                                  horizontal: 8,
+                                                  vertical: 4),
                                               child: Card(
                                                 shape: RoundedRectangleBorder(
                                                   borderRadius:
-                                                      BorderRadius.circular(20),
+                                                  BorderRadius.circular(20),
                                                 ),
                                                 color: Color(0xFFE9E9E9),
                                                 child: Padding(
                                                   padding:
-                                                      const EdgeInsets.all(5.0),
+                                                  const EdgeInsets.all(5.0),
                                                   child: Row(
                                                     mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceAround,
+                                                    MainAxisAlignment
+                                                        .spaceAround,
                                                     children: <Widget>[
                                                       Text(
                                                         "Normal Delivery",
                                                         style: TextStyle(
                                                           color:
-                                                              Color(0xFF740F53),
+                                                          Color(0xFF740F53),
                                                           fontWeight:
-                                                              FontWeight.bold,
+                                                          FontWeight.bold,
                                                           fontSize: 15,
                                                         ),
                                                       ),
@@ -295,74 +295,74 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                           children: <Widget>[
                                             Row(
                                               mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
+                                              MainAxisAlignment
+                                                  .spaceBetween,
                                               children: <Widget>[
                                                 Padding(
                                                   padding:
-                                                      const EdgeInsets.all(8.0),
+                                                  const EdgeInsets.all(8.0),
                                                   child: Text(
                                                     "Sub Total",
                                                     style: TextStyle(
                                                         color:
-                                                            Color(0xFF740F53),
+                                                        Color(0xFF740F53),
                                                         fontSize: 15,
                                                         fontWeight:
-                                                            FontWeight.bold),
+                                                        FontWeight.bold),
                                                   ),
                                                 ),
                                                 Padding(
                                                   padding:
-                                                      const EdgeInsets.all(8.0),
+                                                  const EdgeInsets.all(8.0),
                                                   child: Text(
                                                     "116",
                                                     style: TextStyle(
                                                         color:
-                                                            Color(0xFF740F53),
+                                                        Color(0xFF740F53),
                                                         fontSize: 15,
                                                         fontWeight:
-                                                            FontWeight.bold),
+                                                        FontWeight.bold),
                                                   ),
                                                 ),
                                               ],
                                             ),
                                             Row(
                                               mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
+                                              MainAxisAlignment
+                                                  .spaceBetween,
                                               children: <Widget>[
                                                 Padding(
                                                   padding:
-                                                      const EdgeInsets.all(8.0),
+                                                  const EdgeInsets.all(8.0),
                                                   child: Text(
                                                     "Delivery",
                                                     style: TextStyle(
                                                         color:
-                                                            Color(0xFF740F53),
+                                                        Color(0xFF740F53),
                                                         fontSize: 15,
                                                         fontWeight:
-                                                            FontWeight.bold),
+                                                        FontWeight.bold),
                                                   ),
                                                 ),
                                                 Padding(
                                                   padding:
-                                                      const EdgeInsets.all(8.0),
+                                                  const EdgeInsets.all(8.0),
                                                   child: Text(
                                                     "70",
                                                     style: TextStyle(
                                                         color:
-                                                            Color(0xFF740F53),
+                                                        Color(0xFF740F53),
                                                         fontSize: 15,
                                                         fontWeight:
-                                                            FontWeight.bold),
+                                                        FontWeight.bold),
                                                   ),
                                                 ),
                                               ],
                                             ),
                                             Padding(
                                               padding:
-                                                  const EdgeInsets.symmetric(
-                                                      horizontal: 4),
+                                              const EdgeInsets.symmetric(
+                                                  horizontal: 4),
                                               child: Divider(
                                                 color: Colors.black,
                                                 thickness: 1,
@@ -370,33 +370,33 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                             ),
                                             Row(
                                               mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
+                                              MainAxisAlignment
+                                                  .spaceBetween,
                                               children: <Widget>[
                                                 Padding(
                                                   padding:
-                                                      const EdgeInsets.all(8.0),
+                                                  const EdgeInsets.all(8.0),
                                                   child: Text(
                                                     "Total",
                                                     style: TextStyle(
                                                         color:
-                                                            Color(0xFF740F53),
+                                                        Color(0xFF740F53),
                                                         fontSize: 15,
                                                         fontWeight:
-                                                            FontWeight.bold),
+                                                        FontWeight.bold),
                                                   ),
                                                 ),
                                                 Padding(
                                                   padding:
-                                                      const EdgeInsets.all(8.0),
+                                                  const EdgeInsets.all(8.0),
                                                   child: Text(
                                                     "184",
                                                     style: TextStyle(
                                                         color:
-                                                            Color(0xFF740F53),
+                                                        Color(0xFF740F53),
                                                         fontSize: 15,
                                                         fontWeight:
-                                                            FontWeight.bold),
+                                                        FontWeight.bold),
                                                   ),
                                                 ),
                                               ],
@@ -542,14 +542,14 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 20,
-                                        fontWeight: FontWeight.bold,
+
                                       ),
                                     ),
                                     Text(
-                                      " ₹ 116.00",
+                                      " ₹ 116",
                                       style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 21,
+                                        fontSize: 22,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
