@@ -7,6 +7,7 @@ import 'package:familysupermarket/constants.dart';
 import 'package:familysupermarket/bloc/RiceBloc.dart';
 import 'package:familysupermarket/components/riceCard.dart';
 import 'package:familysupermarket/models/rice.dart';
+import 'package:familysupermarket/components/bottomNavigationBar.dart';
 
 int cupertinoTabBarValue = 0;
 
@@ -32,6 +33,7 @@ class _homeScreenState extends State<homeScreen> {
     return DefaultTabController(
       length: 4,
       child: Scaffold(
+        bottomNavigationBar: BottomBar(),
         appBar: AppBar(
           elevation: 5,
           backgroundColor: Colors.white,
