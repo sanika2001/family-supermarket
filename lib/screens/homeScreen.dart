@@ -109,13 +109,13 @@ class _homeScreenState extends State<homeScreen> {
                         text: "Rice",
                       ),
                       Tab(
-                        text: "Flour&Atta",
+                        text: "Flour & Atta",
                       ),
                       Tab(
-                        text: "Dal&Pulses",
+                        text: "Dal & Pulses",
                       ),
                       Tab(
-                        text: "Spices&Masala",
+                        text: "Spices & Masala",
                       ),
                     ]),
               ),
