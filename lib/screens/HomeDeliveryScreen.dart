@@ -127,7 +127,7 @@ class _HomeDeliveryScreenState extends State<HomeDeliveryScreen> {
                                                 child: Row(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment
-                                                          .spaceBetween,
+                                                          .spaceEvenly,
                                                   children: <Widget>[
                                                     Padding(
                                                       padding:
@@ -147,7 +147,7 @@ class _HomeDeliveryScreenState extends State<HomeDeliveryScreen> {
                                                     Padding(
                                                       padding:
                                                           const EdgeInsets.only(
-                                                              right: 110),
+                                                              right: 25),
                                                       child: Text(
                                                         "₹ 70",
                                                         style: TextStyle(
@@ -200,7 +200,7 @@ class _HomeDeliveryScreenState extends State<HomeDeliveryScreen> {
                                               child: Row(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment
-                                                        .spaceBetween,
+                                                        .spaceEvenly,
                                                 children: <Widget>[
                                                   Padding(
                                                     padding:
@@ -220,7 +220,7 @@ class _HomeDeliveryScreenState extends State<HomeDeliveryScreen> {
                                                   Padding(
                                                     padding:
                                                         const EdgeInsets.only(
-                                                            right: 110),
+                                                            right: 25),
                                                     child: Text(
                                                       "₹ 40",
                                                       style: TextStyle(
