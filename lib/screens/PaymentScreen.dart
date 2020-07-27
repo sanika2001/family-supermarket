@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:familysupermarket/constants.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class PaymentScreen extends StatefulWidget {
   static const String id = '/payment';
@@ -62,8 +63,25 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   ),
                   SingleChildScrollView(
                     child: Container(
-                      child: Text("two"),
-                      //TODO:add pickup screen
+                      child: Column(
+                        children: <Widget>[
+                          Text("Payment"),
+                          Container(
+                            width: 47,
+                            child: RaisedButton(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15)),
+                              color: kDesignColor,
+                              onPressed: () {},
+                              child: Icon(
+                                FontAwesomeIcons.check,
+                                color: Colors.white,
+                                size: 18,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
