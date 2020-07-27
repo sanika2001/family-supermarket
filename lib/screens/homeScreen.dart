@@ -8,6 +8,8 @@ import 'package:familysupermarket/bloc/RiceBloc.dart';
 import 'package:familysupermarket/components/riceCard.dart';
 import 'package:familysupermarket/models/rice.dart';
 import 'package:familysupermarket/bloc/FlourBloc.dart';
+import 'package:tab_indicator_styler/tab_indicator_styler.dart';
+import 'package:familysupermarket/components/bottomNavigationBar.dart';
 
 int cupertinoTabBarValue = 0;
 
@@ -36,6 +38,7 @@ class _homeScreenState extends State<homeScreen> {
     return DefaultTabController(
       length: 4,
       child: Scaffold(
+        bottomNavigationBar: BottomBar(),
         appBar: AppBar(
           elevation: 5,
           backgroundColor: Colors.white,
@@ -91,6 +94,14 @@ class _homeScreenState extends State<homeScreen> {
                 height: 50,
                 width: MediaQuery.of(context).size.width,
                 child: TabBar(
+                    indicator: RectangularIndicator(
+                      color: Colors.grey,
+                      paintingStyle: PaintingStyle.fill,
+                      bottomLeftRadius: 0,
+                      bottomRightRadius: 0,
+                      topLeftRadius: 0,
+                      topRightRadius: 0,
+                    ),
                     indicatorColor: kDesignColor,
                     isScrollable: true,
                     labelStyle: TextStyle(
@@ -155,17 +166,17 @@ class _homeScreenState extends State<homeScreen> {
                               }
                               return snapshot.hasData
                                   ? ListView.builder(
-                                  physics: BouncingScrollPhysics(),
-                                  itemCount: snapshot.data.length,
-                                  scrollDirection: Axis.vertical,
-                                  itemBuilder: (context, index) {
-                                    return RiceCard(
-                                      rice: snapshot.data[index],
-                                    );
-                                  })
+                                      physics: BouncingScrollPhysics(),
+                                      itemCount: snapshot.data.length,
+                                      scrollDirection: Axis.vertical,
+                                      itemBuilder: (context, index) {
+                                        return RiceCard(
+                                          rice: snapshot.data[index],
+                                        );
+                                      })
                                   : Center(
-                                child: CircularProgressIndicator(),
-                              );
+                                      child: CircularProgressIndicator(),
+                                    );
                             }),
                       ),
                     ),
