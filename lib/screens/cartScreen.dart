@@ -1,3 +1,4 @@
+import 'package:familysupermarket/screens/PaymentScreen.dart';
 import 'package:familysupermarket/screens/familyScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -140,21 +141,28 @@ class _CartScreenState extends State<CartScreen> {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Card(
-                      color: Colors.yellowAccent,
-                      elevation: 10,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 10),
-                        child: Text(
-                          "CHECKOUT",
-                          style: TextStyle(
-                            color: Color(0xFF740F53),
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
+                    child: GestureDetector(
+                      onTap: (){
+                        setState(() {
+                          Navigator.pushNamed(context, PaymentScreen.id);
+                        });
+                      },
+                      child: Card(
+                        color: Colors.yellowAccent,
+                        elevation: 10,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 10),
+                          child: Text(
+                            "CHECKOUT",
+                            style: TextStyle(
+                              color: Color(0xFF740F53),
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),

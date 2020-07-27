@@ -1,3 +1,4 @@
+import 'package:familysupermarket/screens/loginScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:familysupermarket/constants.dart';
 
@@ -83,19 +84,26 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Card(
-                        color: Color(0xFF740F53),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 35, vertical: 5),
-                          child: Text(
-                            "Sign In",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 17,
+                      child: GestureDetector(
+                        onTap: (){
+                          setState(() {
+                            Navigator.pushNamed(context, LoginScreen.id);
+                          });
+                        },
+                        child: Card(
+                          color: Color(0xFF740F53),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 35, vertical: 5),
+                            child: Text(
+                              "Sign In",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 17,
+                              ),
                             ),
                           ),
                         ),
