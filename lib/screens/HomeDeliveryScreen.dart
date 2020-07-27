@@ -129,24 +129,35 @@ class _HomeDeliveryScreenState extends State<HomeDeliveryScreen> {
                                                   child: Row(
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
-                                                            .spaceEvenly,
+                                                            .spaceBetween,
                                                     children: <Widget>[
-                                                      Text(
-                                                        "Quick Delivery",
-                                                        style: TextStyle(
-                                                          color:
-                                                              Color(0xFF740F53),
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                          fontSize: 15,
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .only(left: 6),
+                                                        child: Text(
+                                                          "Quick Delivery",
+                                                          style: TextStyle(
+                                                            color: Color(
+                                                                0xFF740F53),
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            fontSize: 15,
+                                                          ),
                                                         ),
                                                       ),
-                                                      Text(
-                                                        "₹ 70",
-                                                        style: TextStyle(
-                                                            fontSize: 15,
-                                                            color: Color(
-                                                                0xFF5A5A5A)),
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                    .only(
+                                                                right: 110),
+                                                        child: Text(
+                                                          "₹ 70",
+                                                          style: TextStyle(
+                                                              fontSize: 15,
+                                                              color: Color(
+                                                                  0xFF5A5A5A)),
+                                                        ),
                                                       ),
                                                     ],
                                                   ),
@@ -192,24 +203,34 @@ class _HomeDeliveryScreenState extends State<HomeDeliveryScreen> {
                                                 child: Row(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment
-                                                          .spaceEvenly,
+                                                          .spaceBetween,
                                                   children: <Widget>[
-                                                    Text(
-                                                      "Normal Delivery",
-                                                      style: TextStyle(
-                                                        color:
-                                                            Color(0xFF740F53),
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        fontSize: 15,
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              left: 6),
+                                                      child: Text(
+                                                        "Normal Delivery",
+                                                        style: TextStyle(
+                                                          color:
+                                                              Color(0xFF740F53),
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontSize: 15,
+                                                        ),
                                                       ),
                                                     ),
-                                                    Text(
-                                                      "₹ 40",
-                                                      style: TextStyle(
-                                                          fontSize: 15,
-                                                          color: Color(
-                                                              0xFF5A5A5A)),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              right: 110),
+                                                      child: Text(
+                                                        "₹ 40",
+                                                        style: TextStyle(
+                                                            fontSize: 15,
+                                                            color: Color(
+                                                                0xFF5A5A5A)),
+                                                      ),
                                                     )
                                                   ],
                                                 ),
