@@ -5,8 +5,18 @@ import 'package:cached_network_image/cached_network_image.dart';
 class RiceCard extends StatelessWidget {
   final Rice rice;
   final Function popup;
+  final Function addTap;
+  final Function cancelAdd;
+  final Function plus;
+  final Function minus;
 
-  RiceCard({@required this.rice, this.popup});
+  RiceCard(
+      {@required this.rice,
+      this.popup,
+      this.addTap,
+      this.cancelAdd,
+      this.plus,
+      this.minus});
 
   @override
   Widget build(BuildContext context) {
@@ -75,22 +85,67 @@ class RiceCard extends StatelessWidget {
                 )
               ],
             ),
-            ButtonTheme(
-              child: RaisedButton(
-                color: Color(0xFF5A5A5A),
-                onPressed: () {},
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Text(
-                  "ADD",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
+            rice.pressed
+                ? Card(
+                    elevation: 5,
+                    child: Row(
+                      children: <Widget>[
+                        GestureDetector(
+                          onTap: minus,
+                          child: Container(
+                            child: Icon(
+                              Icons.remove,
+                              color: Colors.white,
+                              size: 17,
+                            ),
+                            height: 23,
+                            width: 24,
+                            color: Color(0xFF5A5A5A),
+                          ),
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            border: Border.symmetric(
+                              vertical: BorderSide(color: Color(0xFF5A5A5A)),
+                            ),
+                          ),
+                          height: 23,
+                          width: 30,
+                          child: Center(child: Text("${rice.qty}")),
+                        ),
+                        GestureDetector(
+                          onTap: plus,
+                          child: Container(
+                            child: Icon(
+                              Icons.add,
+                              color: Colors.white,
+                              size: 17,
+                            ),
+                            height: 23,
+                            width: 24,
+                            color: Color(0xFF5A5A5A),
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                : ButtonTheme(
+                    child: RaisedButton(
+                      color: Color(0xFF5A5A5A),
+                      onPressed: addTap,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Text(
+                        "ADD",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-            ),
           ],
         ),
       ),

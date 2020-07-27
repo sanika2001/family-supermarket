@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:familysupermarket/models/rice.dart';
-import 'package:familysupermarket/repository/ricecard.dart';
+import 'package:familysupermarket/repository/rice.dart';
 
 class RiceBloc {
   final _riceListStreamController = StreamController<List<Rice>>();
