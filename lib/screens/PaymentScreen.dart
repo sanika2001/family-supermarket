@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:familysupermarket/constants.dart';
 
@@ -14,12 +15,13 @@ class _PaymentScreenState extends State<PaymentScreen> {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
+          elevation: 0,
           centerTitle: true,
-          backgroundColor: Colors.white,
+          backgroundColor: Color(0xFFE9E9E9),
           leading: Icon(
             Icons.arrow_back,
             color: Colors.black,
-            size: 17,
+            size: 23,
           ),
           title: Text(
             "DELIVER & PAYMENT",
@@ -30,10 +32,11 @@ class _PaymentScreenState extends State<PaymentScreen> {
         body: Column(
           children: <Widget>[
             Container(
+              color: Color(0xFFE9E9E9),
               height: 50,
               width: MediaQuery.of(context).size.width,
               child: TabBar(
-                indicatorColor: Colors.white,
+                indicatorColor: Color(0xFFE9E9E9),
                 labelStyle: TextStyle(
                     color: kDesignColor,
                     fontWeight: FontWeight.w500,
@@ -56,8 +59,78 @@ class _PaymentScreenState extends State<PaymentScreen> {
                 children: <Widget>[
                   SingleChildScrollView(
                     child: Container(
-                      child: Text("one"),
-                      //TODO:add home delivery screen in the place of this center
+                      color: Color(0xFFE9E9E9),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text("Delivery Address",
+                              style: TextStyle(
+                                color: Color(0xFF464646),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                              ),),
+                            ),
+                            Card(
+                              elevation: 15,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        Text("House No 27",
+                                        style: TextStyle(
+                                          color: Color(0xFF5A5A5A),
+                                        ),
+                                        ),
+                                        Text("Rouseivalle",
+                                          style: TextStyle(
+                                            color: Color(0xFF5A5A5A),
+                                          ),
+                                        ),
+                                        Text("P.O.BOX 3450",
+                                          style: TextStyle(
+                                            color: Color(0xFF5A5A5A),
+                                          ),
+                                        ),
+                                        Text("Greenland",
+                                          style: TextStyle(
+                                            color: Color(0xFF5A5A5A),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Card(
+                                      elevation: 5,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      color: Color(0xFF741053),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Text("ADD NEW",
+                                        style: TextStyle(
+                                          fontSize: 15,
+                                          color: Colors.white,
+                                        ),),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
                   SingleChildScrollView(
