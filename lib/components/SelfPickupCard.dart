@@ -20,7 +20,7 @@ class SelfPickupCard extends StatelessWidget {
               Text(
                 text,
                 style: TextStyle(
-                    color: Color(0xFF464646),
+                    color: Color(0xFF5A5A5A),
                     fontWeight: FontWeight.bold,
                     fontSize: 16),
               ),
