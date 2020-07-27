@@ -80,7 +80,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                 children: <Widget>[
                                   Padding(
                                     padding: const EdgeInsets.symmetric(
-                                        horizontal: 30, vertical: 8),
+                                        horizontal: 40, vertical: 8),
                                     child: Text(
                                       "Delivery Address",
                                       style: TextStyle(
@@ -270,7 +270,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                 children: <Widget>[
                                   Padding(
                                     padding: const EdgeInsets.symmetric(
-                                        horizontal: 30, vertical: 8),
+                                        horizontal: 40, vertical: 8),
                                     child: Text(
                                       "Order Summary",
                                       style: TextStyle(
@@ -416,7 +416,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                 children: <Widget>[
                                   Padding(
                                     padding: const EdgeInsets.symmetric(
-                                        horizontal: 30, vertical: 8),
+                                        horizontal: 40, vertical: 8),
                                     child: Text(
                                       "Payment",
                                       style: TextStyle(
