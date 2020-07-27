@@ -113,7 +113,7 @@ class _HomeDeliveryScreenState extends State<HomeDeliveryScreen> {
                                     ),
                                     Padding(
                                         padding: const EdgeInsets.symmetric(
-                                            horizontal: 8, vertical: 1),
+                                            horizontal: 8),
                                         child: Stack(
                                           children: <Widget>[
                                             Container(
