@@ -298,6 +298,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                                   fontWeight: FontWeight.bold),
                                             ),
                                           ),
+                                          
                                         ],
                                       ),
                                     ],
