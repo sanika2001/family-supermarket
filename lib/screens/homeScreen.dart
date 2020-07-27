@@ -8,6 +8,7 @@ import 'package:familysupermarket/bloc/RiceBloc.dart';
 import 'package:familysupermarket/components/riceCard.dart';
 import 'package:familysupermarket/models/rice.dart';
 import 'package:familysupermarket/components/bottomNavigationBar.dart';
+import 'package:tab_indicator_styler/tab_indicator_styler.dart';
 
 int cupertinoTabBarValue = 0;
 
@@ -89,11 +90,19 @@ class _homeScreenState extends State<homeScreen> {
                 height: 50,
                 width: MediaQuery.of(context).size.width,
                 child: TabBar(
+                    indicator: RectangularIndicator(
+                      bottomLeftRadius: 0,
+                      bottomRightRadius: 0,
+                      topLeftRadius: 0,
+                      topRightRadius: 0,
+                      paintingStyle: PaintingStyle.fill,
+                      color: Colors.grey,
+                    ),
                     indicatorColor: kDesignColor,
                     isScrollable: true,
                     labelStyle: TextStyle(
                         color: Colors.white,
-                        fontWeight: FontWeight.w400,
+                        fontWeight: FontWeight.w500,
                         fontSize: 16),
                     tabs: [
                       Tab(

@@ -29,6 +29,7 @@ dependencies:
   google_maps_flutter: ^0.5.28+1
   cupertino_tabbar: ^1.0.1
   carousel_pro: ^1.0.0
+  tab_indicator_styler: ^1.0.0
 
 dev_dependencies:
   flutter_test:
