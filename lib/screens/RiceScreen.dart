@@ -70,102 +70,7 @@ class _RiceScreenState extends State<RiceScreen> {
                             ),
                             context: context,
                             builder: (BuildContext bc) {
-                              return Container(
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(20),
-                                    topRight: Radius.circular(20),
-                                  ),
-                                ),
-                                height: 300,
-                                child: Column(
-                                  children: <Widget>[
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 20, top: 20, bottom: 10),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: <Widget>[
-                                          Text(
-                                            "Available Quantities",
-                                            style: TextStyle(
-                                              color: Color(0xFF464646),
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 19,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Divider(
-                                      color: Color(0xFFC4C4C4),
-                                      thickness: 3,
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 20, vertical: 10),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: <Widget>[
-                                          Text(
-                                            "1 kg",
-                                            style: TextStyle(
-                                              color: Color(0xFF464646),
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 19,
-                                            ),
-                                          ),
-                                          Text(
-                                            "₹ 32",
-                                            style: TextStyle(
-                                              color: Color(0xFF464646),
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 19,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Divider(
-                                      color: Color(0xFFC4C4C4),
-                                      thickness: 3,
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 20, vertical: 10),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: <Widget>[
-                                          Text(
-                                            "2 kg",
-                                            style: TextStyle(
-                                              color: Color(0xFF464646),
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 19,
-                                            ),
-                                          ),
-                                          Text(
-                                            "₹ 60",
-                                            style: TextStyle(
-                                              color: Color(0xFF464646),
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 19,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Divider(
-                                      color: Color(0xFFC4C4C4),
-                                      thickness: 3,
-                                    ),
-                                  ],
-                                ),
-                              );
+                              return BottomSheet();
                             },
                           );
                         },
@@ -177,6 +82,102 @@ class _RiceScreenState extends State<RiceScreen> {
                   );
           },
         ),
+      ),
+    );
+  }
+}
+
+class BottomSheet extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
+        ),
+      ),
+      height: 300,
+      child: Column(
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(left: 20, top: 20, bottom: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  "Available Quantities",
+                  style: TextStyle(
+                    color: Color(0xFF464646),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 19,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Divider(
+            color: Color(0xFFC4C4C4),
+            thickness: 3,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text(
+                  "1 kg",
+                  style: TextStyle(
+                    color: Color(0xFF464646),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 19,
+                  ),
+                ),
+                Text(
+                  "₹ 32",
+                  style: TextStyle(
+                    color: Color(0xFF464646),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 19,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Divider(
+            color: Color(0xFFC4C4C4),
+            thickness: 3,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text(
+                  "2 kg",
+                  style: TextStyle(
+                    color: Color(0xFF464646),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 19,
+                  ),
+                ),
+                Text(
+                  "₹ 60",
+                  style: TextStyle(
+                    color: Color(0xFF464646),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 19,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Divider(
+            color: Color(0xFFC4C4C4),
+            thickness: 3,
+          ),
+        ],
       ),
     );
   }

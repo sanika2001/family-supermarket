@@ -65,6 +65,7 @@ class _SelfPickUpScreenState extends State<SelfPickUpScreen> {
             ),
           ),
           Container(
+            height: MediaQuery.of(context).size.height / 10.55,
             width: MediaQuery.of(context).size.width,
             color: Color(0xFF741053),
             child: Padding(

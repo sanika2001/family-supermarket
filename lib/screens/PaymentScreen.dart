@@ -49,7 +49,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                 labelStyle: TextStyle(
                   color: kDesignColor,
                   fontWeight: FontWeight.w500,
-                  fontSize: 17,
+                  fontSize: 16,
                 ),
                 labelColor: kDesignColor,
                 tabs: [
@@ -63,7 +63,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
               ),
             ),
             Container(
-              height: MediaQuery.of(context).size.height - 130,
+              height: MediaQuery.of(context).size.height - 134,
               width: MediaQuery.of(context).size.width,
               child: TabBarView(
                 children: <Widget>[
