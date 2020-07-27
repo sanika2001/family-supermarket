@@ -197,8 +197,82 @@ class _homeScreenState extends State<homeScreen> {
                                                     ),
                                                     Divider(
                                                       color: Color(0xFFC4C4C4),
-                                                      thickness: 4,
-                                                    )
+                                                      thickness: 3,
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                      const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+                                                      child: Row(
+                                                        mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                        children: <Widget>[
+                                                          Text(
+                                                            "1 kg",
+                                                            style: TextStyle(
+                                                              color: Color(
+                                                                  0xFF464646),
+                                                              fontWeight:
+                                                              FontWeight
+                                                                  .bold,
+                                                              fontSize: 19,
+                                                            ),
+                                                          ),
+                                                          Text(
+                                                            "₹ 32",
+                                                            style: TextStyle(
+                                                              color: Color(
+                                                                  0xFF464646),
+                                                              fontWeight:
+                                                              FontWeight
+                                                                  .bold,
+                                                              fontSize: 19,
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    Divider(
+                                                      color: Color(0xFFC4C4C4),
+                                                      thickness: 3,
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                      const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+                                                      child: Row(
+                                                        mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                        children: <Widget>[
+                                                          Text(
+                                                            "2 kg",
+                                                            style: TextStyle(
+                                                              color: Color(
+                                                                  0xFF464646),
+                                                              fontWeight:
+                                                              FontWeight
+                                                                  .bold,
+                                                              fontSize: 19,
+                                                            ),
+                                                          ),
+                                                          Text(
+                                                            "₹ 60",
+                                                            style: TextStyle(
+                                                              color: Color(
+                                                                  0xFF464646),
+                                                              fontWeight:
+                                                              FontWeight
+                                                                  .bold,
+                                                              fontSize: 19,
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    Divider(
+                                                      color: Color(0xFFC4C4C4),
+                                                      thickness: 3,
+                                                    ),
                                                   ],
                                                 ),
                                               );
