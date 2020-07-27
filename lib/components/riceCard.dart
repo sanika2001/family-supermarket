@@ -4,8 +4,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 
 class RiceCard extends StatelessWidget {
   final Rice rice;
+  final Function popup;
 
-  RiceCard({@required this.rice});
+  RiceCard({@required this.rice, this.popup});
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +39,8 @@ class RiceCard extends StatelessWidget {
                   height: 10,
                   child: RaisedButton(
                     color: Color(0xFFE9E9E9),
-                    onPressed: () {},
+                    disabledColor: Color(0xFFE9E9E9),
+                    onPressed: popup,
                     child: Row(
                       children: <Widget>[
                         Padding(

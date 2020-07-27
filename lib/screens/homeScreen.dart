@@ -132,26 +132,73 @@ class _homeScreenState extends State<homeScreen> {
                       child: Container(
                         height: 500,
                         child: StreamBuilder<List<Rice>>(
-                            stream: _riceBloc.riceListStream,
-                            builder: (BuildContext context,
-                                AsyncSnapshot<List<Rice>> snapshot) {
-                              if (snapshot.hasError) {
-                                print(snapshot.error);
-                              }
-                              return snapshot.hasData
-                                  ? ListView.builder(
-                                      physics: BouncingScrollPhysics(),
-                                      itemCount: snapshot.data.length,
-                                      scrollDirection: Axis.vertical,
-                                      itemBuilder: (context, index) {
-                                        return RiceCard(
-                                          rice: snapshot.data[index],
-                                        );
-                                      })
-                                  : Center(
-                                      child: CircularProgressIndicator(),
-                                    );
-                            }),
+                          stream: _riceBloc.riceListStream,
+                          builder: (BuildContext context,
+                              AsyncSnapshot<List<Rice>> snapshot) {
+                            if (snapshot.hasError) {
+                              print(snapshot.error);
+                            }
+                            return snapshot.hasData
+                                ? ListView.builder(
+                                    physics: BouncingScrollPhysics(),
+                                    itemCount: snapshot.data.length,
+                                    scrollDirection: Axis.vertical,
+                                    itemBuilder: (context, index) {
+                                      return RiceCard(
+                                        rice: snapshot.data[index],
+                                        popup: () {
+                                          showModalBottomSheet(
+                                            shape: RoundedRectangleBorder(
+                                                borderRadius: BorderRadius.only(
+                                              topLeft: Radius.circular(20),
+                                              topRight: Radius.circular(20),
+                                            )),
+                                            context: context,
+                                            builder: (BuildContext bc) {
+                                              return Container(
+                                                color: Colors.white,
+                                                height: 300,
+                                                child: Column(
+                                                  children: <Widget>[
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              left: 20,
+                                                              top: 20,
+                                                              bottom: 20),
+                                                      child: Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        children: <Widget>[
+                                                          Text(
+                                                            "Available Quantities",
+                                                            style: TextStyle(
+                                                              color: Color(
+                                                                  0xFF464646),
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              fontSize: 19,
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    )
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                        },
+                                      );
+                                    },
+                                  )
+                                : Center(
+                                    child: CircularProgressIndicator(),
+                                  );
+                          },
+                        ),
                       ),
                     ),
                     SingleChildScrollView(
