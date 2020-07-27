@@ -65,8 +65,8 @@ class _FamilyScreenState extends State<FamilyScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Padding(
-                      padding:
-                          const EdgeInsets.symmetric(horizontal: 15,vertical: 8),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 15, vertical: 8),
                       child: Text(
                         "CATEGORIES",
                         style: TextStyle(
@@ -88,21 +88,25 @@ class _FamilyScreenState extends State<FamilyScreen> {
                             }
                             return snapshot.hasData
                                 ? GridView.builder(
+                                    physics: ScrollPhysics(),
                                     itemCount: snapshot.data.length,
                                     gridDelegate:
                                         SliverGridDelegateWithFixedCrossAxisCount(
-                                            crossAxisCount: 3,
-                                          crossAxisSpacing: 1,
-                                        ),
+                                      crossAxisCount: 3,
+                                      crossAxisSpacing: 1,
+                                    ),
                                     itemBuilder:
                                         (BuildContext context, int index) {
-                                      return ComponentsCard(
-                                        components: snapshot.data[index],
-                                        move: (){
-                                          setState(() {
-                                            Navigator.pushNamed(context, homeScreen.id);
-                                          });
-                                        },
+                                      return SingleChildScrollView(
+                                        child: ComponentsCard(
+                                          components: snapshot.data[index],
+                                          move: () {
+                                            setState(() {
+                                              Navigator.pushNamed(
+                                                  context, homeScreen.id);
+                                            });
+                                          },
+                                        ),
                                       );
                                     })
                                 : Center(
