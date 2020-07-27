@@ -140,7 +140,7 @@ class _homeScreenState extends State<homeScreen> {
                       ),
                     ),
                     Container(
-                      child: Text("Atta&Flour"),
+                      child: Text("Atta&Flourr"),
                     ),
                     Container(
                       child: Text("Dal&Pulses"),
