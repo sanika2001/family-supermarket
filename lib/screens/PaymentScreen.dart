@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:familysupermarket/constants.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:familysupermarket/components/PurpleButton.dart';
 
 class PaymentScreen extends StatefulWidget {
   static const String id = '/payment';
@@ -66,19 +67,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
                       child: Column(
                         children: <Widget>[
                           Text("Payment"),
-                          Container(
-                            width: 47,
-                            child: RaisedButton(
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15)),
-                              color: kDesignColor,
-                              onPressed: () {},
-                              child: Icon(
-                                FontAwesomeIcons.check,
-                                color: Colors.white,
-                                size: 18,
-                              ),
-                            ),
+                          PurpleButton(
+                            isPressed: true,
                           ),
                         ],
                       ),
