@@ -3,7 +3,7 @@ import 'package:familysupermarket/constants.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class PurpleButton extends StatelessWidget {
-  bool isPressed;
+  final bool isPressed;
   PurpleButton({this.isPressed});
 
   @override

@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:familysupermarket/constants.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:familysupermarket/components/PurpleButton.dart';
+import 'package:familysupermarket/components/SelfPickupCard.dart';
 
 class PaymentScreen extends StatefulWidget {
   static const String id = '/payment';
@@ -69,39 +68,47 @@ class _PaymentScreenState extends State<PaymentScreen> {
                           children: <Widget>[
                             Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: Text("Delivery Address",
-                              style: TextStyle(
-                                color: Color(0xFF464646),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15,
-                              ),),
+                              child: Text(
+                                "Delivery Address",
+                                style: TextStyle(
+                                  color: Color(0xFF464646),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15,
+                                ),
+                              ),
                             ),
                             Card(
                               elevation: 15,
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: <Widget>[
-                                        Text("House No 27",
-                                        style: TextStyle(
-                                          color: Color(0xFF5A5A5A),
-                                        ),
-                                        ),
-                                        Text("Rouseivalle",
+                                        Text(
+                                          "House No 27",
                                           style: TextStyle(
                                             color: Color(0xFF5A5A5A),
                                           ),
                                         ),
-                                        Text("P.O.BOX 3450",
+                                        Text(
+                                          "Rouseivalle",
                                           style: TextStyle(
                                             color: Color(0xFF5A5A5A),
                                           ),
                                         ),
-                                        Text("Greenland",
+                                        Text(
+                                          "P.O.BOX 3450",
+                                          style: TextStyle(
+                                            color: Color(0xFF5A5A5A),
+                                          ),
+                                        ),
+                                        Text(
+                                          "Greenland",
                                           style: TextStyle(
                                             color: Color(0xFF5A5A5A),
                                           ),
@@ -119,11 +126,13 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                       color: Color(0xFF741053),
                                       child: Padding(
                                         padding: const EdgeInsets.all(8.0),
-                                        child: Text("ADD NEW",
-                                        style: TextStyle(
-                                          fontSize: 15,
-                                          color: Colors.white,
-                                        ),),
+                                        child: Text(
+                                          "ADD NEW",
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                            color: Colors.white,
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -137,13 +146,56 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   ),
                   SingleChildScrollView(
                     child: Container(
-                      child: Column(
-                        children: <Widget>[
-                          Text("Payment"),
-                          PurpleButton(
-                            isPressed: true,
-                          ),
-                        ],
+                      height: MediaQuery.of(context).size.height,
+                      color: Color(0xFFE9E9E9),
+                      child: Padding(
+                        padding:
+                            const EdgeInsets.only(left: 25, top: 15, right: 25),
+                        child: Column(
+                          children: <Widget>[
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Payment",
+                                  style: TextStyle(
+                                      color: Color(0xFF464646),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 17),
+                                ),
+                              ],
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 15),
+                              child: Card(
+                                elevation: 10,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(21),
+                                ),
+                                color: Colors.white,
+                                child: Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 5),
+                                  child: Column(
+                                    children: <Widget>[
+                                      SelfPickupCard(
+                                          text: "Wallet/UPI", isPressed: false),
+                                      SelfPickupCard(
+                                          text: "Net Banking",
+                                          isPressed: false),
+                                      SelfPickupCard(
+                                          text: "Credit/Debit/ATM card",
+                                          isPressed: false),
+                                      SelfPickupCard(
+                                          text: "Direct Payment",
+                                          isPressed: true),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
