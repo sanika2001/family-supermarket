@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:familysupermarket/constants.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:familysupermarket/components/PurpleButton.dart';
+import 'package:familysupermarket/components/SelfPickupCard.dart';
 
 class PaymentScreen extends StatefulWidget {
   static const String id = '/payment';
@@ -68,8 +67,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 20, vertical: 8),
+                              padding: const EdgeInsets.all(8.0),
                               child: Text(
                                 "Delivery Address",
                                 style: TextStyle(
@@ -79,231 +77,66 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                 ),
                               ),
                             ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 10),
-                              child: Card(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                elevation: 15,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Column(
-                                    children: <Widget>[
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: <Widget>[
-                                          Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: <Widget>[
-                                                Text(
-                                                  "House No 27",
-                                                  style: TextStyle(
-                                                    color: Color(0xFF5A5A5A),
-                                                  ),
-                                                ),
-                                                Text(
-                                                  "Rouseivalle",
-                                                  style: TextStyle(
-                                                    color: Color(0xFF5A5A5A),
-                                                  ),
-                                                ),
-                                                Text(
-                                                  "P.O.BOX 3450",
-                                                  style: TextStyle(
-                                                    color: Color(0xFF5A5A5A),
-                                                  ),
-                                                ),
-                                                Text(
-                                                  "Greenland",
-                                                  style: TextStyle(
-                                                    color: Color(0xFF5A5A5A),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
+                            Card(
+                              elevation: 15,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        Text(
+                                          "House No 27",
+                                          style: TextStyle(
+                                            color: Color(0xFF5A5A5A),
                                           ),
-                                          Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Card(
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(10),
-                                              ),
-                                              color: Color(0xFF741053),
-                                              child: Padding(
-                                                padding:
-                                                    const EdgeInsets.all(8.0),
-                                                child: Text(
-                                                  "ADD NEW",
-                                                  style: TextStyle(
-                                                    fontSize: 15,
-                                                    color: Colors.white,
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
+                                        ),
+                                        Text(
+                                          "Rouseivalle",
+                                          style: TextStyle(
+                                            color: Color(0xFF5A5A5A),
                                           ),
-                                        ],
+                                        ),
+                                        Text(
+                                          "P.O.BOX 3450",
+                                          style: TextStyle(
+                                            color: Color(0xFF5A5A5A),
+                                          ),
+                                        ),
+                                        Text(
+                                          "Greenland",
+                                          style: TextStyle(
+                                            color: Color(0xFF5A5A5A),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Card(
+                                      elevation: 5,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10),
                                       ),
-                                      Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 8, vertical: 1),
-                                        child: Card(
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(20),
-                                          ),
-                                          color: Color(0xFFE9E9E9),
-                                          child: Padding(
-                                            padding: const EdgeInsets.all(5.0),
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.spaceAround,
-                                              children: <Widget>[
-                                                Text(
-                                                  "Quick Delivery",
-                                                  style: TextStyle(
-                                                    color: Color(0xFF740F53),
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: 15,
-                                                  ),
-                                                ),
-                                                Text(
-                                                  "₹ 70",
-                                                  style: TextStyle(
-                                                      fontSize: 15,
-                                                      color: Color(0xFF5A5A5A)),
-                                                )
-                                              ],
-                                            ),
+                                      color: Color(0xFF741053),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Text(
+                                          "ADD NEW",
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                            color: Colors.white,
                                           ),
                                         ),
                                       ),
-                                      Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 8, vertical: 4),
-                                        child: Card(
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(20),
-                                          ),
-                                          color: Color(0xFFE9E9E9),
-                                          child: Padding(
-                                            padding: const EdgeInsets.all(5.0),
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.spaceAround,
-                                              children: <Widget>[
-                                                Text(
-                                                  "Normal Delivery",
-                                                  style: TextStyle(
-                                                    color: Color(0xFF740F53),
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: 15,
-                                                  ),
-                                                ),
-                                                Text(
-                                                  "₹ 40",
-                                                  style: TextStyle(
-                                                      fontSize: 15,
-                                                      color: Color(0xFF5A5A5A)),
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
+                                    ),
                                   ),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 20, vertical: 8),
-                              child: Text(
-                                "Order Summary",
-                                style: TextStyle(
-                                  color: Color(0xFF464646),
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15,
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 10),
-                              child: Card(
-                                elevation: 15,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Column(
-                                    children: <Widget>[
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: <Widget>[
-                                          Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Text(
-                                              "Sub Total",
-                                              style: TextStyle(
-                                                  color: Color(0xFF740F53),
-                                                  fontSize: 15,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Text(
-                                              "116",
-                                              style: TextStyle(
-                                                  color: Color(0xFF740F53),
-                                                  fontSize: 15,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: <Widget>[
-                                          Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Text(
-                                              "Delivery",
-                                              style: TextStyle(
-                                                  color: Color(0xFF740F53),
-                                                  fontSize: 15,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Text(
-                                              "70",
-                                              style: TextStyle(
-                                                  color: Color(0xFF740F53),
-                                                  fontSize: 15,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-
-                                    ],
-                                  ),
-                                ),
+                                ],
                               ),
                             ),
                           ],
@@ -313,13 +146,56 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   ),
                   SingleChildScrollView(
                     child: Container(
-                      child: Column(
-                        children: <Widget>[
-                          Text("Payment"),
-                          PurpleButton(
-                            isPressed: true,
-                          ),
-                        ],
+                      height: MediaQuery.of(context).size.height,
+                      color: Color(0xFFE9E9E9),
+                      child: Padding(
+                        padding:
+                            const EdgeInsets.only(left: 25, top: 15, right: 25),
+                        child: Column(
+                          children: <Widget>[
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Payment",
+                                  style: TextStyle(
+                                      color: Color(0xFF464646),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 17),
+                                ),
+                              ],
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 15),
+                              child: Card(
+                                elevation: 10,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(21),
+                                ),
+                                color: Colors.white,
+                                child: Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 5),
+                                  child: Column(
+                                    children: <Widget>[
+                                      SelfPickupCard(
+                                          text: "Wallet/UPI",isPressed: false,),
+                                      SelfPickupCard(
+                                          text: "Net Banking",
+                                          isPressed: false),
+                                      SelfPickupCard(
+                                          text: "Credit/Debit/ATM card",
+                                          isPressed: false),
+                                      SelfPickupCard(
+                                          text: "Direct Payment",
+                                          isPressed: true),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
