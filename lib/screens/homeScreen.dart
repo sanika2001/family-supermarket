@@ -149,15 +149,25 @@ class _homeScreenState extends State<homeScreen> {
                                         popup: () {
                                           showModalBottomSheet(
                                             shape: RoundedRectangleBorder(
-                                                borderRadius: BorderRadius.only(
-                                              topLeft: Radius.circular(20),
-                                              topRight: Radius.circular(20),
-                                            )),
+                                              borderRadius: BorderRadius.only(
+                                                topLeft: Radius.circular(20),
+                                                topRight: Radius.circular(20),
+                                              ),
+                                            ),
                                             context: context,
                                             builder: (BuildContext bc) {
                                               return Container(
-                                                color: Colors.white,
-                                                height: 300,
+                                                decoration: BoxDecoration(
+                                                  color: Colors.white,
+                                                  borderRadius:
+                                                      BorderRadius.only(
+                                                    topLeft:
+                                                        Radius.circular(20),
+                                                    topRight:
+                                                        Radius.circular(20),
+                                                  ),
+                                                ),
+                                                height: 370,
                                                 child: Column(
                                                   children: <Widget>[
                                                     Padding(
@@ -165,7 +175,7 @@ class _homeScreenState extends State<homeScreen> {
                                                           const EdgeInsets.only(
                                                               left: 20,
                                                               top: 20,
-                                                              bottom: 20),
+                                                              bottom: 10),
                                                       child: Row(
                                                         mainAxisAlignment:
                                                             MainAxisAlignment
@@ -184,6 +194,10 @@ class _homeScreenState extends State<homeScreen> {
                                                           ),
                                                         ],
                                                       ),
+                                                    ),
+                                                    Divider(
+                                                      color: Color(0xFFC4C4C4),
+                                                      thickness: 4,
                                                     )
                                                   ],
                                                 ),
