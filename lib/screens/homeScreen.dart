@@ -39,7 +39,7 @@ class _homeScreenState extends State<homeScreen> {
         bottomNavigationBar: BottomBar(),
         appBar: AppBar(
           leading: GestureDetector(
-            onTap: (){
+            onTap: () {
               Navigator.pop(context);
             },
             child: Icon(
@@ -118,7 +118,7 @@ class _homeScreenState extends State<homeScreen> {
                         text: "Spices & Masala",
                       ),
                       Tab(
-                        text: "Choclates",
+                        text: "Chocolates",
                       ),
                     ]),
               ),
@@ -129,12 +129,9 @@ class _homeScreenState extends State<homeScreen> {
                   children: <Widget>[
                     RiceScreen(),
                     FlourScreen(),
-                    Container(
-                    ),
-                    Container(
-                    ),
-                    Container(
-                    ),
+                    Container(),
+                    Container(),
+                    Container(),
                   ],
                 ),
               ),
