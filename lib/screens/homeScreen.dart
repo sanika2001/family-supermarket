@@ -38,6 +38,16 @@ class _homeScreenState extends State<homeScreen> {
       child: Scaffold(
         bottomNavigationBar: BottomBar(),
         appBar: AppBar(
+          leading: GestureDetector(
+            onTap: (){
+              Navigator.pop(context);
+            },
+            child: Icon(
+              Icons.arrow_back,
+              color: Colors.black,
+              size: 25,
+            ),
+          ),
           elevation: 5,
           backgroundColor: Colors.white,
           centerTitle: true,
