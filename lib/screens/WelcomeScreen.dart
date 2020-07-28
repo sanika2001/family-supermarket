@@ -1,3 +1,4 @@
+import 'package:familysupermarket/screens/SignupScreen.dart';
 import 'package:familysupermarket/screens/loginScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:familysupermarket/constants.dart';
@@ -119,13 +120,20 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                               color: Color(0xFF740F53),
                               fontWeight: FontWeight.w500),
                         ),
-                        Text(
-                          "Sign Up",
-                          style: TextStyle(
-                              decoration: TextDecoration.underline,
-                              fontSize: 16,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500),
+                        GestureDetector(
+                          onTap: (){
+                            setState(() {
+                              Navigator.pushNamed(context, SignupScreen.id);
+                            });
+                          },
+                          child: Text(
+                            "Sign Up",
+                            style: TextStyle(
+                                decoration: TextDecoration.underline,
+                                fontSize: 16,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500),
+                          ),
                         ),
                       ],
                     ),
