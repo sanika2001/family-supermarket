@@ -28,9 +28,7 @@ class _CartScreenState extends State<CartScreen> {
         backgroundColor: Colors.white,
         leading: GestureDetector(
           onTap: () {
-            setState(() {
-              Navigator.pop(context);
-            });
+            Navigator.pop(context);
           },
           child: Icon(
             Icons.arrow_back,
