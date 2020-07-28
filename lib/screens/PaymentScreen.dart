@@ -111,7 +111,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                           ),
                           child: Padding(
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 20, vertical: 10),
+                                horizontal: 20, vertical: 5),
                             child: Text(
                               "PLACE ORDER",
                               style: TextStyle(
