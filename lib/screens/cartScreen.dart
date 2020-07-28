@@ -27,7 +27,7 @@ class _CartScreenState extends State<CartScreen> {
         elevation: 0,
         backgroundColor: Colors.white,
         leading: GestureDetector(
-          onTap: (){
+          onTap: () {
             Navigator.pop(context);
           },
           child: Icon(
@@ -74,17 +74,17 @@ class _CartScreenState extends State<CartScreen> {
                       }
                       return snapshot.hasData
                           ? ListView.builder(
-                          physics: BouncingScrollPhysics(),
-                          itemCount: snapshot.data.length,
-                          scrollDirection: Axis.vertical,
-                          itemBuilder: (context, index) {
-                            return CartCard(
-                              cart: snapshot.data[index],
-                            );
-                          })
+                              physics: BouncingScrollPhysics(),
+                              itemCount: snapshot.data.length,
+                              scrollDirection: Axis.vertical,
+                              itemBuilder: (context, index) {
+                                return CartCard(
+                                  cart: snapshot.data[index],
+                                );
+                              })
                           : Center(
-                        child: CircularProgressIndicator(),
-                      );
+                              child: CircularProgressIndicator(),
+                            );
                     }),
               ),
               Padding(
@@ -147,7 +147,7 @@ class _CartScreenState extends State<CartScreen> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: GestureDetector(
-                      onTap: (){
+                      onTap: () {
                         setState(() {
                           Navigator.pushNamed(context, PaymentScreen.id);
                         });
