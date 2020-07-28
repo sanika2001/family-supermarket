@@ -1,5 +1,4 @@
 import 'package:familysupermarket/screens/SignupScreen.dart';
-import 'package:familysupermarket/screens/supermarketscreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:familysupermarket/components/loginCard.dart';
@@ -42,9 +41,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Image(
-                          image: AssetImage("images/familylogo.png"),
-                          height: 60,
-                          width: 60,
+                          image: AssetImage("images/logo.png"),
+                          height: 90,
+                          width: 90,
                         ),
                       ),
                       loginCard(name: 'Mobile No'),

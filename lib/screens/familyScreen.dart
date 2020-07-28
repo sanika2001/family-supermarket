@@ -32,28 +32,13 @@ class _FamilyScreenState extends State<FamilyScreen> {
                 width: MediaQuery.of(context).size.width,
                 height: 240.0,
                 color: Color(0xFF740F53),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Image(
-                        image: AssetImage("images/familylogo.png"),
-                        height: 50,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        "FAMILY",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 60,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ],
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Image(
+                    image: AssetImage("images/family.png"),
+                    height: 10,
+                    width: 10,
+                  ),
                 ),
               ),
             ),
@@ -65,8 +50,8 @@ class _FamilyScreenState extends State<FamilyScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Padding(
-                      padding:
-                          const EdgeInsets.symmetric(horizontal: 15,vertical: 8),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 15, vertical: 8),
                       child: Text(
                         "CATEGORIES",
                         style: TextStyle(
@@ -91,16 +76,17 @@ class _FamilyScreenState extends State<FamilyScreen> {
                                     itemCount: snapshot.data.length,
                                     gridDelegate:
                                         SliverGridDelegateWithFixedCrossAxisCount(
-                                            crossAxisCount: 3,
-                                          crossAxisSpacing: 1,
-                                        ),
+                                      crossAxisCount: 3,
+                                      crossAxisSpacing: 1,
+                                    ),
                                     itemBuilder:
                                         (BuildContext context, int index) {
                                       return ComponentsCard(
                                         components: snapshot.data[index],
-                                        move: (){
+                                        move: () {
                                           setState(() {
-                                            Navigator.pushNamed(context, homeScreen.id);
+                                            Navigator.pushNamed(
+                                                context, homeScreen.id);
                                           });
                                         },
                                       );

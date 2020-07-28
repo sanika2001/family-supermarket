@@ -40,23 +40,11 @@ class _homeScreenState extends State<homeScreen> {
         appBar: AppBar(
           elevation: 5,
           backgroundColor: Colors.white,
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Image(
-                image: AssetImage("images/logo.png"),
-                height: 60,
-                width: 60,
-              ),
-              Text(
-                "FAMILY",
-                style: TextStyle(
-                  color: Color(0xFF740F53),
-                  fontWeight: FontWeight.bold,
-                  fontSize: 24,
-                ),
-              ),
-            ],
+          centerTitle: true,
+          title: Image(
+            image: AssetImage("images/logo1.png"),
+            height: 150,
+            width: 150,
           ),
         ),
         body: SingleChildScrollView(

@@ -12,30 +12,36 @@ class CategoriesCard extends StatelessWidget {
     return Column(
       children: <Widget>[
         Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.symmetric(vertical: 10),
           child: Expanded(
-            child: GestureDetector(
-              child: CircleAvatar(
-                radius: 40,
-                backgroundColor: Colors.white,
-                child: Image(
-                  image: AssetImage(categories.image),
-                  height: 40,
-                  width: 40,
-                  color: Color(0xFF740F53),
+            child: FlatButton(
+              onPressed: move,
+              child: Card(
+                elevation: 10,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(40),
+                ),
+                child: CircleAvatar(
+                  radius: 40,
+                  backgroundColor: Colors.white,
+                  child: Image(
+                    image: AssetImage(categories.image),
+                    height: 40,
+                    width: 40,
+                    color: Color(0xFF740F53),
+                  ),
                 ),
               ),
-              onTap: move,
             ),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 5),
           child: Expanded(
             child: Text(
               categories.name,
               style: TextStyle(
-                color: Color(0xFF5A5A5A),
+                color: Color(0xFF464646),
               ),
             ),
           ),
