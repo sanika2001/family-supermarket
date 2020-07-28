@@ -34,7 +34,7 @@ class _homeScreenState extends State<homeScreen> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 4,
+      length: 5,
       child: Scaffold(
         bottomNavigationBar: BottomBar(),
         appBar: AppBar(
@@ -117,6 +117,9 @@ class _homeScreenState extends State<homeScreen> {
                       Tab(
                         text: "Spices & Masala",
                       ),
+                      Tab(
+                        text: "Choclates",
+                      ),
                     ]),
               ),
               Container(
@@ -127,10 +130,10 @@ class _homeScreenState extends State<homeScreen> {
                     RiceScreen(),
                     FlourScreen(),
                     Container(
-                      child: Text("Dal&Pulses"),
                     ),
                     Container(
-                      child: Text("Spices&Masala"),
+                    ),
+                    Container(
                     ),
                   ],
                 ),
