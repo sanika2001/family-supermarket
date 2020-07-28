@@ -26,10 +26,17 @@ class _CartScreenState extends State<CartScreen> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        leading: Icon(
-          Icons.arrow_back,
-          color: Colors.black,
-          size: 25,
+        leading: GestureDetector(
+          onTap: () {
+            setState(() {
+              Navigator.pop(context);
+            });
+          },
+          child: Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+            size: 25,
+          ),
         ),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -69,17 +76,17 @@ class _CartScreenState extends State<CartScreen> {
                       }
                       return snapshot.hasData
                           ? ListView.builder(
-                          physics: BouncingScrollPhysics(),
-                          itemCount: snapshot.data.length,
-                          scrollDirection: Axis.vertical,
-                          itemBuilder: (context, index) {
-                            return CartCard(
-                              cart: snapshot.data[index],
-                            );
-                          })
+                              physics: BouncingScrollPhysics(),
+                              itemCount: snapshot.data.length,
+                              scrollDirection: Axis.vertical,
+                              itemBuilder: (context, index) {
+                                return CartCard(
+                                  cart: snapshot.data[index],
+                                );
+                              })
                           : Center(
-                        child: CircularProgressIndicator(),
-                      );
+                              child: CircularProgressIndicator(),
+                            );
                     }),
               ),
               Padding(
@@ -142,7 +149,7 @@ class _CartScreenState extends State<CartScreen> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: GestureDetector(
-                      onTap: (){
+                      onTap: () {
                         setState(() {
                           Navigator.pushNamed(context, PaymentScreen.id);
                         });
