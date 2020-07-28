@@ -39,6 +39,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
           ),
         ),
         body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Container(
               color: Color(0xFFE9E9E9),
@@ -63,13 +64,68 @@ class _PaymentScreenState extends State<PaymentScreen> {
               ),
             ),
             Container(
-              height: MediaQuery.of(context).size.height - 134,
+              height: MediaQuery.of(context).size.height - 208,
               width: MediaQuery.of(context).size.width,
               child: TabBarView(
                 children: <Widget>[
                   HomeDeliveryScreen(),
                   SelfPickUpScreen(),
                 ],
+              ),
+            ),
+            Expanded(
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                color: Color(0xFF741053),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Row(
+                        children: <Widget>[
+                          Text(
+                            "TOTAL : ",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                            ),
+                          ),
+                          Text(
+                            " ₹ 116",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Card(
+                          color: Colors.yellowAccent,
+                          elevation: 10,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 10),
+                            child: Text(
+                              "PLACE ORDER",
+                              style: TextStyle(
+                                color: Color(0xFF740F53),
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
           ],
