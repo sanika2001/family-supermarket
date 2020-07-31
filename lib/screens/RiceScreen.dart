@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:familysupermarket/bloc/RiceBloc.dart';
 import 'package:familysupermarket/components/riceCard.dart';
 import 'package:familysupermarket/models/rice.dart';
+import 'package:familysupermarket/db/Ricedb.dart';
 
 class RiceScreen extends StatefulWidget {
   @override
@@ -11,6 +12,20 @@ class RiceScreen extends StatefulWidget {
 
 class _RiceScreenState extends State<RiceScreen> {
   final RiceBloc _riceBloc = RiceBloc();
+
+  DatabaseProvider _databaseProvider = DatabaseProvider();
+  var database;
+
+  Future getDB() async {
+    database = await _databaseProvider.createDatabase();
+    await _databaseProvider.insertDB(database);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getDB();
+  }
 
   @override
   void dispose() {
@@ -25,7 +40,7 @@ class _RiceScreenState extends State<RiceScreen> {
       child: Container(
         height: 500,
         child: StreamBuilder<List<Rice>>(
-          stream: _riceBloc.riceListStream,
+          stream: _riceBloc.rices,
           builder: (BuildContext context, AsyncSnapshot<List<Rice>> snapshot) {
             if (snapshot.hasError) {
               print(snapshot.error);
@@ -40,12 +55,12 @@ class _RiceScreenState extends State<RiceScreen> {
                         rice: snapshot.data[index],
                         cancelAdd: () {
                           setState(() {
-                            snapshot.data[index].pressed = false;
+                            snapshot.data[index].pressed = 0;
                           });
                         },
                         addTap: () {
                           setState(() {
-                            snapshot.data[index].pressed = true;
+                            snapshot.data[index].pressed = 1;
                           });
                         },
                         plus: () {
