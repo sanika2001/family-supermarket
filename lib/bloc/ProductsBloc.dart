@@ -2,23 +2,28 @@ import 'dart:async';
 import 'package:familysupermarket/models/products.dart';
 import 'package:familysupermarket/repository/products.dart';
 
-class ProductsBloc{
+class ProductsBloc {
+  final _productsRepository = ProductsRepository();
 
+  final _productsController = StreamController<List<Products>>();
 
-  final _productsListStreamController = StreamController<List<Products>>();
+  get productss => _productsController.stream;
 
-  Stream<List<Products>> get productsListStream =>
-      _productsListStreamController.stream;
-
-  StreamSink<List<Products>> get productsListSink =>
-      _productsListStreamController.sink;
-
-  ProductsBloc(){
-    _productsListStreamController.add(productsList);
+  ProductsBloc() {
+    getProductss();
   }
 
-  void dispose(){
-    _productsListStreamController.close();
+  getProductss({String query}) async {
+    _productsController.sink
+        .add(await _productsRepository.getAllProductss(query: query));
+  }
+
+  addProducts(Products products) async {
+    await _productsRepository.insertProducts(products);
+    getProductss();
+  }
+
+  dispose() {
+    _productsController.close();
   }
 }
-

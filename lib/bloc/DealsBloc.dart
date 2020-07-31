@@ -2,21 +2,28 @@ import 'dart:async';
 import 'package:familysupermarket/models/deals.dart';
 import 'package:familysupermarket/repository/deals.dart';
 
-class DealsBloc{
+class DealsBloc {
+  final _dealsRepository = DealsRepository();
 
+  final _dealsController = StreamController<List<Deals>>();
 
-  final _dealsListStreamController = StreamController<List<Deals>>();
+  get dealss => _dealsController.stream;
 
-  Stream<List<Deals>> get dealsListStream =>
-      _dealsListStreamController.stream;
-  StreamSink<List<Deals>> get dealsListSink =>
-      _dealsListStreamController.sink;
-
-  DealsBloc(){
-    _dealsListStreamController.add(dealsList);
+  DealsBloc() {
+    getDealss();
   }
 
-  void dispose(){
-    _dealsListStreamController.close();
+  getDealss({String query}) async {
+    _dealsController.sink
+        .add(await _dealsRepository.getAllDealss(query: query));
+  }
+
+  addDeals(Deals deals) async {
+    await _dealsRepository.insertDeals(deals);
+    getDealss();
+  }
+
+  dispose() {
+    _dealsController.close();
   }
 }

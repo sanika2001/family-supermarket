@@ -16,6 +16,8 @@ import 'package:familysupermarket/models/products.dart';
 import 'package:familysupermarket/repository/swiperList.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:familysupermarket/db/categories.dart';
+import 'package:familysupermarket/db/Dealsdb.dart';
+import 'package:familysupermarket/db/Productsdb.dart';
 
 class SupermarketScreen extends StatefulWidget {
   static const String id = '/supermarket';
@@ -29,11 +31,19 @@ class _SupermarketScreenState extends State<SupermarketScreen> {
   final ProductsBloc _productsBloc = ProductsBloc();
 
   DatabaseProvider _databaseProvider = DatabaseProvider();
+  DatabaseProvider1 _databaseProvider1 = DatabaseProvider1();
+  var database1;
+  DatabaseProvider2 _databaseProvider2 = DatabaseProvider2();
+  var database2;
   var database;
 
   Future getDB() async {
+    database2 = await _databaseProvider2.createDatabase();
+    await _databaseProvider2.insertDB(database2);
     database = await _databaseProvider.createDatabase();
     await _databaseProvider.insertDB(database);
+    database1 = await _databaseProvider1.createDatabase();
+    await _databaseProvider1.insertDB(database1);
   }
 
   @override
@@ -193,7 +203,7 @@ class _SupermarketScreenState extends State<SupermarketScreen> {
             Container(
               height: 120,
               child: StreamBuilder<List<Deals>>(
-                stream: _dealsBloc.dealsListStream,
+                stream: _dealsBloc.dealss,
                 builder: (BuildContext context,
                     AsyncSnapshot<List<Deals>> snapshot) {
                   if (snapshot.hasError) {
@@ -229,7 +239,7 @@ class _SupermarketScreenState extends State<SupermarketScreen> {
             Container(
               height: 120,
               child: StreamBuilder<List<Products>>(
-                stream: _productsBloc.productsListStream,
+                stream: _productsBloc.productss,
                 builder: (BuildContext context,
                     AsyncSnapshot<List<Products>> snapshot) {
                   if (snapshot.hasError) {

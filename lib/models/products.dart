@@ -1,11 +1,13 @@
-class Products{
-  String _image;
+class Products {
+  String image;
 
-  Products(this._image);
+  Products({this.image});
 
-  set image(String image) {
-    this._image = image;
-  }
+  factory Products.fromDatabaseJson(Map<String, dynamic> data) => Products(
+        image: data['image'],
+      );
 
-  String get image => this._image;
+  Map<String, dynamic> toDatabaseJson() => {
+        "image": this.image,
+      };
 }
