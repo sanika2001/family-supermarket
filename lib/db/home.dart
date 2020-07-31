@@ -40,6 +40,18 @@ class DatabaseProvider {
 
   Future insertDB(Database database) async {
     await database.rawInsert(
+        'INSERT INTO $homeTABLE($ID,$IMAGE,$NAME)VALUES (1, "images/wheat.png", "Food Grains,Oils & Masala")');
+    await database.rawInsert(
+        'INSERT INTO $homeTABLE($ID,$IMAGE,$NAME)VALUES (2, "images/instant.png", "Instant Foods")');
+    await database.rawInsert(
+        'INSERT INTO $homeTABLE($ID,$IMAGE,$NAME)VALUES (3, "images/snacks.png", "Snacks & Confectionary")');
+    await database.rawInsert(
+        'INSERT INTO $homeTABLE($ID,$IMAGE,$NAME)VALUES (4, "images/tea.png", "Beverages")');
+    await database.rawInsert(
+        'INSERT INTO $homeTABLE($ID,$IMAGE,$NAME)VALUES (5, "images/cleaning.png", "Household & Cleaning")');
+    await database.rawInsert(
+        'INSERT INTO $homeTABLE($ID,$IMAGE,$NAME)VALUES (6, "images/cream.png", "Beauty & Personal Care")');
+    await database.rawInsert(
         'INSERT INTO $homeTABLE($ID,$IMAGE,$NAME)VALUES (7, "images/baby.png", "Baby Food & Care")');
     await database.rawInsert(
         'INSERT INTO $homeTABLE($ID,$IMAGE,$NAME)VALUES (8, "images/stationary.png", "Stationary")');
