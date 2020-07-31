@@ -44,6 +44,6 @@ class DatabaseProvider {
   Future insertDB(Database database) async {
     await database.rawInsert(
         'INSERT INTO $cartTABLE($ID,$IMAGE,$NAME,$RATE)VALUES (1, "https://www.periyarrice.com/images/slider2_pro1.png", "Periyar Rice","₹ 32.00"),'
-            '(2, "https://images-na.ssl-images-amazon.com/images/I/71CAb58u8TL._SL1313_.jpg","Aashirvaad Atta","₹ 84.00")');
+        '(2, "https://images-na.ssl-images-amazon.com/images/I/71CAb58u8TL._SL1313_.jpg","Aashirvaad Atta","₹ 84.00")');
   }
 }
