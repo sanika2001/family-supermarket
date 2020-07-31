@@ -5,14 +5,14 @@ import 'package:familysupermarket/models/components.dart';
 class ComponentsDao {
   final dbProvider = DatabaseProvider.dbProvider;
 
-  //Adds new
   Future<int> createComponents(Components components) async {
     final db = await dbProvider.database;
     var result = db.insert(componentsTABLE, components.toDatabaseJson());
     return result;
   }
 
-  Future<List<Components>> getComponentss({List<String> columns, String query}) async {
+  Future<List<Components>> getComponentss(
+      {List<String> columns, String query}) async {
     final db = await dbProvider.database;
 
     List<Map<String, dynamic>> result;
