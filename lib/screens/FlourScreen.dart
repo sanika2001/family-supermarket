@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:familysupermarket/components/riceCard.dart';
 import 'package:familysupermarket/models/rice.dart';
 import 'package:familysupermarket/bloc/FlourBloc.dart';
+import 'package:familysupermarket/db/Flourdb.dart';
 
 class FlourScreen extends StatefulWidget {
   @override
@@ -11,6 +12,20 @@ class FlourScreen extends StatefulWidget {
 
 class _FlourScreenState extends State<FlourScreen> {
   final FlourBloc _flourBloc = FlourBloc();
+
+  DatabaseProvider _databaseProvider = DatabaseProvider();
+  var database;
+
+  Future getDB() async {
+    database = await _databaseProvider.createDatabase();
+    await _databaseProvider.insertDB(database);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getDB();
+  }
 
   @override
   void dispose() {
@@ -24,7 +39,7 @@ class _FlourScreenState extends State<FlourScreen> {
       child: Container(
         height: 500,
         child: StreamBuilder<List<Rice>>(
-            stream: _flourBloc.flourListStream,
+            stream: _flourBloc.flours,
             builder:
                 (BuildContext context, AsyncSnapshot<List<Rice>> snapshot) {
               if (snapshot.hasError) {
@@ -40,12 +55,12 @@ class _FlourScreenState extends State<FlourScreen> {
                           rice: snapshot.data[index],
                           cancelAdd: () {
                             setState(() {
-                              snapshot.data[index].pressed = false;
+                              snapshot.data[index].pressed = 0;
                             });
                           },
                           addTap: () {
                             setState(() {
-                              snapshot.data[index].pressed = true;
+                              snapshot.data[index].pressed = 1;
                             });
                           },
                           plus: () {

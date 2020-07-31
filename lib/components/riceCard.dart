@@ -89,7 +89,7 @@ class RiceCard extends StatelessWidget {
               onTap: cancelAdd,
               child: Column(
                 children: <Widget>[
-                  rice.pressed
+                  rice.pressed == 1
                       ? Card(
                           elevation: 5,
                           child: Row(
