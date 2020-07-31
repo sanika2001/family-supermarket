@@ -46,7 +46,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
               height: 50,
               width: MediaQuery.of(context).size.width,
               child: TabBar(
-                indicatorColor: Color(0xFFE9E9E9),
+                indicatorColor: Color(0xFF740F53),
                 labelStyle: TextStyle(
                   color: kDesignColor,
                   fontWeight: FontWeight.w500,

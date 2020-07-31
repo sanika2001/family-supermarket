@@ -1,8 +1,6 @@
 import 'package:familysupermarket/models/home.dart';
 import 'dart:async';
 import 'package:familysupermarket/repository/home.dart';
-import 'package:familysupermarket/db/home.dart';
-import 'package:flutter/cupertino.dart';
 
 class HomeBloc {
   final _homeRepository = HomeRepository();
