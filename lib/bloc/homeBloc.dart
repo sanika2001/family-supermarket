@@ -1,23 +1,30 @@
 import 'package:familysupermarket/models/home.dart';
 import 'dart:async';
 import 'package:familysupermarket/repository/home.dart';
+import 'package:familysupermarket/db/home.dart';
+import 'package:flutter/cupertino.dart';
 
 class HomeBloc {
+  final _homeRepository = HomeRepository();
 
+  final _homeController = StreamController<List<Home>>();
 
-  final _homeListStreamController = StreamController<List<Home>>();
+  get homes => _homeController.stream;
 
-  Stream<List<Home>> get homeListStream =>
-      _homeListStreamController.stream;
-  StreamSink<List<Home>> get homeListSink =>
-      _homeListStreamController.sink;
-
-  HomeBloc(){
-    _homeListStreamController.add(homeList);
+  HomeBloc() {
+    getHomes();
   }
 
-  void dispose() {
-    _homeListStreamController.close();
+  getHomes({String query}) async {
+    _homeController.sink.add(await _homeRepository.getAllHomes(query: query));
+  }
+
+  addHome(Home home) async {
+    await _homeRepository.insertHome(home);
+    getHomes();
+  }
+
+  dispose() {
+    _homeController.close();
   }
 }
-

@@ -9,8 +9,7 @@ import 'package:tab_indicator_styler/tab_indicator_styler.dart';
 import 'package:familysupermarket/components/bottomNavigationBar.dart';
 import 'package:familysupermarket/screens/RiceScreen.dart';
 import 'package:familysupermarket/screens/FlourScreen.dart';
-
-int cupertinoTabBarValue = 0;
+import 'package:familysupermarket/db/home.dart';
 
 class homeScreen extends StatefulWidget {
   static const String id = '/home';
@@ -19,16 +18,27 @@ class homeScreen extends StatefulWidget {
 }
 
 class _homeScreenState extends State<homeScreen> {
-  final HomeBloc _homeBloc = HomeBloc();
-
+  final HomeBloc homeBloc = HomeBloc();
   final FlourBloc _flourBloc = FlourBloc();
+  DatabaseProvider _databaseProvider = DatabaseProvider();
+  var database;
 
-  int cupertinoTabBarValueGetter() => cupertinoTabBarValue;
+  Future getDB() async {
+    database = await _databaseProvider.createDatabase();
+    await _databaseProvider.insertDB(database);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getDB();
+  }
 
   @override
   void dispose() {
-    _homeBloc.dispose();
+    homeBloc.dispose();
     _flourBloc.dispose();
+    super.dispose();
   }
 
   @override
@@ -63,27 +73,28 @@ class _homeScreenState extends State<homeScreen> {
               Container(
                 height: 128,
                 color: Color(0xFFE9E9E9),
-                child: StreamBuilder<List<Home>>(
-                    stream: _homeBloc.homeListStream,
-                    builder: (BuildContext context,
-                        AsyncSnapshot<List<Home>> snapshot) {
-                      if (snapshot.hasError) {
-                        print(snapshot.error);
-                      }
-                      return snapshot.hasData
-                          ? ListView.builder(
-                              physics: BouncingScrollPhysics(),
-                              itemCount: snapshot.data.length,
-                              scrollDirection: Axis.horizontal,
-                              itemBuilder: (context, index) {
-                                return HomeCard(
-                                  home: snapshot.data[index],
-                                );
-                              })
-                          : Center(
-                              child: CircularProgressIndicator(),
-                            );
-                    }),
+                child: StreamBuilder(
+                  stream: homeBloc.homes,
+                  builder: (BuildContext context,
+                      AsyncSnapshot<List<Home>> snapshot) {
+                    if (snapshot.hasError) {
+                      print(snapshot.error);
+                    }
+                    return snapshot.hasData
+                        ? ListView.builder(
+                            physics: BouncingScrollPhysics(),
+                            itemCount: snapshot.data.length,
+                            scrollDirection: Axis.horizontal,
+                            itemBuilder: (context, index) {
+                              return HomeCard(
+                                home: snapshot.data[index],
+                              );
+                            })
+                        : Center(
+                            child: CircularProgressIndicator(),
+                          );
+                  },
+                ),
               ),
               Container(
                 color: kDesignColor,
@@ -142,28 +153,3 @@ class _homeScreenState extends State<homeScreen> {
     );
   }
 }
-
-//Container(
-//height: 500,
-//child: StreamBuilder<List<Rice>>(
-//stream: _riceBloc.riceListStream,
-//builder: (BuildContext context,
-//    AsyncSnapshot<List<Rice>> snapshot) {
-//if (snapshot.hasError) {
-//print(snapshot.error);
-//}
-//return snapshot.hasData
-//? ListView.builder(
-//physics: BouncingScrollPhysics(),
-//itemCount: snapshot.data.length,
-//scrollDirection: Axis.vertical,
-//itemBuilder: (context, index) {
-//return RiceCard(
-//rice: snapshot.data[index],
-//);
-//})
-//    : Center(
-//child: CircularProgressIndicator(),
-//);
-//}),
-//),
