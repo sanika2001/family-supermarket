@@ -21,6 +21,4 @@ class Home {
         "image": this.image,
         "name": this.name,
       };
-
-
 }
