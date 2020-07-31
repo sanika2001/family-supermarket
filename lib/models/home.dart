@@ -22,34 +22,5 @@ class Home {
         "name": this.name,
       };
 
-//  Map<String, dynamic> toMap() {
-//    var map = <String, dynamic>{
-//      'id': _id,
-//      'image': _image,
-//      'name': _name,
-//    };
-//    return map;
-//  }
-//
-//  Home.fromMap(Map<String, dynamic> map) {
-//    _id = map['id'];
-//    _image = map['image'];
-//    _name = map['name'];
-//  }
-//
-//  set id(int id) {
-//    this._id = id;
-//  }
-//
-//  set image(String image) {
-//    this._image = image;
-//  }
-//
-//  set name(String name) {
-//    this._name = name;
-//  }
-//
-//  int get id => this._id;
-//  String get image => this._image;
-//  String get name => this._name;
+
 }
