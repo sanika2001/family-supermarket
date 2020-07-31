@@ -1,22 +1,28 @@
-import 'dart:async';
 import 'package:familysupermarket/models/categories.dart';
+import 'dart:async';
 import 'package:familysupermarket/repository/categories.dart';
 
 class CategoriesBloc {
+  final _categoriesRepository = CategoriesRepository();
 
+  final _categoriesController = StreamController<List<Categories>>();
 
-  final _categoriesListStreamController = StreamController<List<Categories>>();
+  get categoriess => _categoriesController.stream;
 
-  Stream<List<Categories>> get categoriesListStream =>
-      _categoriesListStreamController.stream;
-  StreamSink<List<Categories>> get categoriesListSink =>
-      _categoriesListStreamController.sink;
-
-  CategoriesBloc(){
-    _categoriesListStreamController.add(categoriesList);
+  CategoriesBloc() {
+    getCategoriess();
   }
 
-  void dispose() {
-    _categoriesListStreamController.close();
+  getCategoriess({String query}) async {
+    _categoriesController.sink.add(await _categoriesRepository.getAllCategoriess(query: query));
+  }
+
+  addHome(Categories categories) async {
+    await _categoriesRepository.insertCategories(categories);
+    getCategoriess();
+  }
+
+  dispose() {
+    _categoriesController.close();
   }
 }

@@ -1,17 +1,24 @@
-class Categories{
-  String _image;
-  String _name;
+class Categories {
+  String image;
+  String name;
+  int id;
 
-  Categories(this._image,this._name);
+  Categories({this.image, this.name, this.id});
 
-  set image(String image) {
-    this._image = image;
-  }
+  factory Categories.fromDatabaseJson(Map<String, dynamic> data) => Categories(
+    //This will be used to convert JSON objects that
+    //are coming from querying the database and converting
+    //it into a
+    id: data['id'],
+    image: data['image'],
+    name: data['name'],
+  );
 
-  set name(String name) {
-    this._name = name;
-  }
-
-  String get image => this._image;
-  String get name => this._name;
+  Map<String, dynamic> toDatabaseJson() => {
+    //This will be used to convert
+    //are to be stored into the datbase in a form of JSON
+    "id": this.id,
+    "image": this.image,
+    "name": this.name,
+  };
 }

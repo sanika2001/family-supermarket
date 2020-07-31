@@ -1,12 +1,11 @@
+import 'package:flutter/material.dart';
 import 'package:familysupermarket/components/catagoriesCard.dart';
 import 'package:familysupermarket/components/dealsCard.dart';
 import 'package:familysupermarket/components/productsCard.dart';
-import 'package:familysupermarket/repository/swiperList.dart';
+import 'package:familysupermarket/components/bottomNavigationBar.dart';
 import 'package:familysupermarket/screens/familyScreen.dart';
 import 'package:familysupermarket/screens/homeScreen.dart';
 import 'package:familysupermarket/screens/locationScreen.dart';
-import 'package:flutter/material.dart';
-import 'package:familysupermarket/components/bottomNavigationBar.dart';
 import 'package:familysupermarket/constants.dart';
 import 'package:familysupermarket/bloc/CategoriesBloc.dart';
 import 'package:familysupermarket/bloc/DealsBloc.dart';
@@ -14,7 +13,9 @@ import 'package:familysupermarket/bloc/ProductsBloc.dart';
 import 'package:familysupermarket/models/categories.dart';
 import 'package:familysupermarket/models/deals.dart';
 import 'package:familysupermarket/models/products.dart';
+import 'package:familysupermarket/repository/swiperList.dart';
 import 'package:carousel_pro/carousel_pro.dart';
+import 'package:familysupermarket/db/categories.dart';
 
 class SupermarketScreen extends StatefulWidget {
   static const String id = '/supermarket';
@@ -26,6 +27,20 @@ class _SupermarketScreenState extends State<SupermarketScreen> {
   final CategoriesBloc _categoriesBloc = CategoriesBloc();
   final DealsBloc _dealsBloc = DealsBloc();
   final ProductsBloc _productsBloc = ProductsBloc();
+
+  DatabaseProvider _databaseProvider = DatabaseProvider();
+  var database;
+
+  Future getDB() async {
+    database = await _databaseProvider.createDatabase();
+    await _databaseProvider.insertDB(database);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getDB();
+  }
 
   @override
   void dispose() {
@@ -58,15 +73,16 @@ class _SupermarketScreenState extends State<SupermarketScreen> {
                         Container(
                           width: MediaQuery.of(context).size.width - 50,
                           child: GestureDetector(
-                            child: TextField(
-                              textAlign: TextAlign.start,
-                              decoration: kTextFieldDecoration,
-                            ),
                             onDoubleTap: () {
                               setState(() {
                                 Navigator.pushNamed(context, locationScreen.id);
                               });
                             },
+                            child: TextField(
+                              enabled: true,
+                              textAlign: TextAlign.start,
+                              decoration: kTextFieldDecoration,
+                            ),
                           ),
                         ),
                         Positioned(
@@ -137,7 +153,7 @@ class _SupermarketScreenState extends State<SupermarketScreen> {
               height: 128,
               color: Color(0xFFE9E9E9),
               child: StreamBuilder<List<Categories>>(
-                  stream: _categoriesBloc.categoriesListStream,
+                  stream: _categoriesBloc.categoriess,
                   builder: (BuildContext context,
                       AsyncSnapshot<List<Categories>> snapshot) {
                     if (snapshot.hasError) {
