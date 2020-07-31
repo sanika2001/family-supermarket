@@ -1,21 +1,28 @@
-import 'package:familysupermarket/repository/components.dart';
-import 'dart:async';
 import 'package:familysupermarket/models/components.dart';
+import 'dart:async';
+import 'package:familysupermarket/repository/components.dart';
 
 class ComponentsBloc {
+  final _componentsRepository = ComponentsRepository();
 
-  final _componentsListStreamController = StreamController<List<Components>>();
+  final _componentsController = StreamController<List<Components>>();
 
-  Stream<List<Components>> get componentsListStream =>
-      _componentsListStreamController.stream;
-  StreamSink<List<Components>> get categoriesListSink =>
-      _componentsListStreamController.sink;
+  get componentss => _componentsController.stream;
 
-  ComponentsBloc(){
-    _componentsListStreamController.add(componentsList);
+  ComponentsBloc() {
+    getComponentss();
   }
 
-  void dispose(){
-    _componentsListStreamController.close();
+  getComponentss({String query}) async {
+    _componentsController.sink.add(await _componentsRepository.getAllComponentss(query: query));
+  }
+
+  addComponents(Components components) async {
+    await _componentsRepository.insertComponents(components);
+    getComponentss();
+  }
+
+  dispose() {
+    _componentsController.close();
   }
 }

@@ -4,6 +4,7 @@ import 'package:familysupermarket/components/bottomNavigationBar.dart';
 import 'package:familysupermarket/bloc/ComponentsBloc.dart';
 import 'package:familysupermarket/models/components.dart';
 import 'package:familysupermarket/components/componentsCard.dart';
+import 'package:familysupermarket/db/components.dart';
 
 class FamilyScreen extends StatefulWidget {
   static const String id = '/family';
@@ -13,6 +14,20 @@ class FamilyScreen extends StatefulWidget {
 
 class _FamilyScreenState extends State<FamilyScreen> {
   final ComponentsBloc _componentsBloc = ComponentsBloc();
+
+  DatabaseProvider _databaseProvider = DatabaseProvider();
+  var database;
+
+  Future getDB() async {
+    database = await _databaseProvider.createDatabase();
+    await _databaseProvider.insertDB(database);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getDB();
+  }
 
   @override
   void dispose() {
@@ -65,7 +80,7 @@ class _FamilyScreenState extends State<FamilyScreen> {
                       height: 450,
                       color: Color(0xFFE9E9E9),
                       child: StreamBuilder<List<Components>>(
-                          stream: _componentsBloc.componentsListStream,
+                          stream: _componentsBloc.componentss,
                           builder: (BuildContext context,
                               AsyncSnapshot<List<Components>> snapshot) {
                             if (snapshot.hasError) {
