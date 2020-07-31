@@ -1,23 +1,27 @@
 class Cart {
-  String _image;
-  String _name;
-  String _rate;
+  String image;
+  String name;
+  String rate;
+  int id;
 
-  Cart(this._image, this._name, this._rate);
+  Cart({this.image, this.name,this.rate, this.id});
 
-  set image(String image) {
-    this._image = image;
-  }
+  factory Cart.fromDatabaseJson(Map<String, dynamic> data) => Cart(
+    //This will be used to convert JSON objects that
+    //are coming from querying the database and converting
+    //it into a
+    id: data['id'],
+    image: data['image'],
+    name: data['name'],
+    rate: data['rate'],
+  );
 
-  set name(String name) {
-    this._name = name;
-  }
-
-  set rate(String rate) {
-    this._rate = rate;
-  }
-
-  String get image => this._image;
-  String get name => this._name;
-  String get rate => this._rate;
+  Map<String, dynamic> toDatabaseJson() => {
+    //This will be used to convert
+    //are to be stored into the database in a form of JSON
+    "id": this.id,
+    "image": this.image,
+    "name": this.name,
+    "rate": this.rate,
+  };
 }

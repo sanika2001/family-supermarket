@@ -5,7 +5,7 @@ import 'package:familysupermarket/models/home.dart';
 class HomeDao {
   final dbProvider = DatabaseProvider.dbProvider;
 
-  //Adds new Todo records
+  //Adds new T
   Future<int> createHome(Home home) async {
     final db = await dbProvider.database;
     var result = db.insert(homeTABLE, home.toDatabaseJson());

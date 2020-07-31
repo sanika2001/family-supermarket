@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:familysupermarket/components/cartCard.dart';
 import 'package:familysupermarket/bloc/cartBloc.dart';
 import 'package:familysupermarket/models/cart.dart';
+import 'package:familysupermarket/db/cart.dart';
 
 class CartScreen extends StatefulWidget {
   static const String id = '/cart';
@@ -14,6 +15,19 @@ class CartScreen extends StatefulWidget {
 
 class _CartScreenState extends State<CartScreen> {
   final CartBloc _cartBloc = CartBloc();
+  DatabaseProvider _databaseProvider = DatabaseProvider();
+  var database;
+
+  Future getDB() async {
+    database = await _databaseProvider.createDatabase();
+    await _databaseProvider.insertDB(database);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getDB();
+  }
 
   @override
   void dispose() {
@@ -66,7 +80,7 @@ class _CartScreenState extends State<CartScreen> {
               Container(
                 height: 220,
                 child: StreamBuilder<List<Cart>>(
-                    stream: _cartBloc.cartListStream,
+                    stream: _cartBloc.carts,
                     builder: (BuildContext context,
                         AsyncSnapshot<List<Cart>> snapshot) {
                       if (snapshot.hasError) {

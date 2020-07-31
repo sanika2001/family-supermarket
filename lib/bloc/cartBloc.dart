@@ -1,18 +1,28 @@
-import 'package:familysupermarket/repository/cart.dart';
-import 'dart:async';
 import 'package:familysupermarket/models/cart.dart';
+import 'dart:async';
+import 'package:familysupermarket/repository/cart.dart';
 
 class CartBloc {
-  final _cartListStreamController = StreamController<List<Cart>>();
+  final _cartRepository = CartRepository();
 
-  Stream<List<Cart>> get cartListStream => _cartListStreamController.stream;
-  StreamSink<List<Cart>> get cartListSink => _cartListStreamController.sink;
+  final _cartController = StreamController<List<Cart>>();
+
+  get carts => _cartController.stream;
 
   CartBloc() {
-    _cartListStreamController.add(cartList);
+    getCarts();
   }
 
-  void dispose() {
-    _cartListStreamController.close();
+  getCarts({String query}) async {
+    _cartController.sink.add(await _cartRepository.getAllCarts(query: query));
+  }
+
+  addCart(Cart cart) async {
+    await _cartRepository.insertCart(cart);
+    getCarts();
+  }
+
+  dispose() {
+    _cartController.close();
   }
 }
