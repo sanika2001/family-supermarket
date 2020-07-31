@@ -19,7 +19,7 @@ class homeScreen extends StatefulWidget {
 
 class _homeScreenState extends State<homeScreen> {
   final HomeBloc homeBloc = HomeBloc();
-//  final FlourBloc _flourBloc = FlourBloc();
+  final FlourBloc _flourBloc = FlourBloc();
   DatabaseProvider _databaseProvider = DatabaseProvider();
   var database;
 
@@ -37,7 +37,7 @@ class _homeScreenState extends State<homeScreen> {
   @override
   void dispose() {
     homeBloc.dispose();
-//    _flourBloc.dispose();
+    _flourBloc.dispose();
     super.dispose();
   }
 
@@ -139,8 +139,7 @@ class _homeScreenState extends State<homeScreen> {
                 child: TabBarView(
                   children: <Widget>[
                     RiceScreen(),
-                    Container(),
-//                    FlourScreen(),
+                    FlourScreen(),
                     Container(),
                     Container(),
                     Container(),
