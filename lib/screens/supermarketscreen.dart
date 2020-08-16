@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:familysupermarket/components/catagoriesCard.dart';
 import 'package:familysupermarket/components/dealsCard.dart';
@@ -87,18 +88,29 @@ class _SupermarketScreenState extends State<SupermarketScreen> {
                                 Navigator.pushNamed(context, locationScreen.id);
                               });
                             },
-                            child: Card(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              color: Colors.white,
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  "Your location",
-                                  style: TextStyle(
-                                    color: Color(0xFF939393),
-                                    fontSize: 20,
+                            child: Container(
+                              width: MediaQuery.of(context).size.width - 90,
+                              height: 52,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  border: Border.all(color: Color(0xFF939393)),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20))),
+                              child: Card(
+                                elevation: 0,
+                                borderOnForeground: true,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                color: Colors.white,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(9.0),
+                                  child: Text(
+                                    "Your location",
+                                    style: TextStyle(
+                                      color: Color(0xFF939393),
+                                      fontSize: 20,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -122,12 +134,15 @@ class _SupermarketScreenState extends State<SupermarketScreen> {
                   ],
                 ),
               ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width,
-                height: 180,
-                child: Carousel(
-                  images: offerSwiperList,
-                  showIndicator: false,
+              Padding(
+                padding: const EdgeInsets.only(top: 1),
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  height: 180,
+                  child: Carousel(
+                    images: offerSwiperList,
+                    showIndicator: false,
+                  ),
                 ),
               ),
               Padding(
