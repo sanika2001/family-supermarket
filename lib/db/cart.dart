@@ -5,11 +5,12 @@ import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:sqflite/sqlite_api.dart';
 
-final cartTABLE = 'Home';
+final cartTABLE = 'CartTable';
 const String ID = 'id';
 const String IMAGE = 'image';
 const String NAME = 'name';
 const String RATE = 'rate';
+const String QTY = 'qty';
 
 class DatabaseProvider {
   static final DatabaseProvider dbProvider = DatabaseProvider();
@@ -32,18 +33,18 @@ class DatabaseProvider {
   }
 
   void initDB(Database database, int version) async {
-    print("executed");
     await database.execute("CREATE TABLE $cartTABLE ("
         "id INTEGER PRIMARY KEY, "
         "image TEXT, "
         "name TEXT, "
-        "rate TEXT"
+        "rate TEXT,"
+        "qty INTEGER"
         ")");
   }
 
   Future insertDB(Database database) async {
     await database.rawInsert(
-        'INSERT INTO $cartTABLE($ID,$IMAGE,$NAME,$RATE)VALUES (1, "https://www.periyarrice.com/images/slider2_pro1.png", "Periyar Rice","₹ 32.00"),'
-        '(2, "https://images-na.ssl-images-amazon.com/images/I/71CAb58u8TL._SL1313_.jpg","Aashirvaad Atta","₹ 84.00")');
+        'INSERT INTO $cartTABLE($ID,$IMAGE,$NAME,$RATE,$QTY)VALUES (1, "https://www.periyarrice.com/images/slider2_pro1.png", "Periyar Rice","₹ 32.00",1),'
+        '(2, "https://images-na.ssl-images-amazon.com/images/I/71CAb58u8TL._SL1313_.jpg","Aashirvaad Atta","₹ 84.00",1)');
   }
 }
