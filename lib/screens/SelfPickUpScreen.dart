@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:familysupermarket/components/PurpleButton.dart';
 import 'package:familysupermarket/components/SelfPickupCard.dart';
 
+bool _isChecked3 = true;
+bool _isChecked4 = false;
+bool _isChecked5 = false;
+bool _isChecked6 = false;
+
 class SelfPickUpScreen extends StatefulWidget {
   @override
   _SelfPickUpScreenState createState() => _SelfPickUpScreenState();
@@ -49,13 +54,68 @@ class _SelfPickUpScreenState extends State<SelfPickUpScreen> {
                         children: <Widget>[
                           SelfPickupCard(
                             text: "Wallet/UPI",
-                            isPressed: false,
+                            isPressed: _isChecked3,
+                            onPress: () {
+                              setState(() {
+                                _isChecked3 =
+                                    _isChecked3 == true ? false : true;
+                                _isChecked4 =
+                                    _isChecked3 == true ? false : true;
+                                _isChecked5 =
+                                    _isChecked3 == true ? false : true;
+                                _isChecked6 =
+                                    _isChecked3 == true ? false : true;
+                              });
+                            },
                           ),
-                          SelfPickupCard(text: "Net Banking", isPressed: false),
                           SelfPickupCard(
-                              text: "Credit/Debit/ATM card", isPressed: false),
+                            text: "Net Banking",
+                            isPressed: _isChecked4,
+                            onPress: () {
+                              setState(() {
+                                _isChecked4 =
+                                    _isChecked4 == true ? false : true;
+                                _isChecked3 =
+                                    _isChecked4 == true ? false : true;
+                                _isChecked5 =
+                                    _isChecked4 == true ? false : true;
+                                _isChecked6 =
+                                    _isChecked4 == true ? false : true;
+                              });
+                            },
+                          ),
                           SelfPickupCard(
-                              text: "Direct Payment", isPressed: true),
+                            text: "Credit/Debit/ATM card",
+                            isPressed: _isChecked5,
+                            onPress: () {
+                              setState(() {
+                                _isChecked5 =
+                                    _isChecked5 == true ? false : true;
+                                _isChecked4 =
+                                    _isChecked5 == true ? false : true;
+                                _isChecked3 =
+                                    _isChecked5 == true ? false : true;
+                                _isChecked6 =
+                                    _isChecked5 == true ? false : true;
+                              });
+                            },
+                          ),
+                          SelfPickupCard(
+                            text: "Direct Payment",
+                            isPressed: _isChecked6,
+                            onPress: () {
+                              setState(() {
+                                _isChecked6 =
+                                    _isChecked6 == true ? false : true;
+                                _isChecked4 =
+                                    _isChecked6 == true ? false : true;
+                                _isChecked5 =
+                                    _isChecked6 == true ? false : true;
+                                _isChecked3 =
+                                    _isChecked6 == true ? false : true;
+                              });
+                            },
+                          ),
                         ],
                       ),
                     ),
