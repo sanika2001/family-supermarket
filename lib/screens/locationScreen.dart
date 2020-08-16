@@ -10,6 +10,7 @@ class locationScreen extends StatefulWidget {
 }
 
 class _locationScreenState extends State<locationScreen> {
+  String _dropDownValue = "Thalasseri branch";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,39 +77,77 @@ class _locationScreenState extends State<locationScreen> {
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.all(10.0),
-                child: ButtonTheme(
-                  minWidth: 250,
-                  child: RaisedButton(
-                    elevation: 25,
-                    color: Color(0xFFC4C4C4),
-                    onPressed: () {},
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Row(
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            "Thalassery Branch",
-                            style: TextStyle(
-                              fontSize: 17,
-                              color: Color(0xFF5A5A5A),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 30),
-                          child: Icon(
-                            Icons.keyboard_arrow_down,
-                            color: Color(0xFF740F53),
-                            size: 30,
-                          ),
-                        ),
-                      ],
+                child: Container(
+                  height: 38,
+                  decoration: BoxDecoration(
+                      color: Color(0xFFC4C4C4),
+                      borderRadius: BorderRadius.all(Radius.circular(10))),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 22),
+                    child: DropdownButton<String>(
+                      style: TextStyle(
+                        fontSize: 17,
+                        color: Color(0xFF5A5A5A),
+                      ),
+                      elevation: 25,
+                      icon: Icon(
+                        Icons.keyboard_arrow_down,
+                        color: Color(0xFF740F53),
+                        size: 30,
+                      ),
+                      dropdownColor: Color(0xFFC4C4C4),
+                      items: <String>[
+                        "Thalasseri branch",
+                        "Kannur branch",
+                        "Thaliparamba branch",
+                      ].map((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                      hint: Text(_dropDownValue),
+                      onChanged: (newVal) {
+                        this.setState(() {
+                          _dropDownValue = newVal;
+                        });
+                      },
                     ),
                   ),
                 ),
+//                child: ButtonTheme(
+//                  minWidth: 250,
+//                  child: RaisedButton(
+//                    elevation: 25,
+//                    color: Color(0xFFC4C4C4),
+//                    onPressed: () {},
+//                    shape: RoundedRectangleBorder(
+//                      borderRadius: BorderRadius.circular(10),
+//                    ),
+//                    child: Row(
+//                      children: <Widget>[
+//                        Padding(
+//                          padding: const EdgeInsets.all(8.0),
+//                          child: Text(
+//                            "Thalassery Branch",
+//                            style: TextStyle(
+//                              fontSize: 17,
+//                              color: Color(0xFF5A5A5A),
+//                            ),
+//                          ),
+//                        ),
+//                        Padding(
+//                          padding: const EdgeInsets.only(left: 30),
+//                          child: Icon(
+//                            Icons.keyboard_arrow_down,
+//                            color: Color(0xFF740F53),
+//                            size: 30,
+//                          ),
+//                        ),
+//                      ],
+//                    ),
+//                  ),
+//                ),
               ),
             ],
           ),
