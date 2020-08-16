@@ -34,8 +34,6 @@ class _locationScreenState extends State<locationScreen> {
   GoogleMapController _mapController;
 
   void _onMapCreated(GoogleMapController controller) {
-    print("called");
-    print(latitude);
     _mapController = controller;
     setState(() {
       _markers.add(Marker(
