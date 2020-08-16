@@ -17,7 +17,7 @@ class _SearchScreenState extends State<SearchScreen> {
         elevation: 0,
         centerTitle: true,
         leading: GestureDetector(
-          onTap: (){
+          onTap: () {
             setState(() {
               Navigator.pop(context);
             });
@@ -45,39 +45,61 @@ class _SearchScreenState extends State<SearchScreen> {
                 children: <Widget>[
                   Container(
                     width: MediaQuery.of(context).size.width - 50,
-                    child: ButtonTheme(
-                      minWidth: 100,
-                      child: RaisedButton(
-                        elevation: 25,
-                        color: Color(0xFFE9E9E9),
-                        onPressed: () {},
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
+                    height: 45,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(10))),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.all(8),
+                        border: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(width: 0, style: BorderStyle.none),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10))),
+                        hintText: "Search",
+                        hintStyle: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF939393),
                         ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                "Search",
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color(0xFF939393),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
+                        filled: true,
+                        fillColor: Color(0xFFE9E9E9),
                       ),
                     ),
+//                    child: ButtonTheme(
+//                      minWidth: 100,
+//                      child: RaisedButton(
+//                        elevation: 25,
+//                        color: Color(0xFFE9E9E9),
+//                        onPressed: () {},
+//                        shape: RoundedRectangleBorder(
+//                          borderRadius: BorderRadius.circular(10),
+//                        ),
+//                        child: Row(
+//                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                          children: <Widget>[
+//                            Padding(
+//                              padding: const EdgeInsets.all(8.0),
+//                              child: Text(
+//                                "Search",
+//                                style: TextStyle(
+//                                  fontSize: 18,
+//                                  fontWeight: FontWeight.bold,
+//                                  color: Color(0xFF939393),
+//                                ),
+//                              ),
+//                            ),
+//                          ],
+//                        ),
+//                      ),
+//                    ),
                   ),
                   Positioned(
                     left: MediaQuery.of(context).size.width - 107,
+                    top: 0,
                     child: ButtonTheme(
                       minWidth: 50,
-                      height: 36,
+                      height: 45,
                       child: RaisedButton(
                         elevation: 5,
                         color: Color(0xFF740F53),
@@ -160,25 +182,28 @@ class _SearchScreenState extends State<SearchScreen> {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                    child: SearchCard(
-                      name: "Instant Foods & Mixes",
+            MediaQuery.of(context).viewInsets.bottom == 0
+                ? Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 10),
+                    child: Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: SearchCard(
+                            name: "Instant Foods & Mixes",
+                          ),
+                          flex: 2,
+                        ),
+                        Expanded(
+                          child: SearchCard(
+                            name: "Chocolates & Candies",
+                          ),
+                          flex: 3,
+                        ),
+                      ],
                     ),
-                    flex: 2,
-                  ),
-                  Expanded(
-                    child: SearchCard(
-                      name: "Chocolates & Candies",
-                    ),
-                    flex: 3,
-                  ),
-                ],
-              ),
-            ),
+                  )
+                : Row(),
           ],
         ),
       ),
