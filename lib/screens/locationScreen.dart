@@ -83,7 +83,7 @@ class _locationScreenState extends State<locationScreen> {
                       color: Color(0xFFC4C4C4),
                       borderRadius: BorderRadius.all(Radius.circular(10))),
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 22),
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: DropdownButton<String>(
                       style: TextStyle(
                         fontSize: 17,
