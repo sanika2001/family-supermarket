@@ -117,6 +117,7 @@ class _locationScreenState extends State<locationScreen> {
                   onMapCreated: _onMapCreated,
                   initialCameraPosition: CameraPosition(
                       target: LatLng(latitude, longitude), zoom: 15),
+                  myLocationEnabled: true,
                   markers: _markers,
                 )
               : Center(
