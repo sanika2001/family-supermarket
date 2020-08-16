@@ -115,39 +115,6 @@ class _locationScreenState extends State<locationScreen> {
                     ),
                   ),
                 ),
-//                child: ButtonTheme(
-//                  minWidth: 250,
-//                  child: RaisedButton(
-//                    elevation: 25,
-//                    color: Color(0xFFC4C4C4),
-//                    onPressed: () {},
-//                    shape: RoundedRectangleBorder(
-//                      borderRadius: BorderRadius.circular(10),
-//                    ),
-//                    child: Row(
-//                      children: <Widget>[
-//                        Padding(
-//                          padding: const EdgeInsets.all(8.0),
-//                          child: Text(
-//                            "Thalassery Branch",
-//                            style: TextStyle(
-//                              fontSize: 17,
-//                              color: Color(0xFF5A5A5A),
-//                            ),
-//                          ),
-//                        ),
-//                        Padding(
-//                          padding: const EdgeInsets.only(left: 30),
-//                          child: Icon(
-//                            Icons.keyboard_arrow_down,
-//                            color: Color(0xFF740F53),
-//                            size: 30,
-//                          ),
-//                        ),
-//                      ],
-//                    ),
-//                  ),
-//                ),
               ),
             ],
           ),
