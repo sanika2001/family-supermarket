@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:familysupermarket/components/PurpleButton.dart';
 import 'package:familysupermarket/components/SelfPickupCard.dart';
 
+bool _isChecked = false;
+
 class HomeDeliveryScreen extends StatefulWidget {
   @override
   _HomeDeliveryScreenState createState() => _HomeDeliveryScreenState();
@@ -171,9 +173,23 @@ class _HomeDeliveryScreenState extends State<HomeDeliveryScreen> {
                                                     .size
                                                     .width -
                                                 145,
-                                            child: PurpleButton(
-                                              isPressed: true,
+                                            child: Checkbox(
+                                              value: _isChecked,
+                                              onChanged: (bool newvalue) {
+                                                setState(() {
+                                                  _isChecked = newvalue;
+                                                });
+                                              },
+                                              activeColor: Colors.red,
                                             ),
+//                                            child: PurpleButton(
+//                                              isPressed: true,
+//                                              onPress: (){
+//                                                setState(() {
+//
+//                                                });
+//                                              },
+//                                            ),
                                           ),
                                         ],
                                       )),

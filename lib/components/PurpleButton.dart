@@ -9,20 +9,23 @@ class PurpleButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 47,
-      child: RaisedButton(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-        color: kDesignColor,
-        disabledColor: kDesignColor,
-        onPressed: onPress,
-        child: isPressed
-            ? Icon(
-                FontAwesomeIcons.check,
-                color: Colors.white,
-                size: 18,
-              )
-            : Text(""),
+    return GestureDetector(
+      onTap: onPress,
+      child: Container(
+        width: 47,
+        child: RaisedButton(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+          color: kDesignColor,
+          disabledColor: kDesignColor,
+          child: isPressed
+              ? Icon(
+                  FontAwesomeIcons.check,
+                  color: Colors.white,
+                  size: 18,
+                )
+              : Text(""),
+        ),
       ),
     );
   }

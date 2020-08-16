@@ -49,6 +49,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       loginCard(
                         name: 'Mobile No',
+                        textinputtype: TextInputType.number,
                       ),
                       loginCard(
                         name: 'Password',
