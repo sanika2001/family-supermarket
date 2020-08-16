@@ -14,10 +14,15 @@ class _locationScreenState extends State<locationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(
-          Icons.arrow_back,
-          color: Color(0xFF464646),
-          size: 30,
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Icon(
+            Icons.arrow_back,
+            color: Color(0xFF464646),
+            size: 30,
+          ),
         ),
         backgroundColor: Color(0xFFE9E9E9),
         title: Text(

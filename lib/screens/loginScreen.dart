@@ -12,6 +12,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  bool onTap = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,8 +47,13 @@ class _LoginScreenState extends State<LoginScreen> {
                           width: 90,
                         ),
                       ),
-                      loginCard(name: 'Mobile No'),
-                      loginCard(name: 'Password'),
+                      loginCard(
+                        name: 'Mobile No',
+                      ),
+                      loginCard(
+                        name: 'Password',
+                        obscuretext: true,
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: <Widget>[
@@ -77,55 +83,59 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      "Don't have account?",
-                      style: TextStyle(
-                        decoration: TextDecoration.underline,
-                        color: Color(0xFF939393),
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          Navigator.pushNamed(context, SignupScreen.id);
-                        });
-                      },
-                      child: Text(
-                        " Sign up",
-                        style: TextStyle(
-                          color: Color(0xFF741053),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15,
-                        ),
+              MediaQuery.of(context).viewInsets.bottom == 0
+                  ? Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            "Don't have account?",
+                            style: TextStyle(
+                              decoration: TextDecoration.underline,
+                              color: Color(0xFF939393),
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                Navigator.pushNamed(context, SignupScreen.id);
+                              });
+                            },
+                            child: Text(
+                              " Sign up",
+                              style: TextStyle(
+                                color: Color(0xFF741053),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                              ),
+                            ),
+                          )
+                        ],
                       ),
                     )
-                  ],
-                ),
-              ),
+                  : Row(),
             ],
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Text(
-                    "Terms & Conditions",
-                    textAlign: TextAlign.end,
-                    style: TextStyle(
-                      color: Color(0xFF939393),
+          MediaQuery.of(context).viewInsets.bottom == 0
+              ? Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Text(
+                          "Terms & Conditions",
+                          textAlign: TextAlign.end,
+                          style: TextStyle(
+                            color: Color(0xFF939393),
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-              ),
-            ],
-          ),
+                  ],
+                )
+              : Column(),
         ],
       ),
     );

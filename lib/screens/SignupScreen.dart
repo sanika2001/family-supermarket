@@ -19,10 +19,7 @@ class _SignupScreenState extends State<SignupScreen> {
           ClipPath(
             clipper: ClippingClass(),
             child: Container(
-              width: MediaQuery
-                  .of(context)
-                  .size
-                  .width,
+              width: MediaQuery.of(context).size.width,
               height: 280.0,
               color: Color(0xFF740F53),
             ),
@@ -51,13 +48,15 @@ class _SignupScreenState extends State<SignupScreen> {
                         ),
                         loginCard(name: "Name"),
                         loginCard(name: "Mobile No"),
-                        loginCard(name: "Password"),
+                        loginCard(
+                          name: "Password",
+                          obscuretext: true,
+                        ),
                         signinCard(
                           name: "Sign Up",
                           onPress: () {
                             setState(() {
-                              Navigator.pushNamed(
-                                  context, locationScreen.id);
+                              Navigator.pushNamed(context, locationScreen.id);
                             });
                           },
                         ),
@@ -66,56 +65,59 @@ class _SignupScreenState extends State<SignupScreen> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      "Existing Customer?",
-                      style: TextStyle(
-                        decoration: TextDecoration.underline,
-                        color: Color(0xFF939393),
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          Navigator.pushNamed(context, LoginScreen.id);
-                        });
-                      },
-                      child: Text(
-                        "  Sign In",
-                        style: TextStyle(
-                          color: Color(0xFF741053),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15,
-                        ),
+              MediaQuery.of(context).viewInsets.bottom == 0
+                  ? Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            "Existing Customer?",
+                            style: TextStyle(
+                              decoration: TextDecoration.underline,
+                              color: Color(0xFF939393),
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                Navigator.pushNamed(context, LoginScreen.id);
+                              });
+                            },
+                            child: Text(
+                              "  Sign In",
+                              style: TextStyle(
+                                color: Color(0xFF741053),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                              ),
+                            ),
+                          )
+                        ],
                       ),
                     )
-                  ],
-                ),
-              ),
-
+                  : Row(),
             ],
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Text(
-                    "Terms & Conditions",
-                    textAlign: TextAlign.end,
-                    style: TextStyle(
-                      color: Color(0xFF939393),
+          MediaQuery.of(context).viewInsets.bottom == 0
+              ? Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Text(
+                          "Terms & Conditions",
+                          textAlign: TextAlign.end,
+                          style: TextStyle(
+                            color: Color(0xFF939393),
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-              ),
-            ],
-          ),
+                  ],
+                )
+              : Column(),
         ],
       ),
     );

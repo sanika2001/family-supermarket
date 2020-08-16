@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 
 class signinCard extends StatelessWidget {
-
-  String name;
+  final String name;
   final Function onPress;
 
-  signinCard({@required this.name,@required this.onPress});
+  signinCard({@required this.name, @required this.onPress});
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:
-      const EdgeInsets.only(left: 25, right: 25, bottom: 25),
+      padding: const EdgeInsets.only(left: 25, right: 25, bottom: 25),
       child: ButtonTheme(
         minWidth: 140,
         child: RaisedButton(
