@@ -20,7 +20,6 @@ class _CartScreenState extends State<CartScreen> {
 
   Future getDB() async {
     database = await _databaseProvider.createDatabase();
-
     await _databaseProvider.insertDB(database);
   }
 

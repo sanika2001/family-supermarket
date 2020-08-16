@@ -77,7 +77,7 @@ class _FamilyScreenState extends State<FamilyScreen> {
                       ),
                     ),
                     Container(
-                      height: 450,
+                      height: 365,
                       color: Color(0xFFE9E9E9),
                       child: StreamBuilder<List<Components>>(
                           stream: _componentsBloc.componentss,
