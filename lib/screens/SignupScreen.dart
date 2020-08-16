@@ -47,7 +47,10 @@ class _SignupScreenState extends State<SignupScreen> {
                           ),
                         ),
                         loginCard(name: "Name"),
-                        loginCard(name: "Mobile No"),
+                        loginCard(
+                          name: "Mobile No",
+                          textinputtype: TextInputType.number,
+                        ),
                         loginCard(
                           name: "Password",
                           obscuretext: true,
