@@ -173,23 +173,12 @@ class _HomeDeliveryScreenState extends State<HomeDeliveryScreen> {
                                                     .size
                                                     .width -
                                                 145,
-                                            child: Checkbox(
-                                              value: _isChecked,
-                                              onChanged: (bool newvalue) {
-                                                setState(() {
-                                                  _isChecked = newvalue;
-                                                });
+                                            child: PurpleButton(
+                                              isPressed: true,
+                                              onPress: () {
+                                                setState(() {});
                                               },
-                                              activeColor: Colors.red,
                                             ),
-//                                            child: PurpleButton(
-//                                              isPressed: true,
-//                                              onPress: (){
-//                                                setState(() {
-//
-//                                                });
-//                                              },
-//                                            ),
                                           ),
                                         ],
                                       )),
