@@ -90,7 +90,7 @@ class _SupermarketScreenState extends State<SupermarketScreen> {
                             },
                             child: Container(
                               width: MediaQuery.of(context).size.width - 90,
-                              height: 52,
+                              height: 48,
                               decoration: BoxDecoration(
                                   color: Colors.white,
                                   border: Border.all(color: Color(0xFF939393)),
@@ -117,14 +117,19 @@ class _SupermarketScreenState extends State<SupermarketScreen> {
                             ),
                           ),
                           Positioned(
-                            left: MediaQuery.of(context).size.width - 125,
+                            left: MediaQuery.of(context).size.width - 127,
                             top: 1,
-                            child: CircleAvatar(
-                              radius: 23,
-                              backgroundColor: Color(0xFFA63F85),
-                              child: Icon(
-                                Icons.location_on,
-                                color: Colors.white,
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.pushNamed(context, locationScreen.id);
+                              },
+                              child: CircleAvatar(
+                                radius: 23,
+                                backgroundColor: Color(0xFFA63F85),
+                                child: Icon(
+                                  Icons.location_on,
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
                           ),
