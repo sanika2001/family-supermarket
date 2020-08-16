@@ -17,22 +17,18 @@ class locationScreen extends StatefulWidget {
 
 class _locationScreenState extends State<locationScreen> {
 
-  @override
-  void initState() {
-    getCurrentLocation();
-    super.initState();
-  }
 
   Future<void> getCurrentLocation() async {
     try {
       Position position = await Geolocator()
-          .getCurrentPosition(desiredAccuracy: LocationAccuracy.best);
+          .getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
       latitude = position.latitude;
       longitude = position.longitude;
     } catch (e) {
       print(e);
     }
   }
+
   Set<Marker> _markers = HashSet<Marker>();
   GoogleMapController _mapController;
 
@@ -41,14 +37,20 @@ class _locationScreenState extends State<locationScreen> {
     setState(() {
 
       _markers.add(Marker(markerId: MarkerId("0"),
-          position: LatLng(latitude, longitude),
+          position: LatLng(latitude,longitude),
         infoWindow: InfoWindow(title: "Set location"),
         draggable: true,
       ));
+      print(latitude);
     });
   }
 
   String _dropDownValue = "Thalasseri branch";
+  @override
+  void initState() {
+    getCurrentLocation();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
