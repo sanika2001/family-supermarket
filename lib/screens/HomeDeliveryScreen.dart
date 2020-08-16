@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:familysupermarket/components/PurpleButton.dart';
 import 'package:familysupermarket/components/SelfPickupCard.dart';
 
-bool _isChecked = false;
+bool _isChecked1 = true;
+bool _isChecked2 = false;
+bool _isChecked3 = true;
+bool _isChecked4 = false;
+bool _isChecked5 = false;
+bool _isChecked6 = false;
 
 class HomeDeliveryScreen extends StatefulWidget {
   @override
@@ -174,9 +179,18 @@ class _HomeDeliveryScreenState extends State<HomeDeliveryScreen> {
                                                     .width -
                                                 145,
                                             child: PurpleButton(
-                                              isPressed: true,
+                                              isPressed: _isChecked1,
                                               onPress: () {
-                                                setState(() {});
+                                                setState(() {
+                                                  _isChecked1 =
+                                                      _isChecked1 == true
+                                                          ? false
+                                                          : true;
+                                                  _isChecked2 =
+                                                      _isChecked1 == true
+                                                          ? false
+                                                          : true;
+                                                });
                                               },
                                             ),
                                           ),
@@ -245,7 +259,19 @@ class _HomeDeliveryScreenState extends State<HomeDeliveryScreen> {
                                                   .width -
                                               145,
                                           child: PurpleButton(
-                                            isPressed: false,
+                                            isPressed: _isChecked2,
+                                            onPress: () {
+                                              setState(() {
+                                                _isChecked2 =
+                                                    _isChecked2 == true
+                                                        ? false
+                                                        : true;
+                                                _isChecked1 =
+                                                    _isChecked2 == true
+                                                        ? false
+                                                        : true;
+                                              });
+                                            },
                                           ),
                                         ),
                                       ],
@@ -413,15 +439,68 @@ class _HomeDeliveryScreenState extends State<HomeDeliveryScreen> {
                                 children: <Widget>[
                                   SelfPickupCard(
                                     text: "Wallet/UPI",
-                                    isPressed: false,
+                                    isPressed: _isChecked3,
+                                    onPress: () {
+                                      setState(() {
+                                        _isChecked3 =
+                                            _isChecked3 == true ? false : true;
+                                        _isChecked4 =
+                                            _isChecked3 == true ? false : true;
+                                        _isChecked5 =
+                                            _isChecked3 == true ? false : true;
+                                        _isChecked6 =
+                                            _isChecked3 == true ? false : true;
+                                      });
+                                    },
                                   ),
                                   SelfPickupCard(
-                                      text: "Net Banking", isPressed: false),
+                                    text: "Net Banking",
+                                    isPressed: _isChecked4,
+                                    onPress: () {
+                                      setState(() {
+                                        _isChecked4 =
+                                            _isChecked4 == true ? false : true;
+                                        _isChecked3 =
+                                            _isChecked4 == true ? false : true;
+                                        _isChecked5 =
+                                            _isChecked4 == true ? false : true;
+                                        _isChecked6 =
+                                            _isChecked4 == true ? false : true;
+                                      });
+                                    },
+                                  ),
                                   SelfPickupCard(
-                                      text: "Credit/Debit/ATM card",
-                                      isPressed: false),
+                                    text: "Credit/Debit/ATM card",
+                                    isPressed: _isChecked5,
+                                    onPress: () {
+                                      setState(() {
+                                        _isChecked5 =
+                                            _isChecked5 == true ? false : true;
+                                        _isChecked4 =
+                                            _isChecked5 == true ? false : true;
+                                        _isChecked3 =
+                                            _isChecked5 == true ? false : true;
+                                        _isChecked6 =
+                                            _isChecked5 == true ? false : true;
+                                      });
+                                    },
+                                  ),
                                   SelfPickupCard(
-                                      text: "Direct Payment", isPressed: true),
+                                    text: "Direct Payment",
+                                    isPressed: _isChecked6,
+                                    onPress: () {
+                                      setState(() {
+                                        _isChecked6 =
+                                            _isChecked6 == true ? false : true;
+                                        _isChecked4 =
+                                            _isChecked6 == true ? false : true;
+                                        _isChecked5 =
+                                            _isChecked6 == true ? false : true;
+                                        _isChecked3 =
+                                            _isChecked6 == true ? false : true;
+                                      });
+                                    },
+                                  ),
                                 ],
                               ),
                             ),
