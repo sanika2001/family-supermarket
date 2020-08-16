@@ -38,85 +38,83 @@ class _FamilyScreenState extends State<FamilyScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomBar(),
-      body: SingleChildScrollView(
-        child: Stack(
-          children: <Widget>[
-            ClipPath(
-              clipper: ClippingClass(),
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                height: 240.0,
-                color: Color(0xFF740F53),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Image(
-                    image: AssetImage("images/family.png"),
-                    height: 10,
-                    width: 10,
-                  ),
+      body: Stack(
+        children: <Widget>[
+          ClipPath(
+            clipper: ClippingClass(),
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              height: 240.0,
+              color: Color(0xFF740F53),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Image(
+                  image: AssetImage("images/family.png"),
+                  height: 10,
+                  width: 10,
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 240),
-              child: Container(
-                height: 500,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 15, vertical: 8),
-                      child: Text(
-                        "CATEGORIES",
-                        style: TextStyle(
-                          color: Color(0xFF741053),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 240),
+            child: Container(
+              height: 500,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+                    child: Text(
+                      "CATEGORIES",
+                      style: TextStyle(
+                        color: Color(0xFF741053),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
                       ),
                     ),
-                    Container(
-                      height: 365,
-                      color: Color(0xFFE9E9E9),
-                      child: StreamBuilder<List<Components>>(
-                          stream: _componentsBloc.componentss,
-                          builder: (BuildContext context,
-                              AsyncSnapshot<List<Components>> snapshot) {
-                            if (snapshot.hasError) {
-                              print(snapshot.error);
-                            }
-                            return snapshot.hasData
-                                ? GridView.builder(
-                                    itemCount: snapshot.data.length,
-                                    gridDelegate:
-                                        SliverGridDelegateWithFixedCrossAxisCount(
-                                      crossAxisCount: 3,
-                                      crossAxisSpacing: 1,
-                                    ),
-                                    itemBuilder:
-                                        (BuildContext context, int index) {
-                                      return ComponentsCard(
-                                        components: snapshot.data[index],
-                                        move: () {
-                                          setState(() {
-                                            Navigator.pushNamed(
-                                                context, homeScreen.id);
-                                          });
-                                        },
-                                      );
-                                    })
-                                : Center(
-                                    child: CircularProgressIndicator(),
-                                  );
-                          }),
-                    ),
-                  ],
-                ),
+                  ),
+                  Container(
+                    height: MediaQuery.of(context).size.height - 341,
+                    color: Color(0xFFE9E9E9),
+                    child: StreamBuilder<List<Components>>(
+                        stream: _componentsBloc.componentss,
+                        builder: (BuildContext context,
+                            AsyncSnapshot<List<Components>> snapshot) {
+                          if (snapshot.hasError) {
+                            print(snapshot.error);
+                          }
+                          return snapshot.hasData
+                              ? GridView.builder(
+                                  itemCount: snapshot.data.length,
+                                  gridDelegate:
+                                      SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 3,
+                                    crossAxisSpacing: 1,
+                                  ),
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    return ComponentsCard(
+                                      components: snapshot.data[index],
+                                      move: () {
+                                        setState(() {
+                                          Navigator.pushNamed(
+                                              context, homeScreen.id);
+                                        });
+                                      },
+                                    );
+                                  })
+                              : Center(
+                                  child: CircularProgressIndicator(),
+                                );
+                        }),
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
