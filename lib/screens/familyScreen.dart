@@ -76,7 +76,7 @@ class _FamilyScreenState extends State<FamilyScreen> {
                     ),
                   ),
                   Container(
-                    height: MediaQuery.of(context).size.height - 340,
+                    height: MediaQuery.of(context).size.height - 338,
                     color: Color(0xFFE9E9E9),
                     child: StreamBuilder<List<Components>>(
                         stream: _componentsBloc.componentss,
