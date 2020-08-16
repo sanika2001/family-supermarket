@@ -6,7 +6,6 @@ import 'package:familysupermarket/components/bottomNavigationBar.dart';
 import 'package:familysupermarket/screens/familyScreen.dart';
 import 'package:familysupermarket/screens/homeScreen.dart';
 import 'package:familysupermarket/screens/locationScreen.dart';
-import 'package:familysupermarket/constants.dart';
 import 'package:familysupermarket/bloc/CategoriesBloc.dart';
 import 'package:familysupermarket/bloc/DealsBloc.dart';
 import 'package:familysupermarket/bloc/ProductsBloc.dart';
@@ -65,107 +64,158 @@ class _SupermarketScreenState extends State<SupermarketScreen> {
     return Scaffold(
       bottomNavigationBar: BottomBar(),
       body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(top: 30, left: 8, right: 8),
-              child: Row(
-                children: <Widget>[
-                  Image(
-                    image: AssetImage("images/logo.png"),
-                    height: 60,
-                    width: 60,
-                  ),
-                  Expanded(
-                    child: Stack(
-                      children: <Widget>[
-                        Container(
-                          width: MediaQuery.of(context).size.width - 50,
-                          child: GestureDetector(
-                            onDoubleTap: () {
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 4),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(top: 30),
+                child: Row(
+                  children: <Widget>[
+                    Image(
+                      image: AssetImage("images/logo.png"),
+                      height: 60,
+                      width: 60,
+                    ),
+                    Expanded(
+                      child: Stack(
+                        children: <Widget>[
+                          GestureDetector(
+                            onTap: () {
                               setState(() {
                                 Navigator.pushNamed(context, locationScreen.id);
                               });
                             },
-                            child: TextField(
-                              enabled: true,
-                              textAlign: TextAlign.start,
-                              decoration: kTextFieldDecoration,
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          left: MediaQuery.of(context).size.width - 123,
-                          top: 1,
-                          child: CircleAvatar(
-                            radius: 23,
-                            backgroundColor: Color(0xFFA63F85),
-                            child: Icon(
-                              Icons.location_on,
+                            child: Card(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
                               color: Colors.white,
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  "Your location",
+                                  style: TextStyle(
+                                    color: Color(0xFF939393),
+                                    fontSize: 20,
+                                  ),
+                                ),
+                              ),
                             ),
                           ),
+                          Positioned(
+                            left: MediaQuery.of(context).size.width - 125,
+                            top: 1,
+                            child: CircleAvatar(
+                              radius: 23,
+                              backgroundColor: Color(0xFFA63F85),
+                              child: Icon(
+                                Icons.location_on,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width,
+                height: 180,
+                child: Carousel(
+                  images: offerSwiperList,
+                  showIndicator: false,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      'SHOP BY CATEGORIES',
+                      style: TextStyle(
+                        color: Color(0xFF740F53),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                    Row(
+                      children: <Widget>[
+                        GestureDetector(
+                          child: Text(
+                            'See More',
+                            style: TextStyle(
+                                color: Color(0xFF740F53),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15),
+                          ),
+                          onTap: () {
+                            setState(() {
+                              Navigator.pushNamed(context, FamilyScreen.id);
+                            });
+                          },
+                        ),
+                        Icon(
+                          Icons.arrow_forward_ios,
+                          color: Color(0xFF740F53),
                         ),
                       ],
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width,
-              height: 180,
-              child: Carousel(
-                images: offerSwiperList,
-                showIndicator: false,
+              Container(
+                height: 128,
+                color: Color(0xFFE9E9E9),
+                child: StreamBuilder<List<Categories>>(
+                    stream: _categoriesBloc.categoriess,
+                    builder: (BuildContext context,
+                        AsyncSnapshot<List<Categories>> snapshot) {
+                      if (snapshot.hasError) {
+                        print(snapshot.error);
+                      }
+                      return snapshot.hasData
+                          ? ListView.builder(
+                              physics: BouncingScrollPhysics(),
+                              itemCount: snapshot.data.length,
+                              scrollDirection: Axis.horizontal,
+                              itemBuilder: (context, index) {
+                                return CategoriesCard(
+                                  categories: snapshot.data[index],
+                                  move: () {
+                                    setState(() {
+                                      Navigator.pushNamed(
+                                          context, homeScreen.id);
+                                    });
+                                  },
+                                );
+                              })
+                          : Center(
+                              child: CircularProgressIndicator(),
+                            );
+                    }),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                    'SHOP BY CATEGORIES',
-                    style: TextStyle(
-                      color: Color(0xFF740F53),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'Best Deals',
+                  style: TextStyle(
+                    color: Color(0xFF740F53),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
                   ),
-                  Row(
-                    children: <Widget>[
-                      GestureDetector(
-                        child: Text(
-                          'See More',
-                          style: TextStyle(
-                              color: Color(0xFF740F53),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 15),
-                        ),
-                        onTap: () {
-                          setState(() {
-                            Navigator.pushNamed(context, FamilyScreen.id);
-                          });
-                        },
-                      ),
-                      Icon(
-                        Icons.arrow_forward_ios,
-                        color: Color(0xFF740F53),
-                      ),
-                    ],
-                  ),
-                ],
+                ),
               ),
-            ),
-            Container(
-              height: 128,
-              color: Color(0xFFE9E9E9),
-              child: StreamBuilder<List<Categories>>(
-                  stream: _categoriesBloc.categoriess,
+              Container(
+                height: 120,
+                child: StreamBuilder<List<Deals>>(
+                  stream: _dealsBloc.dealss,
                   builder: (BuildContext context,
-                      AsyncSnapshot<List<Categories>> snapshot) {
+                      AsyncSnapshot<List<Deals>> snapshot) {
                     if (snapshot.hasError) {
                       print(snapshot.error);
                     }
@@ -175,93 +225,54 @@ class _SupermarketScreenState extends State<SupermarketScreen> {
                             itemCount: snapshot.data.length,
                             scrollDirection: Axis.horizontal,
                             itemBuilder: (context, index) {
-                              return CategoriesCard(
-                                categories: snapshot.data[index],
-                                move: () {
-                                  setState(() {
-                                    Navigator.pushNamed(context, homeScreen.id);
-                                  });
-                                },
+                              return DealsCard(
+                                deals: snapshot.data[index],
                               );
                             })
                         : Center(
                             child: CircularProgressIndicator(),
                           );
-                  }),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                'Best Deals',
-                style: TextStyle(
-                  color: Color(0xFF740F53),
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
+                  },
                 ),
               ),
-            ),
-            Container(
-              height: 120,
-              child: StreamBuilder<List<Deals>>(
-                stream: _dealsBloc.dealss,
-                builder: (BuildContext context,
-                    AsyncSnapshot<List<Deals>> snapshot) {
-                  if (snapshot.hasError) {
-                    print(snapshot.error);
-                  }
-                  return snapshot.hasData
-                      ? ListView.builder(
-                          physics: BouncingScrollPhysics(),
-                          itemCount: snapshot.data.length,
-                          scrollDirection: Axis.horizontal,
-                          itemBuilder: (context, index) {
-                            return DealsCard(
-                              deals: snapshot.data[index],
-                            );
-                          })
-                      : Center(
-                          child: CircularProgressIndicator(),
-                        );
-                },
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                'Best Products',
-                style: TextStyle(
-                  color: Color(0xFF740F53),
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'Best Products',
+                  style: TextStyle(
+                    color: Color(0xFF740F53),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),
                 ),
               ),
-            ),
-            Container(
-              height: 120,
-              child: StreamBuilder<List<Products>>(
-                stream: _productsBloc.productss,
-                builder: (BuildContext context,
-                    AsyncSnapshot<List<Products>> snapshot) {
-                  if (snapshot.hasError) {
-                    print(snapshot.error);
-                  }
-                  return snapshot.hasData
-                      ? ListView.builder(
-                          physics: BouncingScrollPhysics(),
-                          itemCount: snapshot.data.length,
-                          scrollDirection: Axis.horizontal,
-                          itemBuilder: (context, index) {
-                            return ProductsCard(
-                              products: snapshot.data[index],
-                            );
-                          })
-                      : Center(
-                          child: CircularProgressIndicator(),
-                        );
-                },
+              Container(
+                height: 120,
+                child: StreamBuilder<List<Products>>(
+                  stream: _productsBloc.productss,
+                  builder: (BuildContext context,
+                      AsyncSnapshot<List<Products>> snapshot) {
+                    if (snapshot.hasError) {
+                      print(snapshot.error);
+                    }
+                    return snapshot.hasData
+                        ? ListView.builder(
+                            physics: BouncingScrollPhysics(),
+                            itemCount: snapshot.data.length,
+                            scrollDirection: Axis.horizontal,
+                            itemBuilder: (context, index) {
+                              return ProductsCard(
+                                products: snapshot.data[index],
+                              );
+                            })
+                        : Center(
+                            child: CircularProgressIndicator(),
+                          );
+                  },
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
