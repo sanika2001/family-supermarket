@@ -1,7 +1,12 @@
+import 'dart:collection';
+
 import 'package:familysupermarket/screens/supermarketscreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:geolocator/geolocator.dart';
+double latitude;
+double longitude;
 
 class locationScreen extends StatefulWidget {
   static const String id = '/location';
@@ -9,7 +14,40 @@ class locationScreen extends StatefulWidget {
   _locationScreenState createState() => _locationScreenState();
 }
 
+
 class _locationScreenState extends State<locationScreen> {
+
+  @override
+  void initState() {
+    getCurrentLocation();
+    super.initState();
+  }
+
+  Future<void> getCurrentLocation() async {
+    try {
+      Position position = await Geolocator()
+          .getCurrentPosition(desiredAccuracy: LocationAccuracy.best);
+      latitude = position.latitude;
+      longitude = position.longitude;
+    } catch (e) {
+      print(e);
+    }
+  }
+  Set<Marker> _markers = HashSet<Marker>();
+  GoogleMapController _mapController;
+
+  void _onMapCreated(GoogleMapController controller){
+    _mapController = controller;
+    setState(() {
+
+      _markers.add(Marker(markerId: MarkerId("0"),
+          position: LatLng(latitude, longitude),
+        infoWindow: InfoWindow(title: "Set location"),
+        draggable: true,
+      ));
+    });
+  }
+
   String _dropDownValue = "Thalasseri branch";
   @override
   Widget build(BuildContext context) {
@@ -69,8 +107,10 @@ class _locationScreenState extends State<locationScreen> {
       body: Stack(
         children: <Widget>[
           GoogleMap(
+            onMapCreated: _onMapCreated,
             initialCameraPosition:
-                CameraPosition(target: LatLng(11.874477, 75.370369), zoom: 15),
+                CameraPosition(target: LatLng(latitude,longitude), zoom: 15),
+            markers: _markers,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,

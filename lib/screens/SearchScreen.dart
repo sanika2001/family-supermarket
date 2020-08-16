@@ -67,33 +67,6 @@ class _SearchScreenState extends State<SearchScreen> {
                         fillColor: Color(0xFFE9E9E9),
                       ),
                     ),
-//                    child: ButtonTheme(
-//                      minWidth: 100,
-//                      child: RaisedButton(
-//                        elevation: 25,
-//                        color: Color(0xFFE9E9E9),
-//                        onPressed: () {},
-//                        shape: RoundedRectangleBorder(
-//                          borderRadius: BorderRadius.circular(10),
-//                        ),
-//                        child: Row(
-//                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                          children: <Widget>[
-//                            Padding(
-//                              padding: const EdgeInsets.all(8.0),
-//                              child: Text(
-//                                "Search",
-//                                style: TextStyle(
-//                                  fontSize: 18,
-//                                  fontWeight: FontWeight.bold,
-//                                  color: Color(0xFF939393),
-//                                ),
-//                              ),
-//                            ),
-//                          ],
-//                        ),
-//                      ),
-//                    ),
                   ),
                   Positioned(
                     left: MediaQuery.of(context).size.width - 107,
