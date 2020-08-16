@@ -34,7 +34,6 @@ class _locationScreenState extends State<locationScreen> {
   GoogleMapController _mapController;
 
   void _onMapCreated(GoogleMapController controller) {
-
     _mapController = controller;
     setState(() {
       _markers.add(Marker(
@@ -114,6 +113,7 @@ class _locationScreenState extends State<locationScreen> {
         children: <Widget>[
           latitude != null
               ? GoogleMap(
+            myLocationEnabled: true,
                   onMapCreated: _onMapCreated,
                   initialCameraPosition: CameraPosition(
                       target: LatLng(latitude, longitude), zoom: 15),
