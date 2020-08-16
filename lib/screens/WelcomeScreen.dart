@@ -86,7 +86,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: GestureDetector(
-                        onTap: (){
+                        onTap: () {
                           setState(() {
                             Navigator.pushNamed(context, LoginScreen.id);
                           });
@@ -121,7 +121,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                               fontWeight: FontWeight.w500),
                         ),
                         GestureDetector(
-                          onTap: (){
+                          onTap: () {
                             setState(() {
                               Navigator.pushNamed(context, SignupScreen.id);
                             });
