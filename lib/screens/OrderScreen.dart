@@ -1,9 +1,9 @@
+import 'package:familysupermarket/screens/OrderDetailsScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:familysupermarket/components/orderCard.dart';
 import 'package:familysupermarket/bloc/orderBloc.dart';
 import 'package:familysupermarket/models/order.dart';
 import 'package:familysupermarket/db/order.dart';
-import 'package:familysupermarket/screens/OrderDetailsScreen.dart';
 
 class OrderScreen extends StatefulWidget {
   static const String id = '/order';
@@ -12,6 +12,7 @@ class OrderScreen extends StatefulWidget {
 }
 
 class _OrderScreenState extends State<OrderScreen> {
+
   final OrderBloc _orderBloc = OrderBloc();
   DatabaseProvider _databaseProvider = DatabaseProvider();
   var database;
@@ -54,21 +55,17 @@ class _OrderScreenState extends State<OrderScreen> {
           style: TextStyle(
             color: Color(0xFF740F53),
             fontWeight: FontWeight.bold,
+            fontSize: 22,
           ),
         ),
         centerTitle: true,
         actions: <Widget>[
-          Icon(
-            Icons.search,
-            color: Colors.orange[200],
-            size: 25,
-          ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Icon(
               Icons.shopping_cart,
               color: Colors.orange[200],
-              size: 22,
+              size: 25,
             ),
           ),
         ],
@@ -78,28 +75,29 @@ class _OrderScreenState extends State<OrderScreen> {
           height: 400,
           child: StreamBuilder<List<Order>>(
               stream: _orderBloc.orders,
-              builder:
-                  (BuildContext context, AsyncSnapshot<List<Order>> snapshot) {
+              builder: (BuildContext context,
+                  AsyncSnapshot<List<Order>> snapshot) {
                 if (snapshot.hasError) {
                   print(snapshot.error);
                 }
                 return snapshot.hasData
                     ? ListView.builder(
-                        physics: BouncingScrollPhysics(),
-                        itemCount: snapshot.data.length,
-                        scrollDirection: Axis.vertical,
-                        itemBuilder: (context, index) {
-                          return OrderCard(
-                            order: snapshot.data[index],
-                            onPress: () {
-                              Navigator.pushNamed(
-                                  context, OrderDetailsScreen.id);
-                            },
-                          );
-                        })
-                    : Center(
-                        child: CircularProgressIndicator(),
+                    physics: BouncingScrollPhysics(),
+                    itemCount: snapshot.data.length,
+                    scrollDirection: Axis.vertical,
+                    itemBuilder: (context, index) {
+                      return OrderCard(
+                        order: snapshot.data[index],
+                        onpress: (){
+                          setState(() {
+                            Navigator.pushNamed(context, OrderDetailsScreen.id);
+                          });
+                        },
                       );
+                    })
+                    : Center(
+                  child: CircularProgressIndicator(),
+                );
               }),
         ),
       ),
