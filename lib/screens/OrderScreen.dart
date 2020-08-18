@@ -1,3 +1,4 @@
+import 'package:familysupermarket/screens/OrderDetailsScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:familysupermarket/components/orderCard.dart';
 import 'package:familysupermarket/bloc/orderBloc.dart';
@@ -54,21 +55,17 @@ class _OrderScreenState extends State<OrderScreen> {
           style: TextStyle(
             color: Color(0xFF740F53),
             fontWeight: FontWeight.bold,
+            fontSize: 22,
           ),
         ),
         centerTitle: true,
         actions: <Widget>[
-          Icon(
-            Icons.search,
-            color: Colors.orange[200],
-            size: 25,
-          ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Icon(
               Icons.shopping_cart,
               color: Colors.orange[200],
-              size: 22,
+              size: 25,
             ),
           ),
         ],
@@ -91,6 +88,11 @@ class _OrderScreenState extends State<OrderScreen> {
                     itemBuilder: (context, index) {
                       return OrderCard(
                         order: snapshot.data[index],
+                        onpress: (){
+                          setState(() {
+                            Navigator.pushNamed(context, OrderDetailsScreen.id);
+                          });
+                        },
                       );
                     })
                     : Center(

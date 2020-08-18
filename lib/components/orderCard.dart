@@ -9,91 +9,95 @@ class OrderCard extends StatelessWidget {
   String name;
   String date;
   String image;
+  Function onpress;
 
-  OrderCard({this.name,this.date,this.image,this.order});
+  OrderCard({this.name,this.onpress,this.date,this.image,this.order});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Card(
-        elevation: 10,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            order.name,
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 15,
+      child: GestureDetector(
+        onTap: onpress,
+        child: Card(
+          elevation: 10,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              order.name,
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                              ),
                             ),
                           ),
-                        ),
-                        Row(
-                          children: <Widget>[
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: CircleAvatar(
-                                backgroundColor: Colors.green,
-                                radius: 5,
+                          Row(
+                            children: <Widget>[
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: CircleAvatar(
+                                  backgroundColor: Colors.green,
+                                  radius: 5,
+                                ),
                               ),
-                            ),
-                            Text(
-                              order.date,
-                              style: TextStyle(
-                                color: Colors.grey,
-                                fontSize: 13,
+                              Text(
+                                order.date,
+                                style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 13,
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ],
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: CachedNetworkImage(
-                      imageUrl:
-                      order.image,
-                      height: 70,
-                      width: 70,
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: CachedNetworkImage(
+                        imageUrl:
+                        order.image,
+                        height: 70,
+                        width: 70,
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              Divider(
-                color: Colors.grey[200],
-                thickness: 1,
-              ),
-              SmoothStarRating(
-                allowHalfRating: false,
-                onRated: (v) {
-                  v = rating;
-                },
-                starCount: 5,
-                size: 40.0,
-                isReadOnly: false,
-                color: Colors.green,
-                borderColor: Colors.grey,
-                spacing: 10.0,
-                rating: rating,
-              ),
+                  ],
+                ),
+                Divider(
+                  color: Colors.grey[200],
+                  thickness: 1,
+                ),
+                SmoothStarRating(
+                  allowHalfRating: false,
+                  onRated: (v) {
+                    v = rating;
+                  },
+                  starCount: 5,
+                  size: 40.0,
+                  isReadOnly: false,
+                  color: Colors.green,
+                  borderColor: Colors.grey,
+                  spacing: 10.0,
+                  rating: rating,
+                ),
 
-            ],
+              ],
+            ),
           ),
         ),
       ),
