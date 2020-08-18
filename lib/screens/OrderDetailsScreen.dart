@@ -70,7 +70,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                 Padding(
                                   padding: const EdgeInsets.all(5.0),
                                   child: Text(
-                                    "seller: Seller name",
+                                    "seller: seller name",
                                     style: TextStyle(
                                       fontSize: 16,
                                     ),
