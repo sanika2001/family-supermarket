@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: WelcomeScreen.id,
+      initialRoute: OrderDetailsScreen.id,
       routes: {
         SupermarketScreen.id: (context) => SupermarketScreen(),
         LoginScreen.id: (context) => LoginScreen(),
@@ -35,6 +35,7 @@ class MyApp extends StatelessWidget {
         CartScreen.id: (context) => CartScreen(),
         WelcomeScreen.id: (context) => WelcomeScreen(),
         PaymentScreen.id: (context) => PaymentScreen(),
+        OrderDetailsScreen.id: (context) => OrderDetailsScreen(),
       },
     );
   }
