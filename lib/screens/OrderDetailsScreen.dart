@@ -212,8 +212,8 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                   ),
                   elevation: 2,
                   child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 25, vertical: 8),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 25, vertical: 10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
