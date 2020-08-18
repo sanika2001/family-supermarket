@@ -21,9 +21,14 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
         title: Text("Order Details"),
         backgroundColor: kDesignColor,
         centerTitle: true,
-        leading: Icon(
-          Icons.arrow_back_ios,
-          color: Colors.white,
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.white,
+          ),
         ),
       ),
       body: SingleChildScrollView(
@@ -79,7 +84,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                         fontSize: 22,
                                         fontWeight: FontWeight.bold),
                                   ),
-                                )
+                                ),
                               ],
                             ),
                             CachedNetworkImage(
@@ -184,7 +189,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 10, right: 10),
+                padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
                 child: Card(
                   color: Colors.white,
                   shape: RoundedRectangleBorder(
@@ -197,9 +202,13 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text(
-                          "Shopping Details",
-                          style: TextStyle(color: Colors.black54, fontSize: 14),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 5),
+                          child: Text(
+                            "Shopping Details",
+                            style:
+                                TextStyle(color: Colors.black54, fontSize: 15),
+                          ),
                         ),
                         Divider(
                           color: Colors.grey,
@@ -215,7 +224,26 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                 fontWeight: FontWeight.w500),
                           ),
                         ),
-                        Text("Aleena house\nKannapuram\nKannur-670331")
+                        Text(
+                          "Aleena house\nKannapuram\nKannur-670331",
+                          style: TextStyle(fontSize: 15),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 4),
+                          child: Row(
+                            children: <Widget>[
+                              Text(
+                                "Phone number :",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w500, fontSize: 15),
+                              ),
+                              Text(
+                                " 987456321",
+                                style: TextStyle(fontSize: 15),
+                              )
+                            ],
+                          ),
+                        )
                       ],
                     ),
                   ),
