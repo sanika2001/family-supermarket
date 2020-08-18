@@ -113,7 +113,6 @@ class _locationScreenState extends State<locationScreen> {
         children: <Widget>[
           latitude != null
               ? GoogleMap(
-
                   onMapCreated: _onMapCreated,
                   initialCameraPosition: CameraPosition(
                       target: LatLng(latitude, longitude), zoom: 15),
