@@ -1,3 +1,4 @@
+import 'package:familysupermarket/screens/OrderScreen.dart';
 import 'package:familysupermarket/screens/SearchScreen.dart';
 import 'package:familysupermarket/screens/profileScreen.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: OrderDetailsScreen.id,
+      initialRoute: OrderScreen.id,
       routes: {
         SupermarketScreen.id: (context) => SupermarketScreen(),
         LoginScreen.id: (context) => LoginScreen(),
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
         WelcomeScreen.id: (context) => WelcomeScreen(),
         PaymentScreen.id: (context) => PaymentScreen(),
         OrderDetailsScreen.id: (context) => OrderDetailsScreen(),
+        OrderScreen.id: (context) => OrderScreen(),
       },
     );
   }

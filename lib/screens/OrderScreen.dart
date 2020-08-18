@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_star_rating/smooth_star_rating.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:familysupermarket/components/orderCard.dart';
+import 'package:familysupermarket/bloc/orderBloc.dart';
+import 'package:familysupermarket/models/order.dart';
+import 'package:familysupermarket/db/order.dart';
 
 class OrderScreen extends StatefulWidget {
   static const String id = '/order';
@@ -9,7 +11,28 @@ class OrderScreen extends StatefulWidget {
 }
 
 class _OrderScreenState extends State<OrderScreen> {
-  double rating = 0;
+
+  final OrderBloc _orderBloc = OrderBloc();
+  DatabaseProvider _databaseProvider = DatabaseProvider();
+  var database;
+
+  Future getDB() async {
+    database = await _databaseProvider.createDatabase();
+    await _databaseProvider.insertDB(database);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getDB();
+  }
+
+  @override
+  void dispose() {
+    _orderBloc.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,94 +73,32 @@ class _OrderScreenState extends State<OrderScreen> {
           ),
         ],
       ),
-      body: Column(
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Card(
-              elevation: 10,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: <Widget>[
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  "Aashirvaad Atta",
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 15,
-                                  ),
-                                ),
-                              ),
-                              Row(
-                                children: <Widget>[
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: CircleAvatar(
-                                      backgroundColor: Colors.green,
-                                      radius: 5,
-                                    ),
-                                  ),
-                                  Text(
-                                    "Deleivered on Feb 01",
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                      fontSize: 13,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: CachedNetworkImage(
-                            imageUrl: "https://images-na.ssl-images-amazon.com/images/I/71CAb58u8TL._SL1313_.jpg",
-                            height: 70,
-                            width: 70,
-                          ),
-                        ),
-                      ],
-                    ),
-                    Divider(
-                      color: Colors.grey[200],
-                      thickness: 1,
-                    ),
-                    SmoothStarRating(
-                      allowHalfRating: false,
-                      onRated: (v){
-                        v = rating;
-                      },
-                      starCount: 5,
-                      size: 40.0,
-                      isReadOnly:false,
-                      color: Colors.green,
-                      borderColor: Colors.grey,
-                      spacing:10.0,
-                      rating: rating,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ],
+      body: SingleChildScrollView(
+        child: Container(
+          height: 400,
+          child: StreamBuilder<List<Order>>(
+              stream: _orderBloc.orders,
+              builder: (BuildContext context,
+                  AsyncSnapshot<List<Order>> snapshot) {
+                if (snapshot.hasError) {
+                  print(snapshot.error);
+                }
+                return snapshot.hasData
+                    ? ListView.builder(
+                    physics: BouncingScrollPhysics(),
+                    itemCount: snapshot.data.length,
+                    scrollDirection: Axis.vertical,
+                    itemBuilder: (context, index) {
+                      return OrderCard(
+                        order: snapshot.data[index],
+                      );
+                    })
+                    : Center(
+                  child: CircularProgressIndicator(),
+                );
+              }),
+        ),
       ),
     );
   }
 }
-
-
