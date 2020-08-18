@@ -10,6 +10,7 @@ import 'screens/familyScreen.dart';
 import 'screens/cartScreen.dart';
 import 'screens/PaymentScreen.dart';
 import 'screens/WelcomeScreen.dart';
+import 'screens/OrderScreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: WelcomeScreen.id,
+      initialRoute: OrderScreen.id,
       routes: {
         SupermarketScreen.id: (context) => SupermarketScreen(),
         LoginScreen.id: (context) => LoginScreen(),
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
         CartScreen.id: (context) => CartScreen(),
         WelcomeScreen.id: (context) => WelcomeScreen(),
         PaymentScreen.id: (context) => PaymentScreen(),
+        OrderScreen.id: (context) => OrderScreen()
       },
     );
   }
