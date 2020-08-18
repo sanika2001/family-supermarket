@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class OrderScreen extends StatefulWidget {
   static const String id = '/order';
@@ -103,90 +104,10 @@ class _OrderScreenState extends State<OrderScreen> {
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Image(
-                            image: AssetImage("images/wheat.png"),
-                            height: 50,
-                          ),
-                        ),
-                      ],
-                    ),
-                    Divider(
-                      color: Colors.grey[200],
-                      thickness: 1,
-                    ),
-                    SmoothStarRating(
-                        allowHalfRating: false,
-                        onRated: (v){
-                          v = rating;
-                        },
-                        starCount: 5,
-                        size: 40.0,
-                        isReadOnly:false,
-                        color: Colors.green,
-                        borderColor: Colors.grey,
-                        spacing:10.0,
-                        rating: rating,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Card(
-              elevation: 10,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: <Widget>[
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  "Aashirvaad Atta",
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 15,
-                                  ),
-                                ),
-                              ),
-                              Row(
-                                children: <Widget>[
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: CircleAvatar(
-                                      backgroundColor: Colors.green,
-                                      radius: 5,
-                                    ),
-                                  ),
-                                  Text(
-                                    "Deleivered on Feb 01",
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                      fontSize: 13,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Image(
-                            image: AssetImage("images/wheat.png"),
-                            height: 50,
+                          child: CachedNetworkImage(
+                            imageUrl: "https://images-na.ssl-images-amazon.com/images/I/71CAb58u8TL._SL1313_.jpg",
+                            height: 70,
+                            width: 70,
                           ),
                         ),
                       ],
