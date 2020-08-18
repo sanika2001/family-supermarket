@@ -5,6 +5,7 @@ import 'package:familysupermarket/constants.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 import 'package:familysupermarket/components/DeliveryStatus.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
+import 'package:flutter_styled_toast/flutter_styled_toast.dart';
 
 class OrderDetailsScreen extends StatefulWidget {
   static const String id = '/orderdetails';
@@ -155,6 +156,20 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                           allowHalfRating: false,
                           onRated: (v) {
                             v = rating;
+                            showToast("Thanks for rating !",
+                                context: context,
+                                textStyle: TextStyle(
+                                    fontSize: 17.0, color: Colors.white),
+                                borderRadius: BorderRadius.circular(5.0),
+                                textPadding: EdgeInsets.symmetric(
+                                    horizontal: 20.0, vertical: 10.0),
+                                duration: Duration(seconds: 3),
+                                animDuration: Duration(seconds: 1),
+                                alignment: Alignment.center,
+                                curve: Curves.fastOutSlowIn,
+                                reverseCurve: Curves.fastOutSlowIn,
+                                movingOnWindowChange: true,
+                                backgroundColor: kDesignColor);
                           },
                           starCount: 5,
                           size: 40.0,
