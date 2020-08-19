@@ -1,3 +1,4 @@
+import 'package:familysupermarket/screens/OrderScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:familysupermarket/components/familyCard.dart';
@@ -104,7 +105,12 @@ class _ProfileSCreenState extends State<ProfileSCreen> {
                           padding: const EdgeInsets.all(8.0),
                           child: Column(
                             children: <Widget>[
-                              familyCard(name: "My Orders"),
+                              familyCard(name: "My Orders",
+                              onpress: (){
+                                setState(() {
+                                  Navigator.pushNamed(context, OrderScreen.id);
+                                });
+                              },),
                               Padding(
                                 padding:
                                     const EdgeInsets.symmetric(horizontal: 8),
