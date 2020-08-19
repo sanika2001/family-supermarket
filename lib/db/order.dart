@@ -43,6 +43,8 @@ class DatabaseProvider {
   Future insertDB(Database database) async {
     await database.rawInsert(
         'INSERT INTO $orderTABLE($ID,$IMAGE,$NAME,$DATE)VALUES (1, "https://www.periyarrice.com/images/slider2_pro1.png", "Periyar Rice","Delivered on Feb 01"),'
-            '(2, "https://images-na.ssl-images-amazon.com/images/I/71CAb58u8TL._SL1313_.jpg","Aashirvaad Atta","Delivered on Dec 13")');
+            '(2, "https://images-na.ssl-images-amazon.com/images/I/71CAb58u8TL._SL1313_.jpg","Aashirvaad Atta","Delivered on Dec 13"),'
+            '(3,"https://www.periyarrice.com/images/slider2_pro1.png","Periyar Rice","Delivered on Feb 01"),'
+            '(4, "https://images-na.ssl-images-amazon.com/images/I/71CAb58u8TL._SL1313_.jpg","Aashirvaad Atta","Delivered on Dec 13")');
   }
 }
