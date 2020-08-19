@@ -3,9 +3,10 @@ import 'package:familysupermarket/screens/cartScreen.dart';
 import 'package:familysupermarket/screens/profileScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:familysupermarket/screens/supermarketscreen.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:familysupermarket/screens/OrderScreen.dart';
 
 int currentIndex = 0;
+List<int> history = [0];
 
 class BottomBar extends StatefulWidget {
   @override
@@ -50,20 +51,70 @@ class _BottomBarState extends State<BottomBar> {
             '',
           ),
         ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.insert_drive_file, size: 30),
+          title: Text(
+            '',
+          ),
+        ),
       ],
-      onTap: (index) {
-        setState(() {
-          currentIndex = index;
-          if (index == 0) {
-            Navigator.pushNamed(context, SupermarketScreen.id);
-          } else if (index == 1) {
-            Navigator.pushNamed(context, SearchScreen.id);
-          } else if (index == 2) {
-            Navigator.pushNamed(context, CartScreen.id);
-          } else if (index == 3) {
-            Navigator.pushNamed(context, ProfileSCreen.id);
-          }
-        });
+      onTap: (int index) {
+        if (index == 0) {
+          history.add(index);
+          setState(() {
+            currentIndex = index;
+          });
+          Navigator.pushNamed(context, SupermarketScreen.id).then((value) {
+            history.removeLast();
+            setState(() {
+              currentIndex = history.last;
+            });
+          });
+        } else if (index == 1) {
+          history.add(index);
+          setState(() {
+            currentIndex = index;
+          });
+          Navigator.pushNamed(context, SearchScreen.id).then((value) {
+            history.removeLast();
+            setState(() {
+              currentIndex = history.last;
+            });
+          });
+        } else if (index == 2) {
+          history.add(index);
+          setState(() {
+            currentIndex = index;
+          });
+          Navigator.pushNamed(context, CartScreen.id).then((value) {
+            history.removeLast();
+            setState(() {
+              currentIndex = history.last;
+            });
+          });
+        } else if (index == 3) {
+          history.add(index);
+          setState(() {
+            currentIndex = index;
+          });
+          Navigator.pushNamed(context, ProfileSCreen.id).then((value) {
+            history.removeLast();
+            setState(() {
+              currentIndex = history.last;
+            });
+          });
+        } else if (index == 4) {
+          history.add(index);
+          setState(() {
+            currentIndex = index;
+          });
+          Navigator.pushNamed(context, OrderScreen.id).then((value) {
+            history.removeLast();
+            setState(() {
+              currentIndex = history.last;
+            });
+          });
+        }
       },
     );
   }

@@ -1,3 +1,4 @@
+import 'package:familysupermarket/components/bottomNavigationBar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:familysupermarket/components/searchCard.dart';
@@ -11,6 +12,7 @@ class SearchScreen extends StatefulWidget {
 class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
+    currentIndex = 1;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
