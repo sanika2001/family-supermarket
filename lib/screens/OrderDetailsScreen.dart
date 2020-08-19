@@ -151,6 +151,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                             ),
                           ],
                         ),
+                        OrderDivider(),
                       ],
                     ),
                   ),
@@ -208,7 +209,8 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                               )
                             ],
                           ),
-                        )
+                        ),
+                        OrderDivider(),
                       ],
                     ),
                   ),
@@ -257,7 +259,10 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                           text1: "Delivery charge",
                           text2: "35",
                         ),
-                        OrderDivider(),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 2),
+                          child: OrderDivider(),
+                        ),
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 3),
                           child: Row(
@@ -275,6 +280,10 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                               ),
                             ],
                           ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 4),
+                          child: OrderDivider(),
                         ),
                       ],
                     ),
