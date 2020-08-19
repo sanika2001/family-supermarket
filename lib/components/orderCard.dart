@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:familysupermarket/models/order.dart';
+import 'package:flutter_styled_toast/flutter_styled_toast.dart';
+import 'package:familysupermarket/constants.dart';
 
 class OrderCard extends StatelessWidget {
   final Order order;
@@ -9,16 +11,16 @@ class OrderCard extends StatelessWidget {
   String name;
   String date;
   String image;
-  Function onpress;
+  Function onPress;
 
-  OrderCard({this.name,this.onpress,this.date,this.image,this.order});
+  OrderCard({this.name, this.date, this.image, this.order, this.onPress});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: GestureDetector(
-        onTap: onpress,
+        onTap: onPress,
         child: Card(
           elevation: 10,
           shape: RoundedRectangleBorder(
@@ -70,8 +72,7 @@ class OrderCard extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: CachedNetworkImage(
-                        imageUrl:
-                        order.image,
+                        imageUrl: order.image,
                         height: 70,
                         width: 70,
                       ),
@@ -86,16 +87,29 @@ class OrderCard extends StatelessWidget {
                   allowHalfRating: false,
                   onRated: (v) {
                     v = rating;
+                    showToast("Thanks for rating !",
+                        context: context,
+                        textStyle:
+                            TextStyle(fontSize: 17.0, color: Colors.white),
+                        borderRadius: BorderRadius.circular(5.0),
+                        textPadding: EdgeInsets.symmetric(
+                            horizontal: 20.0, vertical: 10.0),
+                        duration: Duration(seconds: 3),
+                        animDuration: Duration(seconds: 1),
+                        alignment: Alignment.center,
+                        curve: Curves.fastOutSlowIn,
+                        reverseCurve: Curves.fastOutSlowIn,
+                        movingOnWindowChange: true,
+                        backgroundColor: kDesignColor);
                   },
                   starCount: 5,
                   size: 40.0,
                   isReadOnly: false,
-                  color: Colors.green,
+                  color: kDesignColor,
                   borderColor: Colors.grey,
                   spacing: 10.0,
                   rating: rating,
                 ),
-
               ],
             ),
           ),
