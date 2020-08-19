@@ -166,15 +166,12 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Padding(
-                              padding: EdgeInsets.only(bottom: 10),
-                              child: Text(
-                                "Need help ?",
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 17,
-                                    fontWeight: FontWeight.w500),
-                              ),
+                            Text(
+                              "Need help ?",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w500),
                             ),
                           ],
                         ),
