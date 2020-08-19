@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 class familyCard extends StatelessWidget {
 
   String name;
+  Function onpress;
 
-  familyCard({this.name});
+  familyCard({this.name,this.onpress});
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -23,10 +24,13 @@ class familyCard extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Icon(
-            Icons.arrow_forward_ios,
-            color: Color(0xFFA63F85),
-            size: 16,
+          child: GestureDetector(
+            onTap: onpress,
+            child: Icon(
+              Icons.arrow_forward_ios,
+              color: Color(0xFFA63F85),
+              size: 16,
+            ),
           ),
         ),
       ],
