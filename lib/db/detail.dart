@@ -36,7 +36,7 @@ class DatabaseProvider {
         "id INTEGER PRIMARY KEY, "
         "image TEXT, "
         "name TEXT, "
-        "price TEXT,"
+        "price TEXT"
         ")");
   }
 
