@@ -51,12 +51,6 @@ class _BottomBarState extends State<BottomBar> {
             '',
           ),
         ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.insert_drive_file, size: 27),
-          title: Text(
-            '',
-          ),
-        ),
       ],
       onTap: (int index) {
         if (index == 0) {
@@ -98,17 +92,6 @@ class _BottomBarState extends State<BottomBar> {
             currentIndex = index;
           });
           Navigator.pushNamed(context, ProfileSCreen.id).then((value) {
-            history.removeLast();
-            setState(() {
-              currentIndex = history.last;
-            });
-          });
-        } else if (index == 4) {
-          history.add(index);
-          setState(() {
-            currentIndex = index;
-          });
-          Navigator.pushNamed(context, OrderScreen.id).then((value) {
             history.removeLast();
             setState(() {
               currentIndex = history.last;
