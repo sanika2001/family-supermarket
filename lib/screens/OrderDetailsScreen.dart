@@ -68,15 +68,6 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(5.0),
-                                  child: Text(
-                                    "seller: seller name",
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                    ),
-                                  ),
-                                ),
-                                Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Text(
                                     "₹ 32.00",
@@ -91,8 +82,8 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                             CachedNetworkImage(
                               imageUrl:
                                   "https://www.periyarrice.com/images/slider2_pro1.png",
-                              height: 120,
-                              width: 120,
+                              height: 80,
+                              width: 80,
                             ),
                           ],
                         ),
