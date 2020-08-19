@@ -14,7 +14,7 @@ class OrderCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(15),
+      padding: const EdgeInsets.all(10),
       child: GestureDetector(
         onTap: onPress,
         child: Card(
@@ -68,9 +68,11 @@ class OrderCard extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Image(image: AssetImage("images/logo.png"),
-                      height: 80,
-                      width: 80,),
+                      child: Image(
+                        image: AssetImage("images/logo.png"),
+                        height: 80,
+                        width: 80,
+                      ),
                     ),
                   ],
                 ),
