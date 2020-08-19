@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:familysupermarket/constants.dart';
@@ -7,6 +6,9 @@ import 'package:familysupermarket/components/DeliveryStatus.dart';
 import 'package:familysupermarket/components/OrderDivider.dart';
 import 'package:familysupermarket/components/OrderDetailsCard.dart';
 import 'package:familysupermarket/components/PriceCard.dart';
+import 'package:familysupermarket/bloc/detailBloc.dart';
+import 'package:familysupermarket/models/detail.dart';
+import 'package:familysupermarket/db/detail.dart';
 
 class OrderDetailsScreen extends StatefulWidget {
   static const String id = '/orderdetails';
@@ -15,9 +17,29 @@ class OrderDetailsScreen extends StatefulWidget {
 }
 
 class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
+
+  final DetailBloc _detailBloc = DetailBloc();
+  DatabaseProvider _databaseProvider = DatabaseProvider();
+  var database;
+
+  Future getDB() async {
+    database = await _databaseProvider.createDatabase();
+    await _databaseProvider.insertDB(database);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getDB();
+  }
+
+  @override
+  void dispose() {
+    _detailBloc.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    double rating = 0;
     return Scaffold(
       appBar: AppBar(
         title: Text("Order Details"),
@@ -64,23 +86,28 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                         ),
                         OrderDivider(),
                         Container(
-                          constraints: BoxConstraints(maxWidth: 300),
-                          child: Column(
-                            children: <Widget>[
-                              OrderDetailsCard(
-                                img:
-                                    "https://www.periyarrice.com/images/slider2_pro1.png",
-                                name: "Periyar rice",
-                                price: "32",
-                              ),
-                              OrderDetailsCard(
-                                img:
-                                    "https://www.periyarrice.com/images/slider2_pro1.png",
-                                name: "Periyar rice",
-                                price: "32",
-                              ),
-                            ],
-                          ),
+                          height: 220,
+                          child: StreamBuilder<List<Detail>>(
+                              stream: _detailBloc.details,
+                              builder: (BuildContext context,
+                                  AsyncSnapshot<List<Detail>> snapshot) {
+                                if (snapshot.hasError) {
+                                  print(snapshot.error);
+                                }
+                                return snapshot.hasData
+                                    ? ListView.builder(
+                                    physics: BouncingScrollPhysics(),
+                                    itemCount: snapshot.data.length,
+                                    scrollDirection: Axis.vertical,
+                                    itemBuilder: (context, index) {
+                                      return OrderDetailsCard(
+                                        detail: snapshot.data[index],
+                                      );
+                                    })
+                                    : Center(
+                                  child: CircularProgressIndicator(),
+                                );
+                              }),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(top: 10, bottom: 5),
@@ -140,9 +167,9 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: EdgeInsets.only(bottom: 10),
                               child: Text(
-                                "Need help?",
+                                "Need help ?",
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 17,
