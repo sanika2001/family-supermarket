@@ -4,6 +4,8 @@ import 'package:familysupermarket/components/orderCard.dart';
 import 'package:familysupermarket/bloc/orderBloc.dart';
 import 'package:familysupermarket/models/order.dart';
 import 'package:familysupermarket/db/order.dart';
+import 'package:familysupermarket/components/bottomNavigationBar.dart';
+import 'package:familysupermarket/screens/cartScreen.dart';
 
 class OrderScreen extends StatefulWidget {
   static const String id = '/order';
@@ -36,6 +38,7 @@ class _OrderScreenState extends State<OrderScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: BottomBar(),
       appBar: AppBar(
         backgroundColor: Colors.white,
         leading: GestureDetector(
@@ -61,17 +64,23 @@ class _OrderScreenState extends State<OrderScreen> {
         actions: <Widget>[
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
-            child: Icon(
-              Icons.shopping_cart,
-              color: Colors.orange[200],
-              size: 25,
+            child: GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, CartScreen.id);
+              },
+              child: Icon(
+                Icons.shopping_cart,
+                color: Colors.orange[200],
+                size: 25,
+              ),
             ),
           ),
         ],
       ),
       body: SingleChildScrollView(
         child: Container(
-          height: 1000,
+          color: Color(0xFFE9E9E9),
+          height: MediaQuery.of(context).size.height,
           child: StreamBuilder<List<Order>>(
               stream: _orderBloc.orders,
               builder:
