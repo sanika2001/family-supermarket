@@ -3,13 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 class OrderDetailsCard extends StatelessWidget {
-
   final String image;
   final String name;
   final String price;
   final Detail detail;
 
-  OrderDetailsCard({this.price, this.name, this.image,this.detail});
+  OrderDetailsCard({this.price, this.name, this.image, this.detail});
 
   @override
   Widget build(BuildContext context) {
@@ -25,17 +24,17 @@ class OrderDetailsCard extends StatelessWidget {
                 padding: const EdgeInsets.all(5.0),
                 child: Text(
                   detail.name,
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  "₹ ${detail.price}",
+                  " ${detail.price}",
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 18,
-                      fontWeight: FontWeight.bold),
+                      fontWeight: FontWeight.w400),
                 ),
               ),
             ],
