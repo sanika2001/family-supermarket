@@ -1,12 +1,15 @@
+import 'package:familysupermarket/models/detail.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 class OrderDetailsCard extends StatelessWidget {
-  final String img;
+
+  final String image;
   final String name;
   final String price;
+  final Detail detail;
 
-  OrderDetailsCard({this.price, this.name, this.img});
+  OrderDetailsCard({this.price, this.name, this.image,this.detail});
 
   @override
   Widget build(BuildContext context) {
@@ -21,14 +24,14 @@ class OrderDetailsCard extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(5.0),
                 child: Text(
-                  name,
+                  detail.name,
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  "₹ ${price}",
+                  "₹ ${detail.price}",
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 18,
@@ -38,7 +41,7 @@ class OrderDetailsCard extends StatelessWidget {
             ],
           ),
           CachedNetworkImage(
-            imageUrl: img,
+            imageUrl: detail.image,
             height: 68,
             width: 80,
           ),
