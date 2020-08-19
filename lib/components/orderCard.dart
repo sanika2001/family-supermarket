@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:familysupermarket/models/order.dart';
 
 class OrderCard extends StatelessWidget {
@@ -15,11 +14,11 @@ class OrderCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(15),
       child: GestureDetector(
         onTap: onPress,
         child: Card(
-          elevation: 10,
+          elevation: 15,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
           ),
@@ -36,19 +35,28 @@ class OrderCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(5.0),
                             child: Text(
                               order.name,
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Text(
+                              order.date,
+                              style: TextStyle(
                                 fontSize: 15,
                               ),
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(5.0),
                             child: Text(
-                              order.date,
+                              order.image,
                               style: TextStyle(
                                 color: Colors.grey,
                                 fontSize: 13,
@@ -60,11 +68,9 @@ class OrderCard extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: CachedNetworkImage(
-                        imageUrl: order.image,
-                        height: 70,
-                        width: 70,
-                      ),
+                      child: Image(image: AssetImage("images/logo.png"),
+                      height: 80,
+                      width: 80,),
                     ),
                   ],
                 ),
