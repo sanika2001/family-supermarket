@@ -164,7 +164,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(20)),
                   ),
-                  elevation: 2,
+                  elevation: 4,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 25, vertical: 10),
@@ -223,7 +223,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(20)),
                   ),
-                  elevation: 2,
+                  elevation: 4,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 25, vertical: 10),
