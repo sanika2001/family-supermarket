@@ -12,7 +12,6 @@ class OrderScreen extends StatefulWidget {
 }
 
 class _OrderScreenState extends State<OrderScreen> {
-
   final OrderBloc _orderBloc = OrderBloc();
   DatabaseProvider _databaseProvider = DatabaseProvider();
   var database;
@@ -75,29 +74,30 @@ class _OrderScreenState extends State<OrderScreen> {
           height: 400,
           child: StreamBuilder<List<Order>>(
               stream: _orderBloc.orders,
-              builder: (BuildContext context,
-                  AsyncSnapshot<List<Order>> snapshot) {
+              builder:
+                  (BuildContext context, AsyncSnapshot<List<Order>> snapshot) {
                 if (snapshot.hasError) {
                   print(snapshot.error);
                 }
                 return snapshot.hasData
                     ? ListView.builder(
-                    physics: BouncingScrollPhysics(),
-                    itemCount: snapshot.data.length,
-                    scrollDirection: Axis.vertical,
-                    itemBuilder: (context, index) {
-                      return OrderCard(
-                        order: snapshot.data[index],
-                        onpress: (){
-                          setState(() {
-                            Navigator.pushNamed(context, OrderDetailsScreen.id);
-                          });
-                        },
-                      );
-                    })
+                        physics: BouncingScrollPhysics(),
+                        itemCount: snapshot.data.length,
+                        scrollDirection: Axis.vertical,
+                        itemBuilder: (context, index) {
+                          return OrderCard(
+                            order: snapshot.data[index],
+                            onPress: () {
+                              setState(() {
+                                Navigator.pushNamed(
+                                    context, OrderDetailsScreen.id);
+                              });
+                            },
+                          );
+                        })
                     : Center(
-                  child: CircularProgressIndicator(),
-                );
+                        child: CircularProgressIndicator(),
+                      );
               }),
         ),
       ),
