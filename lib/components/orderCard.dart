@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_star_rating/smooth_star_rating.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:familysupermarket/models/order.dart';
-import 'package:flutter_styled_toast/flutter_styled_toast.dart';
-import 'package:familysupermarket/constants.dart';
 
 class OrderCard extends StatelessWidget {
   final Order order;
@@ -48,23 +45,15 @@ class OrderCard extends StatelessWidget {
                               ),
                             ),
                           ),
-                          Row(
-                            children: <Widget>[
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: CircleAvatar(
-                                  backgroundColor: Colors.green,
-                                  radius: 5,
-                                ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              order.date,
+                              style: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 13,
                               ),
-                              Text(
-                                order.date,
-                                style: TextStyle(
-                                  color: Colors.grey,
-                                  fontSize: 13,
-                                ),
-                              ),
-                            ],
+                            ),
                           ),
                         ],
                       ),
@@ -82,33 +71,6 @@ class OrderCard extends StatelessWidget {
                 Divider(
                   color: Colors.grey[200],
                   thickness: 1,
-                ),
-                SmoothStarRating(
-                  allowHalfRating: false,
-                  onRated: (v) {
-                    v = rating;
-                    showToast("Thanks for rating !",
-                        context: context,
-                        textStyle:
-                            TextStyle(fontSize: 17.0, color: Colors.white),
-                        borderRadius: BorderRadius.circular(5.0),
-                        textPadding: EdgeInsets.symmetric(
-                            horizontal: 20.0, vertical: 10.0),
-                        duration: Duration(seconds: 3),
-                        animDuration: Duration(seconds: 1),
-                        alignment: Alignment.center,
-                        curve: Curves.fastOutSlowIn,
-                        reverseCurve: Curves.fastOutSlowIn,
-                        movingOnWindowChange: true,
-                        backgroundColor: kDesignColor);
-                  },
-                  starCount: 5,
-                  size: 40.0,
-                  isReadOnly: false,
-                  color: kDesignColor,
-                  borderColor: Colors.grey,
-                  spacing: 10.0,
-                  rating: rating,
                 ),
               ],
             ),

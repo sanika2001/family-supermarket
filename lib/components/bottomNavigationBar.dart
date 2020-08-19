@@ -52,7 +52,7 @@ class _BottomBarState extends State<BottomBar> {
           ),
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.insert_drive_file, size: 30),
+          icon: Icon(Icons.insert_drive_file, size: 27),
           title: Text(
             '',
           ),
