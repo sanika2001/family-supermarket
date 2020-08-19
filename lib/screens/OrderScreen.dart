@@ -72,7 +72,7 @@ class _OrderScreenState extends State<OrderScreen> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          height: 400,
+          height: 1000,
           child: StreamBuilder<List<Order>>(
               stream: _orderBloc.orders,
               builder: (BuildContext context,
